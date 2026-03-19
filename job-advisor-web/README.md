@@ -50,6 +50,16 @@ Without the server (static mode): form shows JSON to copy; paste report manually
 
 **Alternative**: The agent now generates `job-fit-dashboard.json`. Open `job-fit-dashboard.html` in a browser (or click "Load job-fit-dashboard.json") to view the interactive dashboard with charts, job requirements table, company highlights, and tabbed recommendations.
 
+## Direct invocation (no form)
+
+In Cursor, invoke the Job Advisor directly:
+
+```
+Run job fit for [Company], [Job Title]. My LinkedIn: [url]
+```
+
+The agent will run company research + resume matching, write `report.md` to `job-advisor-web/`, and give you a link to the dashboard. Open http://localhost:8765 (if the server is running) or `job-advisor-web/index.html` to view results.
+
 ## Files
 
 | File | Purpose |

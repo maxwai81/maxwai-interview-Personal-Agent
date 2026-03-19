@@ -1,135 +1,143 @@
 {
   "meta": {
     "candidate": "Max Seto (SETO Wai)",
-    "company": "ServiceNow",
-    "jobTitle": "Director Solution Consulting Hong Kong",
-    "location": "Hong Kong (Causeway Bay, Wan Chai offices); North Asia HQ; remote/hybrid available",
-    "jobUrl": "https://www.linkedin.com/jobs/search/?currentJobId=4343828628&f_C=29352&originToLandingJobPostings=4343828628%2C4336039001%2C4369907204%2C4358491707&trk=d_flagship3_company_posts",
+    "company": "Moveworks",
+    "jobTitle": "Solution Sales Executive",
+    "location": "Hong Kong SAR (candidate) / Role TBD (US-based; ServiceNow has APAC presence)",
+    "jobUrl": "https://www.moveworks.com/us/en/company/careers/position?gh_jid=8371211002",
     "resumePath": "./assets/docs/Max Seto - Resume Feb 2026.pdf",
+    "linkedIn": "https://www.linkedin.com/in/max-seto-pmp-75ab992b/",
     "generatedAt": "2025-03-20"
   },
   "overallMatch": {
-    "score": 78,
+    "score": 68,
     "maxScore": 100,
-    "summary": "Strong fit for Director Solution Consulting. Max has 15+ years of enterprise pre-sales experience, including Principal and Manager roles at Workday (Greater China) and ~5.5 years at Oracle. He is based in Hong Kong, leads pre-sales teams, and has deep experience in customer discovery, POCs, demos, and team enablement. The main gap is domain: HCM/Workday vs. ITSM/workflow. His enterprise cloud, pre-sales leadership, and North Asia experience are highly transferable. With targeted preparation on ServiceNow's platform and ITSM, he is a strong candidate."
+    "summary": "Max has deep enterprise SaaS and presales leadership experience at Workday and Oracle, with strong domain expertise in HCM and workforce solutions that align well with Moveworks' AI platform for workforce productivity. However, the Solution Sales Executive role is fundamentally a quota-carrying, deal-closing position, whereas Max's background is presales/solution consulting. His profile is an excellent fit for Advisory Solution Consultant or Director Solution Consulting roles; for Solution Sales Executive, he would need to demonstrate or pivot toward direct sales and quota ownership."
   },
   "granularScores": [
     {
       "dimension": "Skills",
-      "score": 72,
-      "rationale": "Strong pre-sales core (discovery, demos, POCs, GTM) and enterprise SaaS. HCM/ERP vs. ITSM/workflow; Now Platform, Now Assist, and ITSM specifics need to be learned."
+      "score": 65,
+      "rationale": "Strong enterprise SaaS, HCM, CRM, and presales skills; value selling methodology (MEDDPIC, Challenger) not explicitly cited; Salesforce and forecasting experience unclear. Skills are presales-heavy vs. AE closing focus."
     },
     {
       "dimension": "Experience",
-      "score": 88,
-      "rationale": "15+ years; Principal and Manager at Workday; 5.5 years Oracle; Director-level leadership and North Asia scope."
+      "score": 60,
+      "rationale": "21 years in enterprise software; 18+ in presales/sales consulting at Oracle and Workday. Domain and tenure align, but role type differs—presales leadership vs. quota-carrying sales."
     },
     {
       "dimension": "Education",
-      "score": 87,
-      "rationale": "BSc (Hon.) Computing Studies (IS), Hong Kong Baptist University. Meets typical bachelor's requirement."
+      "score": 70,
+      "rationale": "PMP® credential; no degree explicitly listed on LinkedIn. Role typically expects bachelor's; PMP adds credibility for complex deal execution."
     },
     {
       "dimension": "Location",
-      "score": 95,
-      "rationale": "Hong Kong-based; aligns with North Asia HQ and Eddy Chan's team."
+      "score": 75,
+      "rationale": "Hong Kong-based; Moveworks/ServiceNow has APAC presence. Role requires 30–50% travel. Geographic fit plausible for APAC-focused role; US-based role would be a stretch."
     },
     {
       "dimension": "Adaptability",
-      "score": 80,
-      "rationale": "Multiple pivots (Oracle→Workday, ERP/HCM→HCM SaaS); cross-functional; PMP and regional project experience; AI agents, n8n, Flowise."
+      "score": 85,
+      "rationale": "Strong career evolution: programmer → PM → consultant → presales → Head of Presales. Cross-domain (ERP, HCM, PLM, VCP, retail). Demonstrated learning agility."
     },
     {
       "dimension": "Future career growth",
-      "score": 75,
-      "rationale": "Director SC at ServiceNow fits his trajectory; HCM→ITSM is a lateral move; AI/workflow focus aligns with his interest in enterprise platforms."
+      "score": 70,
+      "rationale": "Moveworks post-acquisition offers growth. Presales-to-sales pivot is possible but represents a role shift. Clear path if he targets Solution Consulting vs. Sales."
     },
     {
       "dimension": "Income",
       "score": 75,
-      "rationale": "Workday and ServiceNow are both tier-1 vendors; HK-specific data limited; likely within range."
+      "rationale": "Workday/Oracle presales leadership typically commands strong compensation. No explicit data; assumed within range with some uncertainty."
     }
   ],
   "jobRequirements": [
     {
-      "requirement": "Pre-sales leadership and team scaling",
-      "evidence": "Manager of Solution Consulting at Workday (6–8 SCs); built and managed cross-functional team; structured coaching and capability development",
-      "match": "strong"
-    },
-    {
-      "requirement": "Technical discovery, demos, POCs",
-      "evidence": "Extensive discovery workshops, executive presentations, solution architecture, POCs at Workday and Oracle across Greater China",
-      "match": "strong"
-    },
-    {
-      "requirement": "North Asia (HK, Macau, Taiwan) presence",
-      "evidence": "Hong Kong-based; experience across HK, Macau, Taiwan, mainland; aligns with Eddy Chan's North Asia structure",
-      "match": "strong"
-    },
-    {
-      "requirement": "Enterprise cloud and SaaS",
-      "evidence": "Workday HCM Cloud, Oracle HCM Cloud; enterprise cloud sales, discovery, demos; same buyer profile",
-      "match": "strong"
-    },
-    {
-      "requirement": "AI and workflow automation",
-      "evidence": "n8n, Flowise, AI agents, Cursor AI; Workday AI (Paradox, Sana Agent); aligns with ServiceNow AI direction",
-      "match": "strong"
-    },
-    {
-      "requirement": "ITSM domain",
-      "evidence": "HCM/Workday background; ITSM concepts transferable; need to learn incident, problem, change, ITIL",
+      "requirement": "5–7+ years closing complex software deals",
+      "evidence": "18+ years presales/sales consulting; Oracle and Workday; complex deals but presales-influenced vs. direct quota ownership",
       "match": "verify"
     },
     {
-      "requirement": "ServiceNow product experience",
-      "evidence": "No direct experience; Workday/Oracle concepts transfer; HR Service Delivery bridges",
+      "requirement": "$1M+ quota, $250K+ average deal size",
+      "evidence": "Deals exceeding $5M+ combined contract value; no explicit quota metrics in profile",
       "match": "confirm"
+    },
+    {
+      "requirement": "Value selling (MEDDPIC, Challenger, Force Management)",
+      "evidence": "Solution Selling, consultative selling; methodology not explicitly cited",
+      "match": "elaborate"
+    },
+    {
+      "requirement": "C-level relationships",
+      "evidence": "C-level engagement in retail, EMS, high-tech, F&B; Go-to-Market strategy development",
+      "match": "strong"
+    },
+    {
+      "requirement": "Salesforce and forecasting",
+      "evidence": "Not explicitly listed",
+      "match": "elaborate"
+    },
+    {
+      "requirement": "Enterprise SaaS / AI platform",
+      "evidence": "Workday HCM Cloud, Oracle HCM Cloud; AI agents, n8n, Flowise; enterprise cloud sales",
+      "match": "strong"
+    },
+    {
+      "requirement": "HCM and workforce domain",
+      "evidence": "Deep HCM, ERP, workforce solutions; Moveworks targets similar buyer personas (HR, IT, employee experience)",
+      "match": "exceeds"
     }
   ],
   "strengths": [
-    "Pre-sales leadership in North Asia: Manager of Solution Consulting at Workday; Principal and Manager roles; team scaling, capability building, regional ownership.",
-    "Enterprise cloud and SaaS experience: Workday HCM Cloud, Oracle HCM Cloud; discovery, demos, POCs; same playbook as ServiceNow SC.",
-    "Hong Kong and Greater China presence: Based in HK; experience across HK, Macau, Taiwan, mainland; aligns with North Asia and Eddy Chan's structure.",
-    "Transferable pre-sales skills: Customer discovery, solution presentations, product demos, POCs, GTM; industry solutions.",
-    "AI and workflow automation: n8n, Flowise, AI agents, Cursor AI; aligns with ServiceNow's AI-first strategy and Moveworks.",
-    "PMP and project management: PMP® and regional project delivery support capability building and program execution."
+    "Enterprise SaaS pedigree: 10+ years at Oracle and Workday—both Fortune 500 vendors with complex, high-value deals.",
+    "HCM and workforce domain: Deep expertise in HCM, ERP, and workforce solutions; directly relevant to Moveworks' AI Assistant for workforce productivity.",
+    "Presales leadership: Head of Presales Greater China at Workday; proven ability to scale teams and drive technical discovery, demos, and POCs.",
+    "C-level engagement: Experience providing insights to C-level in retail, EMS, high-tech, and F&B; Go-to-Market strategy development.",
+    "PMP certification: Strong project and program management discipline for complex, multi-stakeholder deals.",
+    "ServiceNow ecosystem awareness: Moveworks acquired by ServiceNow (Dec 2025); Workday and ServiceNow operate in adjacent enterprise software spaces."
   ],
   "gaps": [
     {
-      "gap": "HCM vs. ITSM domain",
-      "recommendation": "Study ITSM basics (incident, problem, change, ITIL), Now Platform, Now Assist, and workflow automation. Emphasize that HCM and ITSM both automate enterprise workflows."
+      "gap": "Presales vs. Sales role mismatch",
+      "recommendation": "Solution Sales Executive is quota-carrying; Max's background is presales. If targeting this role, highlight any deal-closing, pipeline ownership, or quota experience. Otherwise, consider Advisory Solution Consultant or Director Solution Consulting roles at Moveworks/ServiceNow."
     },
     {
-      "gap": "No explicit ServiceNow product experience",
-      "recommendation": "Complete ServiceNow fundamentals (free training), review Moveworks acquisition and AI strategy, and mention HR Service Delivery as a bridge from HCM."
+      "gap": "Value selling methodology not cited",
+      "recommendation": "Add MEDDPIC, Challenger, or Force Management training/experience to resume and LinkedIn. Prepare stories that demonstrate value selling and business case development."
     },
     {
-      "gap": "AI/agentic workflows positioning",
-      "recommendation": "Highlight Workday's AI features (Paradox, Sana Agent, Flowise) and experience with AI-driven workflows. Connect to ServiceNow's AI agents and Moveworks."
+      "gap": "Deal size and quota metrics missing",
+      "recommendation": "Quantify: deal sizes closed or influenced, pipeline generated, quota attainment, and annual contract values. Even presales-influenced metrics strengthen the narrative."
+    },
+    {
+      "gap": "Salesforce and forecasting",
+      "recommendation": "Explicitly list Salesforce and forecasting tools used; these are standard requirements for the role."
+    },
+    {
+      "gap": "Geography",
+      "recommendation": "Confirm whether the role is US-based or APAC. If US-based, address relocation or remote-work expectations."
     }
   ],
   "interviewPrepFocus": [
-    "AI strategy and Moveworks: Explain how the Moveworks deal fits ServiceNow's AI strategy and how you would position it in North Asia. Reference Workday's AI investments as parallel experience.",
-    "North Asia and team scaling: Prepare examples of building and scaling pre-sales teams in HK/Taiwan/Macau, including hiring, enablement, and capability development.",
-    "Product depth: Be ready to discuss ITSM (incident, problem, change), Now Platform, Now Assist, and workflow automation. Use HR Service Delivery as a bridge from HCM.",
-    "People Pact and culture: Connect your values to 'do our best work, live our best lives' and how you've built team culture in pre-sales.",
-    "Eddy Chan and North Asia structure: Show awareness of Eddy Chan (Head of Solution Consulting, North Asia) and how you would contribute to the North Asia SC team."
+    "Role clarity: Be ready to explain why you're moving from presales leadership to Solution Sales Executive (quota-carrying). Frame presales as a foundation for sales.",
+    "Moveworks + ServiceNow: Understand the acquisition rationale, product integration roadmap, and how Moveworks fits into ServiceNow's AI strategy. Reference the $2.85B deal and ~250 mutual customers.",
+    "Value selling and C-level relationships: Prepare 2–3 stories of complex deals where you developed business cases for unbudgeted spend and engaged C-level stakeholders.",
+    "Metrics: Prepare specific numbers: deal sizes, pipeline, quota attainment, and ACV—even if presales-influenced."
   ],
   "actionableRecommendations": [
-    "Tailor the resume: Add a 'ServiceNow alignment' section with keywords (Director Solution Consulting, ITSM, workflow automation, AI agents, North Asia, pre-sales leadership).",
-    "Cover letter: Explain why moving from Workday to ServiceNow—emphasize AI platform growth, broader enterprise scope, and Hong Kong presence.",
-    "LinkedIn: Ensure profile highlights workflow automation, AI agents, discovery workshops, and enterprise solution consulting leadership.",
-    "Complete ServiceNow fundamentals: Take free ServiceNow training on ITSM, Now Platform, and HR Service Delivery before the interview.",
-    "Prepare a demo narrative: Draft a 5–10 minute discovery-to-value story for a complex HCM or workflow implementation that shows transferability to ITSM."
+    "Verify role fit: Confirm whether you want a quota-carrying sales role (Solution Sales Executive) or a presales/consulting role (Advisory Solution Consultant, Director Solution Consulting). Your profile is stronger for the latter.",
+    "Update resume and LinkedIn: Add value selling methodology, Salesforce, deal metrics, and quota/ACV where applicable.",
+    "Leverage Workday–ServiceNow adjacency: Emphasize enterprise HCM and workforce domain; Moveworks targets similar buyer personas (HR, IT, employee experience).",
+    "Network: Connect with Moveworks/ServiceNow employees in APAC, especially post-acquisition; understand team structure and hiring priorities.",
+    "Prepare for role-type questions: Expect 'Why sales vs. presales?' and 'What's your quota experience?'—have clear, evidence-based answers."
   ],
   "companyResearch": {
     "highlights": {
-      "executiveSummary": "ServiceNow is a leading enterprise cloud platform company (~$13.3B revenue, ~29,000 employees) focused on workflow automation and AI. Strong Hong Kong presence as North Asia regional headquarters (Causeway Bay, Wan Chai). Eddy Chan leads Solution Consulting for North Asia (HK, Macau, Taiwan). Director roles lead and scale pre-sales teams.",
-      "leadership": "Bill McDermott (Chairman & CEO, former SAP CEO). Amit Zavery (CPO & COO). Eddy Chan – Head of Solution Consulting, North Asia since Jan 2022.",
-      "products": "ServiceNow AI Platform for workflow automation. ITSM, HR Service Delivery, Customer Service Management, Core Business Solutions. Moveworks acquisition ($2.85B) reinforces AI-first strategy.",
-      "culture": "Glassdoor 4.3/5, 85% recommend, 95% CEO approval. People Pact values. Fortune 100 Best Companies to Work For (2025).",
-      "recommendation": "Good — ServiceNow is a strong employer with clear Hong Kong presence, established Solution Consulting leadership (Eddy Chan), and a Director role aligned with the North Asia structure. AI-first strategy (Moveworks, partnerships) aligns with growth and innovation."
+      "executiveSummary": "Moveworks is an enterprise AI company providing an AI Assistant platform for workforce productivity—context-aware search and end-to-end task automation. Founded 2016; acquired by ServiceNow for $2.85B (Dec 2025). Serves 350+ enterprises, 5M+ employees, 10% of Fortune 500.",
+      "leadership": "Bhavin Shah (CEO), Varun Singh (President), Jiang Chen (CTO AI), Vaibhav Nivargi (CTO). 82% CEO approval on Glassdoor.",
+      "products": "AI Assistant, Enterprise Search, Agent Studio, Reasoning Engine, AI Agent Marketplace, Service Management. Strong ServiceNow integration.",
+      "culture": "7 values: Excellence, Ownership, Action, Execution, Transparency, Growth mindset, Speed. Glassdoor 3.8–4.1/5.",
+      "recommendation": "Good — Strong opportunity for experienced enterprise sales professional. Post-acquisition uncertainty to clarify in interviews. Product-market fit, ServiceNow integration, and culture are positives."
     }
   }
 }
