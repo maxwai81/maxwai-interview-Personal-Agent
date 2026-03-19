@@ -938,9 +938,9 @@
       const scoreMatch = markdown.match(/##\s*Overall\s+Match\s+Score:\s*(\d+)\/100/i);
       if (scoreMatch) result.overallScore = parseInt(scoreMatch[1], 10);
 
-      // Summary: **Summary**: or **Summary:** (colon variants)
-      let summaryMatch = markdown.match(/\*\*Summary\*\*[:\uFF1A]\s*([\s\S]+?)(?=\n\n|\n---|\n##|$)/);
-      if (!summaryMatch) summaryMatch = markdown.match(/\*\*Summary\*\*[:\uFF1A]\s*([^\n]+)/);
+      // Summary: **Summary**: or **Summary:** (colon inside or outside bold)
+      let summaryMatch = markdown.match(/(?:\*\*Summary\*\*[:\uFF1A]|\*\*Summary[:\uFF1A]\*\*)\s*([\s\S]+?)(?=\n\n|\n---|\n##|$)/);
+      if (!summaryMatch) summaryMatch = markdown.match(/(?:\*\*Summary\*\*[:\uFF1A]|\*\*Summary[:\uFF1A]\*\*)\s*([^\n]+)/);
       if (summaryMatch) result.summary = summaryMatch[1].trim();
 
       // Granular scores: try Granular Scores block first (most reliable)
