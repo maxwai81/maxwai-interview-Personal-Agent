@@ -1,203 +1,130 @@
 # Company Research Report: Moveworks
 
-*Applying for Solution Sales Executive*
+*Applying for Solution Sales Executive (Remote, Hong Kong)*
+
+**Job URL:** https://www.moveworks.com/us/en/company/careers/position?gh_jid=8371211002
+
+---
 
 ## Executive Summary
 
-Moveworks is an enterprise AI company that provides an AI Assistant platform for workforce productivity—combining context-aware search and end-to-end task automation across business applications. Founded in 2016, it serves 350+ enterprises and 5M+ employees, including 10% of the Fortune 500. In **December 2025**, Moveworks was acquired by ServiceNow for **$2.85 billion** (ServiceNow's largest acquisition). For a Solution Sales Executive, this means selling a mature, high-value AI platform with strong enterprise traction, deep ServiceNow integration, and a clear path to growth within a larger organization.
+Moveworks is an Agentic AI Assistant platform that empowers the entire workforce. Founded in 2016, the company was acquired by ServiceNow in December 2025 for $2.85 billion—ServiceNow's largest acquisition. Moveworks is trusted by over 5.5 million employees at 350+ companies, including 10% of the Fortune 500. The platform enables employees to converse with business systems through natural language to find answers and automate tasks. The **Solution Sales Executive** role oversees market success of ServiceNow's Moveworks AI products, supporting territory strategy, coaching AEs/ADRs/ACE teams, and guiding customers on digital transformation. The role is **Remote, Hong Kong** with 30–50% travel required.
 
 ---
 
-## Company Background
+## 1. Company Background
 
 ### Mission & Values
+- **Mission:** Transform how work gets done by allowing AI to take initiative, streamline complex workflows, and continuously learn and adapt
+- **Value proposition:** Single front door to work for all business systems; AI platform for every person and every workflow
+- **Tagline:** "The AI Assistant platform for your entire workforce"
 
-- **Mission**: Help every employee get work done efficiently and effectively through an AI Assistant platform that finds what people need and automates tasks end-to-end across apps.
-- **Origin**: Founded in 2016 to transform IT service delivery by using agentic AI to resolve routine support requests via natural language.
-- **Evolution**: Started as an IT solution; now an enterprise-wide AI Assistant platform for IT, HR, Finance, Sales, Marketing, Legal, Facilities, and other teams.
-- **Industry**: Enterprise AI / AI-powered productivity and automation.
+### History & Founding
+- **Founded:** 2016
+- **Origin:** Created to address excessive time lost resolving routine support requests; evolved from IT service transformation to comprehensive AI Assistant platform
+- **Acquisition:** December 15, 2025 — acquired by ServiceNow for $2.85B (cash and stock)
+- **HQ:** Mountain View, California (Moveworks); ServiceNow HQ Santa Clara, CA
 
-### Funding & Valuation
-
-- **Total funding**: $315 million (Series C in 2021 valued at $2.1B).
-- **Acquisition**: Acquired by ServiceNow for $2.85B (cash and stock), announced March 10, 2025, closed December 15, 2025.
-- **Status**: Operating as a ServiceNow subsidiary; 500+ employees joined ServiceNow with no announced layoffs.
-
----
-
-## Leadership
-
-### Founders (all co-founders remain)
-
-| Name | Role |
-|-----|------|
-| **Bhavin Shah** | CEO and co-founder |
-| **Varun Singh** | President and co-founder |
-| **Jiang Chen** | CTO of AI and co-founder |
-| **Vaibhav Nivargi** | CTO and co-founder |
-
-- CEO Bhavin Shah: **82% approval** on Glassdoor.
-- Leadership is described as aligned with ServiceNow's vision; acquisition framed as a growth opportunity rather than an exit.
+### Market Position
+- **Industry:** Enterprise AI, Agentic AI, Workforce Productivity
+- **Customers:** 350+ enterprises; 5.5M+ employee users; 10% of Fortune 500
+- **Mutual customers with ServiceNow:** ~250
+- **Awards:** Forbes Cloud 100, AI 50; Fast Company 2025 Most Innovative Companies; Inc. Best in Business (Innovation); Microsoft 2025 Partner of the Year; AI Breakthrough Award 2024
 
 ---
 
-## Products & Services
+## 2. Leadership
 
-### Core Platform: Moveworks AI Assistant
+### Moveworks Co-Founders (Pre-Acquisition)
+| Name | Title |
+|------|-------|
+| **Bhavin Shah** | CEO and Co-founder (formerly CEO of Refresh.io, acquired by LinkedIn 2015) |
+| **Varun Singh** | President and Co-founder (product, customer success, professional services) |
+| **Jiang Chen** | CTO of AI and Co-founder |
+| **Vaibhav Nivargi** | CTO and Co-founder |
 
-- **AI Assistant**: Search and action in one place across apps; context-aware search with end-to-end task automation.
-- **Reasoning Engine**: Plans, executes, and adapts to complete requests within enterprise workflows.
-- **Enterprise Search**: Context-aware answers across business apps, tailored to role, region, language, and permissions.
-- **Agent Studio**: Low-code environment to build and deploy AI agents for HR, Finance, Sales, IT, and other domains.
-- **AI Agent Marketplace**: 1000+ pre-built agents; quick connector setup and MCP support.
-- **Service Management**: Strong integration with ServiceNow; many customers use both platforms.
-
-### Key Capabilities
-
-- **Omnichannel & multilingual**: Chat, web, intranets, service portals; 100+ languages.
-- **Integrations**: Workday, Coupa, ServiceNow, Salesforce, and hundreds of enterprise systems.
-- **Security**: ISO 27001, SOC 2, HIPAA, GDPR, FedRAMP.
-- **Use cases**: IT support, HR self-service, Finance automation, Sales enablement, and more.
-
-### Notable Customers
-
-Toyota North America, Instacart, CVS Health, Marriott, HP, GitHub, Hearst, Databricks, Micron, Siemens, Unilever, Palo Alto Networks, Coca-Cola Consolidated, Procore, BambooHR, Amadeus, AkzoNobel, MANTECH, Ciena, Lockton, Goodyear, Leidos.
+### ServiceNow Leadership (Post-Acquisition)
+- **Bill McDermott** — Chairman & CEO
+- **Amit Zavery** — President, CPO, COO
+- **Gina Mastantuono** — President & CFO
 
 ---
 
-## Global Presence
+## 3. Products & Platform
 
-### Offices
+### Core Products
+- **AI Assistant** — Central hub for work; natural language interface to business systems
+- **Enterprise Search** — Context-aware search across enterprise systems with citations
+- **Agent Studio** — No-code tools for domain-specific AI experts
+- **Reasoning Engine** — Proprietary AI models powering the platform
+- **Service Management** — IT, HR, Finance, Sales, Marketing, Engineering use cases
+- **AI Agent Marketplace** — Pre-built and custom AI agents
+- **Quick GPT, Brief Me** — Productivity and summarization tools
 
-- **Mountain View, CA** (HQ)
-- **San Francisco, CA**
-- **Austin, TX**
-- **New York City, NY**
-- **Bangalore, India**
-
-### Headcount
-
-- ~500–720 employees (pre- and post-acquisition estimates).
-- LinkedIn: ~675 employees.
-- Described as a "unified global company" with offices worldwide.
-
----
-
-## Recent News & Developments
-
-### ServiceNow Acquisition (2025)
-
-- **Announced**: March 10, 2025.
-- **Closed**: December 15, 2025.
-- **Deal size**: $2.85 billion (cash and stock).
-- **Rationale**: Combines Moveworks' AI Assistant and Enterprise Search with ServiceNow's agentic AI and workflow automation.
-- **Synergies**: ~250 mutual customers; many Moveworks customers already use ServiceNow.
-- **Workforce**: No announced layoffs; 500+ Moveworks employees joined ServiceNow.
-
-### Other Recent Highlights
-
-- **2025 Gartner Magic Quadrant**: Challenger in AI Applications in IT Service Management.
-- **Product**: AI Assistant on web; "Scoped Assistants"; no-code Assistant Builder; Headless API.
-- **Webinars**: "7 Ways Agentic AI Helps Employees Move Faster in ServiceNow."
-- **Report**: "How Employee-Led AI Is Redefining How Enterprises Work" (78% report major operational transformation).
+### Post-Acquisition Integration
+- Combines ServiceNow's workflow automation with Moveworks' Reasoning Engine and natural language capabilities
+- "AI-native front door" for employee engagement
+- Single platform for workflow automation + AI assistant
+- Built to turn conversations into completed work across enterprise systems
 
 ---
 
-## Culture & Values
+## 4. Global Presence & Location
 
-### Seven Guiding Principles
+### Office Locations
+- **Moveworks:** Mountain View (HQ), Austin, San Francisco, Bengaluru (India)
+- **Hong Kong:** Remote work option; no physical Moveworks office; ServiceNow has North Asia HQ in Causeway Bay (Hysan Place)
 
-1. **Excellence** – Continuously improve solutions, customer experience, and feedback.
-2. **Ownership** – Shared responsibility; think beyond job description.
-3. **Action** – Bias toward action; strong solutions over waiting for perfection.
-4. **Execution** – Build with urgency; prioritize impact; "doing it today" over "tomorrow."
-5. **Transparency** – Open sharing of successes and failures; input valued.
-6. **Growth mindset** – Constant feedback for meaningful growth.
-7. **Speed** – Responsive communication; avoid leaving people waiting.
-
-### Glassdoor Snapshot
-
-- **Overall rating**: 3.8–4.1 / 5 (varies by source).
-- **Recommend to a friend**: 63–81%.
-- **Category ratings** (approximate):
-  - Career Opportunities: 4.2
-  - Compensation and Benefits: 4.1
-  - Senior Management: 3.9
-  - Culture & Values: 3.9
-  - Diversity, Equity & Inclusion: 3.8
-  - Work/Life Balance: 3.6 (lowest)
-- **CEO approval**: 82% (Bhavin Shah).
+### Work Arrangement
+- **Role location:** Remote, Hong Kong
+- **Travel:** 30–50% required
+- **Work personas:** Flexible, remote, or required in office (ServiceNow policy)
 
 ---
 
-## Target Role: Solution Sales Executive
+## 5. Job Posting Requirements (Verified)
 
-### Role Context at Moveworks
+### Qualifications
+- Experience in leveraging or critically thinking about **AI integration** into work processes, decision-making, or problem-solving (AI-powered tools, workflow automation, AI-driven insights)
+- **5+ years** knowledge on return on investment of specialty solutions area to lead solution win
+- Experience as an **AE, or in alternative sales/customer service role**
+- Understanding of **business sales processes**
+- **Travel required:** 30–50%
 
-- **Solution Sales Executive** at Moveworks is an enterprise sales role focused on complex, high-value deals.
-- Sells the AI Assistant platform (search, automation, Agent Studio, Service Management) to large enterprises.
-- Typical buyers: CIOs, IT leaders, HR leaders, Digital Workplace / Employee Experience leaders.
-- Post-acquisition: Role may be under Moveworks brand or ServiceNow; strong ServiceNow integration is a core selling point.
-
-### Key Requirements & Qualifications (from job aggregators)
-
-| Category | Requirements |
-|----------|--------------|
-| **Experience** | 5–7+ years closing complex software deals; Account Executive or equivalent sales experience |
-| **Deal size** | Track record of $1M+ annual quota; average deal $250K+; multi-million dollar deals |
-| **Methodology** | Value selling (MEDDPIC, Force Management, Challenger) |
-| **Relationships** | Ability to build and drive C-level relationships |
-| **Business case** | Strong business case development for new/unbudgeted spend |
-| **Pipeline** | Systematic pipeline generation; Mutual Action Plans; Salesforce hygiene |
-| **Industry** | SaaS, IT infrastructure, or similar enterprise tech |
-| **Tools** | Salesforce; forecasting |
-| **Travel** | 30–50% |
-
-### Compensation (indicative)
-
-- **Salary range**: ~$124K–$230K (varies by location and level).
-- **Senior-level** role; remote or hybrid options reported.
-
-### Job Posting Status
-
-- **Original URL**: https://www.moveworks.com/us/en/company/careers/position?gh_jid=8371211002  
-- **Greenhouse**: https://boards.greenhouse.io/moveworks/jobs/8371211002  
-- **Status**: Both returned "No results" at time of research—role may be filled, removed, or migrated to ServiceNow careers.
-- **Alternative**: Check ServiceNow careers (e.g., careers.servicenow.com) for "Solution Sales Executive – Moveworks" or similar titles.
+### Responsibilities
+- Support territory strategy and planning
+- Provide input to AE during account planning
+- Ensure alignment with Now Value principles
+- Support customers to envision digital transformation value
+- Interlock with SC & Specialist SC on Capability Roadmap
+- Coach AEs, ADRs, ACE with specialty solution knowledge
+- Champion diversity and belonging
 
 ---
 
-## Recommendation
+## 6. Compensation & Benefits
 
-**Verdict**: **Good** — Strong opportunity for an experienced enterprise sales professional, with some post-acquisition uncertainty to clarify in interviews.
-
-**Key factors**:
-
-- **Product-market fit**: Mature AI platform with 350+ enterprises, 5M+ users, and clear ROI stories.
-- **Strategic position**: Acquired by ServiceNow for $2.85B; integration and joint selling create growth potential.
-- **Culture**: Action-oriented, transparent culture; strong CEO approval; solid compensation and career opportunity scores.
-- **Considerations**: Post-acquisition org structure and reporting; work/life balance rated lower than other dimensions; role availability may have shifted to ServiceNow careers.
-
-**Questions to ask in the interview**:
-
-1. How does the Solution Sales Executive role fit into the combined Moveworks–ServiceNow go-to-market structure?
-2. What does the typical sales cycle look like for a new logo, and how does the ServiceNow relationship influence deal flow?
-3. What territories or verticals is this role focused on, and what does the ideal customer profile look like?
-4. How is quota structured, and what support do you get from Solution Engineering and marketing for pipeline generation?
+- **Salary range (US):** $124K–$205K annually (from third-party job aggregators)
+- **Benefits:** Competitive compensation, equity/stock options, unlimited PTO, 16 weeks paid parental leave, fully paid health coverage, professional development
 
 ---
 
-## Sources
+## 7. Recommendation
 
-- https://www.moveworks.com
-- https://www.moveworks.com/about
-- https://www.moveworks.com/us/en/platform/ai-assistant
-- https://www.moveworks.com/us/en/platform/ai-agent-builder
-- https://www.moveworks.com/us/en/platform/enterprise-search
-- https://www.moveworks.com/us/en/resources/blog/thoughts-on-moveworks-servicenow-acquisition
-- https://www.servicenow.com/company/media/press-room/servicenow-to-acquire-moveworks.html
-- https://careers.servicenow.com (Solution Sales Executive – Moveworks)
-- https://builtin.com/job/solution-sales-executive-moveworks
-- https://remotive.com/remote/jobs/sales-business/solution-sales-executive-3367352
-- Glassdoor (Moveworks reviews and ratings)
-- Web search: Moveworks ServiceNow acquisition, Glassdoor, LinkedIn, job requirements
+**Verdict:** **Good** — Moveworks (post-ServiceNow acquisition) offers a strong opportunity for enterprise sales professionals with AI and workforce domain expertise. The Solution Sales Executive role supports territory strategy and coaches sales teams—suitable for candidates with presales or sales experience. Hong Kong remote option aligns with APAC-focused candidates.
+
+### Key Factors
+- **Product-market fit:** 5.5M users, 350+ enterprises, 10% Fortune 500
+- **Strategic importance:** ServiceNow's largest acquisition; core to AI strategy
+- **Domain alignment:** Workforce productivity, HR, IT—overlaps with HCM and enterprise software
+- **Location:** Remote Hong Kong available; 30–50% travel
+
+### Questions to Ask in the Interview
+1. How is the Moveworks team structured within ServiceNow post-acquisition?
+2. What does the typical sales cycle look like for Moveworks AI products in APAC?
+3. What territories or verticals does this Hong Kong-based role cover?
+4. How is quota structured for Solution Sales Executives focused on Moveworks?
+
+---
+
+*Sources: moveworks.com, ServiceNow careers, BusinessWire, web search. Research conducted March 19, 2026.*
