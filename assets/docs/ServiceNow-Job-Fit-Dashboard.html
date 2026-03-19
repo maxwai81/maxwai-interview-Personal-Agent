@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>ServiceNow Solution Sales Executive — Job Fit Analysis | Jeffrey Lam</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,24 +32,42 @@
       padding: 0;
     }
 
+    html {
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--paper);
       color: var(--ink);
       line-height: 1.6;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     .container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
+      padding-left: max(1.5rem, env(safe-area-inset-left));
+      padding-right: max(1.5rem, env(safe-area-inset-right));
     }
 
     header {
       text-align: center;
       padding: 3rem 0 2rem;
       border-bottom: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 2rem 0 1.5rem;
+      }
+
+      .subtitle {
+        font-size: 0.85rem;
+        word-break: break-word;
+      }
     }
 
     h1 {
@@ -87,6 +105,24 @@
       color: white;
       box-shadow: var(--shadow-lg);
       animation: fadeUp 0.6s ease-out;
+    }
+
+    @media (max-width: 640px) {
+      .score-hero {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .score-summary {
+        max-width: none;
+        text-align: center;
+      }
+
+      .score-summary p {
+        font-size: 0.9rem;
+      }
     }
 
     .score-circle {
@@ -178,6 +214,17 @@
       max-width: 200px;
     }
 
+    @media (max-width: 640px) {
+      h2 {
+        font-size: 1.25rem;
+        flex-wrap: wrap;
+      }
+
+      h2::after {
+        display: none;
+      }
+    }
+
     .card {
       background: var(--card);
       border-radius: var(--radius);
@@ -185,6 +232,17 @@
       padding: 1.5rem;
       margin-bottom: 1rem;
       border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .card {
+        padding: 1rem;
+      }
     }
 
     .chart-row {
@@ -194,18 +252,48 @@
       margin-bottom: 1rem;
     }
 
-    @media (max-width: 768px) {
-      .chart-row { grid-template-columns: 1fr; }
-    }
-
     .chart-container {
       position: relative;
       height: 280px;
       padding: 1rem;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .chart-wrapper {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .chart-row {
+        grid-template-columns: 1fr;
+      }
+
+      .chart-container {
+        height: 260px;
+        padding: 0.5rem 0.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .chart-container {
+        height: 280px;
+        padding: 0.5rem 0 0.5rem 0.25rem;
+      }
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .req-table {
       width: 100%;
+      min-width: 520px;
       border-collapse: collapse;
     }
 
@@ -224,6 +312,18 @@
       padding: 0.9rem 1rem;
       border-bottom: 1px solid var(--border);
       font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      .req-table th,
+      .req-table td {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.8rem;
+      }
+
+      .req-table {
+        min-width: 480px;
+      }
     }
 
     .req-table tr:hover td {
@@ -257,6 +357,14 @@
       position: relative;
       border-bottom: 1px solid var(--border);
       font-size: 0.95rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    @media (max-width: 640px) {
+      .strength-list li, .gap-list li, .prep-list li {
+        font-size: 0.9rem;
+      }
     }
 
     .strength-list li:last-child,
@@ -323,6 +431,13 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .highlight-grid {
+        grid-template-columns: 1fr;
+        min-width: 0;
+      }
     }
 
     .highlight-card {
@@ -436,12 +551,12 @@
     <section>
       <h2>Granular Scores</h2>
       <div class="chart-row">
-        <div class="card">
+        <div class="card chart-wrapper">
           <div class="chart-container">
             <canvas id="radarChart"></canvas>
           </div>
         </div>
-        <div class="card">
+        <div class="card chart-wrapper">
           <div class="chart-container">
             <canvas id="barChart"></canvas>
           </div>
@@ -452,16 +567,18 @@
     <section>
       <h2>Job Requirements vs. Resume</h2>
       <div class="card">
-        <table class="req-table">
-          <thead>
-            <tr>
-              <th>Requirement</th>
-              <th>Evidence</th>
-              <th>Match</th>
-            </tr>
-          </thead>
-          <tbody id="reqTableBody"></tbody>
-        </table>
+        <div class="table-wrapper">
+          <table class="req-table">
+            <thead>
+              <tr>
+                <th>Requirement</th>
+                <th>Evidence</th>
+                <th>Match</th>
+              </tr>
+            </thead>
+            <tbody id="reqTableBody"></tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -602,11 +719,15 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        layout: {
+          padding: { left: 10, right: 10, top: 10, bottom: 10 }
+        },
         scales: {
           r: {
             min: 0,
             max: 100,
-            ticks: { stepSize: 25 }
+            ticks: { stepSize: 25, font: { size: 10 } },
+            pointLabels: { font: { size: 10 } }
           }
         },
         plugins: {
@@ -637,8 +758,12 @@
         indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
+        layout: {
+          padding: { left: 5, right: 10, top: 5, bottom: 5 }
+        },
         scales: {
-          x: { min: 0, max: 100 }
+          x: { min: 0, max: 100 },
+          y: { ticks: { font: { size: 10 } } }
         },
         plugins: {
           legend: { display: false }

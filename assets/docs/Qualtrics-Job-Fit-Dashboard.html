@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Qualtrics Head of Sales — Job Fit Analysis | Jeffrey Lam</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,18 +31,24 @@
       padding: 0;
     }
 
+    html {
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
       background: var(--paper);
       color: var(--ink);
       line-height: 1.6;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     .container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
+      overflow-x: hidden;
     }
 
     header {
@@ -125,6 +131,7 @@
 
     .score-summary {
       max-width: 420px;
+      min-width: 0;
       text-align: left;
     }
 
@@ -210,11 +217,31 @@
       position: relative;
       height: 280px;
       padding: 1rem;
+      min-height: 0;
+      min-width: 0;
+    }
+
+    .chart-wrapper {
+      overflow: hidden;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .chart-wrapper canvas {
+      max-width: 100% !important;
     }
 
     /* Requirements table */
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -1.5rem;
+      padding: 0 1.5rem;
+    }
+
     .req-table {
       width: 100%;
+      min-width: 500px;
       border-collapse: collapse;
     }
 
@@ -407,6 +434,128 @@
       border-top: 1px solid var(--border);
       margin-top: 3rem;
     }
+
+    /* Mobile / iPhone responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem 1rem;
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+      }
+
+      .score-hero {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .score-summary {
+        max-width: none;
+        text-align: center;
+      }
+
+      .score-summary h2 {
+        text-align: center;
+      }
+
+      .chart-row {
+        gap: 1rem;
+      }
+
+      .chart-container {
+        height: 260px;
+        padding: 0.5rem;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+
+      h2 {
+        flex-wrap: wrap;
+      }
+
+      h2::after {
+        display: none;
+      }
+
+      .table-scroll {
+        margin: 0 -1rem;
+        padding: 0 1rem;
+      }
+
+      .req-table th,
+      .req-table td {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.85rem;
+      }
+
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0.75rem;
+        padding-left: max(0.75rem, env(safe-area-inset-left));
+        padding-right: max(0.75rem, env(safe-area-inset-right));
+      }
+
+      header {
+        padding: 2rem 0 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .subtitle {
+        font-size: 0.85rem;
+      }
+
+      .score-circle {
+        width: 120px;
+        height: 120px;
+      }
+
+      .score-inner {
+        width: 92px;
+        height: 92px;
+      }
+
+      .score-value {
+        font-size: 2rem;
+      }
+
+      .chart-container {
+        height: 240px;
+        padding: 0.25rem;
+      }
+
+      .req-table {
+        min-width: 420px;
+      }
+
+      .req-table th,
+      .req-table td {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.8rem;
+      }
+
+      .match-badge {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.4rem;
+      }
+
+      .strength-list li,
+      .gap-list li,
+      .prep-list li {
+        font-size: 0.9rem;
+        padding-left: 1.25rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -433,12 +582,12 @@
     <section>
       <h2>Granular Scores</h2>
       <div class="chart-row">
-        <div class="card">
+        <div class="card chart-wrapper">
           <div class="chart-container">
             <canvas id="radarChart"></canvas>
           </div>
         </div>
-        <div class="card">
+        <div class="card chart-wrapper">
           <div class="chart-container">
             <canvas id="barChart"></canvas>
           </div>
@@ -449,16 +598,18 @@
     <section>
       <h2>Job Requirements vs. Resume</h2>
       <div class="card">
-        <table class="req-table">
-          <thead>
-            <tr>
-              <th>Requirement</th>
-              <th>Evidence</th>
-              <th>Match</th>
-            </tr>
-          </thead>
-          <tbody id="reqTableBody"></tbody>
-        </table>
+        <div class="table-scroll">
+          <table class="req-table">
+            <thead>
+              <tr>
+                <th>Requirement</th>
+                <th>Evidence</th>
+                <th>Match</th>
+              </tr>
+            </thead>
+            <tbody id="reqTableBody"></tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -574,6 +725,7 @@
     };
 
     // Radar chart
+    const isMobile = window.innerWidth <= 480;
     new Chart(document.getElementById('radarChart'), {
       type: 'radar',
       data: {
@@ -594,11 +746,20 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        layout: {
+          padding: isMobile ? 10 : 20
+        },
         scales: {
           r: {
             min: 0,
             max: 100,
-            ticks: { stepSize: 25 }
+            ticks: {
+              stepSize: 25,
+              font: { size: isMobile ? 10 : 12 }
+            },
+            pointLabels: {
+              font: { size: isMobile ? 10 : 12 }
+            }
           }
         },
         plugins: {
@@ -629,8 +790,18 @@
         indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
+        layout: {
+          padding: isMobile ? 10 : 20
+        },
         scales: {
-          x: { min: 0, max: 100 }
+          x: {
+            min: 0,
+            max: 100,
+            ticks: { font: { size: isMobile ? 10 : 12 } }
+          },
+          y: {
+            ticks: { font: { size: isMobile ? 10 : 12 } }
+          }
         },
         plugins: {
           legend: { display: false }
