@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch index.js"
-  
+    "dev": "node --watch index.js",
+    "job-advisor": "node job-advisor-web/server.js"
   },
   "keywords": [
     "n8n",

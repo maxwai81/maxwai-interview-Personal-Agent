@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "candidate": "Max Seto (SETO Wai)",
+    "company": "ServiceNow",
+    "jobTitle": "Director Solution Consulting Hong Kong",
+    "location": "Hong Kong (Causeway Bay, Wan Chai offices); North Asia HQ; remote/hybrid available",
+    "jobUrl": "https://www.linkedin.com/jobs/search/?currentJobId=4343828628&f_C=29352&originToLandingJobPostings=4343828628%2C4336039001%2C4369907204%2C4358491707&trk=d_flagship3_company_posts",
+    "resumePath": "./assets/docs/Max Seto - Resume Feb 2026.pdf",
+    "generatedAt": "2025-03-20"
+  },
+  "overallMatch": {
+    "score": 78,
+    "maxScore": 100,
+    "summary": "Strong fit for Director Solution Consulting. Max has 15+ years of enterprise pre-sales experience, including Principal and Manager roles at Workday (Greater China) and ~5.5 years at Oracle. He is based in Hong Kong, leads pre-sales teams, and has deep experience in customer discovery, POCs, demos, and team enablement. The main gap is domain: HCM/Workday vs. ITSM/workflow. His enterprise cloud, pre-sales leadership, and North Asia experience are highly transferable. With targeted preparation on ServiceNow's platform and ITSM, he is a strong candidate."
+  },
+  "granularScores": [
+    {
+      "dimension": "Skills",
+      "score": 72,
+      "rationale": "Strong pre-sales core (discovery, demos, POCs, GTM) and enterprise SaaS. HCM/ERP vs. ITSM/workflow; Now Platform, Now Assist, and ITSM specifics need to be learned."
+    },
+    {
+      "dimension": "Experience",
+      "score": 88,
+      "rationale": "15+ years; Principal and Manager at Workday; 5.5 years Oracle; Director-level leadership and North Asia scope."
+    },
+    {
+      "dimension": "Education",
+      "score": 87,
+      "rationale": "BSc (Hon.) Computing Studies (IS), Hong Kong Baptist University. Meets typical bachelor's requirement."
+    },
+    {
+      "dimension": "Location",
+      "score": 95,
+      "rationale": "Hong Kong-based; aligns with North Asia HQ and Eddy Chan's team."
+    },
+    {
+      "dimension": "Adaptability",
+      "score": 80,
+      "rationale": "Multiple pivots (Oracle→Workday, ERP/HCM→HCM SaaS); cross-functional; PMP and regional project experience; AI agents, n8n, Flowise."
+    },
+    {
+      "dimension": "Future career growth",
+      "score": 75,
+      "rationale": "Director SC at ServiceNow fits his trajectory; HCM→ITSM is a lateral move; AI/workflow focus aligns with his interest in enterprise platforms."
+    },
+    {
+      "dimension": "Income",
+      "score": 75,
+      "rationale": "Workday and ServiceNow are both tier-1 vendors; HK-specific data limited; likely within range."
+    }
+  ],
+  "jobRequirements": [
+    {
+      "requirement": "Pre-sales leadership and team scaling",
+      "evidence": "Manager of Solution Consulting at Workday (6–8 SCs); built and managed cross-functional team; structured coaching and capability development",
+      "match": "strong"
+    },
+    {
+      "requirement": "Technical discovery, demos, POCs",
+      "evidence": "Extensive discovery workshops, executive presentations, solution architecture, POCs at Workday and Oracle across Greater China",
+      "match": "strong"
+    },
+    {
+      "requirement": "North Asia (HK, Macau, Taiwan) presence",
+      "evidence": "Hong Kong-based; experience across HK, Macau, Taiwan, mainland; aligns with Eddy Chan's North Asia structure",
+      "match": "strong"
+    },
+    {
+      "requirement": "Enterprise cloud and SaaS",
+      "evidence": "Workday HCM Cloud, Oracle HCM Cloud; enterprise cloud sales, discovery, demos; same buyer profile",
+      "match": "strong"
+    },
+    {
+      "requirement": "AI and workflow automation",
+      "evidence": "n8n, Flowise, AI agents, Cursor AI; Workday AI (Paradox, Sana Agent); aligns with ServiceNow AI direction",
+      "match": "strong"
+    },
+    {
+      "requirement": "ITSM domain",
+      "evidence": "HCM/Workday background; ITSM concepts transferable; need to learn incident, problem, change, ITIL",
+      "match": "verify"
+    },
+    {
+      "requirement": "ServiceNow product experience",
+      "evidence": "No direct experience; Workday/Oracle concepts transfer; HR Service Delivery bridges",
+      "match": "confirm"
+    }
+  ],
+  "strengths": [
+    "Pre-sales leadership in North Asia: Manager of Solution Consulting at Workday; Principal and Manager roles; team scaling, capability building, regional ownership.",
+    "Enterprise cloud and SaaS experience: Workday HCM Cloud, Oracle HCM Cloud; discovery, demos, POCs; same playbook as ServiceNow SC.",
+    "Hong Kong and Greater China presence: Based in HK; experience across HK, Macau, Taiwan, mainland; aligns with North Asia and Eddy Chan's structure.",
+    "Transferable pre-sales skills: Customer discovery, solution presentations, product demos, POCs, GTM; industry solutions.",
+    "AI and workflow automation: n8n, Flowise, AI agents, Cursor AI; aligns with ServiceNow's AI-first strategy and Moveworks.",
+    "PMP and project management: PMP® and regional project delivery support capability building and program execution."
+  ],
+  "gaps": [
+    {
+      "gap": "HCM vs. ITSM domain",
+      "recommendation": "Study ITSM basics (incident, problem, change, ITIL), Now Platform, Now Assist, and workflow automation. Emphasize that HCM and ITSM both automate enterprise workflows."
+    },
+    {
+      "gap": "No explicit ServiceNow product experience",
+      "recommendation": "Complete ServiceNow fundamentals (free training), review Moveworks acquisition and AI strategy, and mention HR Service Delivery as a bridge from HCM."
+    },
+    {
+      "gap": "AI/agentic workflows positioning",
+      "recommendation": "Highlight Workday's AI features (Paradox, Sana Agent, Flowise) and experience with AI-driven workflows. Connect to ServiceNow's AI agents and Moveworks."
+    }
+  ],
+  "interviewPrepFocus": [
+    "AI strategy and Moveworks: Explain how the Moveworks deal fits ServiceNow's AI strategy and how you would position it in North Asia. Reference Workday's AI investments as parallel experience.",
+    "North Asia and team scaling: Prepare examples of building and scaling pre-sales teams in HK/Taiwan/Macau, including hiring, enablement, and capability development.",
+    "Product depth: Be ready to discuss ITSM (incident, problem, change), Now Platform, Now Assist, and workflow automation. Use HR Service Delivery as a bridge from HCM.",
+    "People Pact and culture: Connect your values to 'do our best work, live our best lives' and how you've built team culture in pre-sales.",
+    "Eddy Chan and North Asia structure: Show awareness of Eddy Chan (Head of Solution Consulting, North Asia) and how you would contribute to the North Asia SC team."
+  ],
+  "actionableRecommendations": [
+    "Tailor the resume: Add a 'ServiceNow alignment' section with keywords (Director Solution Consulting, ITSM, workflow automation, AI agents, North Asia, pre-sales leadership).",
+    "Cover letter: Explain why moving from Workday to ServiceNow—emphasize AI platform growth, broader enterprise scope, and Hong Kong presence.",
+    "LinkedIn: Ensure profile highlights workflow automation, AI agents, discovery workshops, and enterprise solution consulting leadership.",
+    "Complete ServiceNow fundamentals: Take free ServiceNow training on ITSM, Now Platform, and HR Service Delivery before the interview.",
+    "Prepare a demo narrative: Draft a 5–10 minute discovery-to-value story for a complex HCM or workflow implementation that shows transferability to ITSM."
+  ],
+  "companyResearch": {
+    "highlights": {
+      "executiveSummary": "ServiceNow is a leading enterprise cloud platform company (~$13.3B revenue, ~29,000 employees) focused on workflow automation and AI. Strong Hong Kong presence as North Asia regional headquarters (Causeway Bay, Wan Chai). Eddy Chan leads Solution Consulting for North Asia (HK, Macau, Taiwan). Director roles lead and scale pre-sales teams.",
+      "leadership": "Bill McDermott (Chairman & CEO, former SAP CEO). Amit Zavery (CPO & COO). Eddy Chan – Head of Solution Consulting, North Asia since Jan 2022.",
+      "products": "ServiceNow AI Platform for workflow automation. ITSM, HR Service Delivery, Customer Service Management, Core Business Solutions. Moveworks acquisition ($2.85B) reinforces AI-first strategy.",
+      "culture": "Glassdoor 4.3/5, 85% recommend, 95% CEO approval. People Pact values. Fortune 100 Best Companies to Work For (2025).",
+      "recommendation": "Good — ServiceNow is a strong employer with clear Hong Kong presence, established Solution Consulting leadership (Eddy Chan), and a Director role aligned with the North Asia structure. AI-first strategy (Moveworks, partnerships) aligns with growth and innovation."
+    }
+  }
+}

@@ -29,3 +29,7 @@ Thumbs.db
 # Build outputs
 dist/
 build/
+
+# Job Advisor web (runtime files)
+job-advisor-web/request.json
+job-advisor-web/report.md

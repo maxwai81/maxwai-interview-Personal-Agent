@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Advisor — Fit Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --surface-elevated: #243044;
+      --text: #e8edf4;
+      --text-muted: #8b9cb3;
+      --accent: #f59e0b;
+      --accent-dim: #b45309;
+      --success: #34d399;
+      --border: rgba(139, 156, 179, 0.2);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    .app {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin-top: 0.25rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab {
+      padding: 0.75rem 1.25rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab:hover {
+      color: var(--text);
+    }
+
+    .tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    label .optional {
+      font-weight: 400;
+      color: var(--text-muted);
+      opacity: 0.8;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    .file-input-wrap {
+      position: relative;
+    }
+
+    .file-input-wrap input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .file-drop {
+      padding: 1.25rem;
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .file-drop.has-file {
+      border-color: var(--accent-dim);
+      background: rgba(245, 158, 11, 0.05);
+      color: var(--accent);
+    }
+
+    .file-drop .filename {
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--surface-elevated);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-muted);
+    }
+
+    .btn-block {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .instructions {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+
+    .instructions strong {
+      color: var(--text);
+    }
+
+    .instructions ol {
+      margin: 0.5rem 0 0 1rem;
+    }
+
+    .instructions li {
+      margin-bottom: 0.25rem;
+    }
+
+    .json-output {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: 'ui-monospace', 'Monaco', monospace;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      max-height: 200px;
+      overflow-y: auto;
+      word-break: break-all;
+    }
+
+    .copy-btn {
+      margin-top: 0.75rem;
+    }
+
+    /* Dashboard — ServiceNow theme (light), aligned with assets/docs/ServiceNow-Job-Fit-Dashboard.html */
+    #dashboard-panel .dashboard-snow {
+      --ink: #0f172a;
+      --ink-muted: #64748b;
+      --paper: #f8fafc;
+      --accent: #0d9488;
+      --accent-dim: #5eead4;
+      --accent-dark: #0f766e;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --success: #059669;
+      --warn: #d97706;
+      --shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+      --shadow-lg: 0 12px 48px rgba(15, 23, 42, 0.1);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0 calc(-1 * clamp(1.5rem, 4vw, 2.5rem));
+      padding: 2rem clamp(1.5rem, 4vw, 2.5rem);
+      border-radius: var(--radius);
+    }
+
+    @keyframes dashboard-fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dashboard-snow .score-hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2.5rem;
+      margin: 0 0 2rem;
+      background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+      border-radius: var(--radius);
+      color: white;
+      box-shadow: var(--shadow-lg);
+      animation: dashboard-fadeUp 0.6s ease-out;
+    }
+
+    @media (max-width: 640px) {
+      .dashboard-snow .score-hero {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+      }
+
+      .dashboard-snow .score-summary {
+        max-width: none;
+        text-align: center;
+      }
+    }
+
+    .dashboard-snow .score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent) calc(var(--score) * 3.6deg), rgba(255,255,255,0.15) 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .dashboard-snow .score-inner {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dashboard-snow .score-value {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .dashboard-snow .score-max {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .dashboard-snow .score-summary {
+      max-width: 420px;
+      min-width: 0;
+      text-align: left;
+    }
+
+    .dashboard-snow .score-summary h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--accent-dim);
+    }
+
+    .dashboard-snow .score-summary p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .dashboard-snow .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 2rem 0 1rem;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dashboard-snow .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+      max-width: 200px;
+    }
+
+    .dashboard-snow .chart-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-snow .chart-row { grid-template-columns: 1fr; }
+    }
+
+    .dashboard-snow .chart-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .dashboard-snow .chart-container {
+      position: relative;
+      height: 280px;
+      min-width: 0;
+    }
+
+    .dashboard-snow .dash-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin: 2rem 0 1rem;
+      flex-wrap: wrap;
+    }
+
+    .dashboard-snow .dash-tab {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      transition: all 0.2s;
+    }
+
+    .dashboard-snow .dash-tab:hover {
+      color: var(--ink);
+      border-color: var(--accent-dim);
+    }
+
+    .dashboard-snow .dash-tab.active {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .dashboard-snow .dash-tab-content {
+      display: none;
+    }
+
+    .dashboard-snow .dash-tab-content.active {
+      display: block;
+    }
+
+    .dashboard-snow .dash-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .dashboard-snow .strength-list,
+    .dashboard-snow .gap-list,
+    .dashboard-snow .prep-list {
+      list-style: none;
+    }
+
+    .dashboard-snow .strength-list li,
+    .dashboard-snow .gap-list li,
+    .dashboard-snow .prep-list li {
+      padding: 0.75rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .dashboard-snow .strength-list li:last-child,
+    .dashboard-snow .gap-list li:last-child,
+    .dashboard-snow .prep-list li:last-child {
+      border-bottom: none;
+    }
+
+    .dashboard-snow .strength-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .dashboard-snow .gap-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--warn);
+      font-weight: 600;
+    }
+
+    .dashboard-snow .prep-list li::before {
+      content: '1';
+      position: absolute;
+      left: 0;
+      width: 1.2em;
+      height: 1.2em;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .dashboard-snow .prep-list li:nth-child(1)::before { content: '1'; }
+    .dashboard-snow .prep-list li:nth-child(2)::before { content: '2'; }
+    .dashboard-snow .prep-list li:nth-child(3)::before { content: '3'; }
+    .dashboard-snow .prep-list li:nth-child(4)::before { content: '4'; }
+    .dashboard-snow .prep-list li:nth-child(5)::before { content: '5'; }
+    .dashboard-snow .prep-list li:nth-child(6)::before { content: '6'; }
+
+    .dashboard-snow .gap-item strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .dashboard-snow .gap-item span {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+
+    .dashboard-snow .summary-text {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .load-results-area {
+      margin-top: 1.5rem;
+    }
+
+    .load-results-area textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      padding: 0.75rem 1.25rem;
+      background: var(--surface-elevated);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: transform 0.3s, opacity 0.3s;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .error-msg {
+      color: #f87171;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .dimensions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .tab {
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="app">
+    <header>
+      <h1>Job Advisor</h1>
+      <p class="subtitle">Company research & resume–job fit analysis</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-panel="form">Apply</button>
+      <button class="tab" data-panel="dashboard">Dashboard</button>
+    </nav>
+
+    <main id="form-panel" class="panel active">
+      <form id="job-form" class="card">
+        <h2>Job Application</h2>
+
+        <div class="form-group">
+          <label for="company">Company name <span class="optional">(required)</span></label>
+          <input type="text" id="company" name="company" required placeholder="e.g. ServiceNow, Google">
+        </div>
+
+        <div class="form-group">
+          <label for="jobTitle">Job title <span class="optional">(optional)</span></label>
+          <input type="text" id="jobTitle" name="jobTitle" placeholder="e.g. Senior Software Engineer">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location <span class="optional">(optional)</span></label>
+          <input type="text" id="location" name="location" placeholder="e.g. San Francisco, remote, hybrid">
+        </div>
+
+        <div class="form-group">
+          <label for="jobUrl">Job posting URL <span class="optional">(optional)</span></label>
+          <input type="url" id="jobUrl" name="jobUrl" placeholder="https://...">
+        </div>
+
+        <div class="form-group">
+          <label for="linkedinUrl">LinkedIn profile URL <span class="optional">(optional)</span></label>
+          <input type="url" id="linkedinUrl" name="linkedinUrl" placeholder="https://linkedin.com/in/...">
+        </div>
+
+        <div class="form-group">
+          <label>Resume <span class="optional">(optional)</span></label>
+          <div class="file-input-wrap">
+            <input type="file" id="resume" name="resume" accept=".pdf,.docx,.doc,.txt">
+            <div class="file-drop" id="fileDrop">
+              Drop resume here or click to browse
+              <div class="filename" id="fileName"></div>
+            </div>
+          </div>
+          <p class="error-msg" id="fileError"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Save request & run in Cursor</button>
+      </form>
+
+      <div id="payload-section" class="card" style="display: none;">
+        <h2>Request saved</h2>
+        <div class="instructions" id="saveInstructions">
+          <strong>Next step:</strong> In Cursor, say: <em>"Process job-advisor-web/request.json"</em> or <em>"Run Job Advisor for the request in request.json"</em><br><br>
+          The agent will run company research + resume matching and write the report to <code>report.md</code>. Refresh the Dashboard to view.
+        </div>
+        <div class="instructions" id="fallbackInstructions" style="display: none;">
+          <strong>Server not running.</strong> Start with <code>node job-advisor-web/server.js</code> for auto-save, or copy the JSON below and paste in Cursor.
+        </div>
+        <pre class="json-output" id="jsonOutput" style="display: none;"></pre>
+        <button type="button" class="btn btn-secondary copy-btn" id="copyBtn" style="display: none;">Copy JSON</button>
+      </div>
+    </main>
+
+    <main id="dashboard-panel" class="panel">
+      <div class="card" id="no-results-card">
+        <h2>No results yet</h2>
+        <p class="summary-text">Report auto-loads from <code>report.md</code> when the agent finishes. Or paste manually below.</p>
+        <div class="load-results-area">
+          <label for="reportInput">Report (markdown)</label>
+          <textarea id="reportInput" placeholder="Paste the full report from the Job Advisor subagent here..."></textarea>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary" id="loadReportBtn">Load & display</button>
+            <button type="button" class="btn btn-secondary" id="refreshReportBtn">Refresh from file</button>
+            <button type="button" class="btn btn-secondary" id="trySampleBtn">Try sample report</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="results-dashboard" style="display: none;">
+        <div class="dashboard-snow">
+          <div class="score-hero">
+            <div class="score-circle" id="scoreCircle" style="--score: 0;">
+              <div class="score-inner">
+                <span class="score-value" id="scoreValue">--</span>
+                <span class="score-max">/ 100</span>
+              </div>
+            </div>
+            <div class="score-summary">
+              <h2>Overall Match</h2>
+              <p class="summary-text" id="summaryText"></p>
+            </div>
+          </div>
+
+          <div class="section-title">Granular Scores</div>
+          <div class="chart-row">
+            <div class="chart-card">
+              <div class="chart-container">
+                <canvas id="radarChart"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-container">
+                <canvas id="barChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-tabs">
+            <button class="dash-tab active" data-dash-tab="strengths">Strengths</button>
+            <button class="dash-tab" data-dash-tab="gaps">Gaps & How to Address</button>
+            <button class="dash-tab" data-dash-tab="prep">Interview Prep Focus</button>
+            <button class="dash-tab" data-dash-tab="actions">Actionable Recommendations</button>
+          </div>
+          <div id="dash-strengths" class="dash-tab-content active">
+            <div class="dash-card">
+              <ul class="strength-list" id="strengthsList"></ul>
+            </div>
+          </div>
+          <div id="dash-gaps" class="dash-tab-content">
+            <div class="dash-card">
+              <ul class="gap-list" id="gapsList"></ul>
+            </div>
+          </div>
+          <div id="dash-prep" class="dash-tab-content">
+            <div class="dash-card">
+              <ul class="prep-list" id="focusList"></ul>
+            </div>
+          </div>
+          <div id="dash-actions" class="dash-tab-content">
+            <div class="dash-card">
+              <ul class="prep-list" id="actionsList"></ul>
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <button type="button" class="btn btn-secondary" id="loadAnotherBtn">Load another report</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast">Copied to clipboard</div>
+
+  <script>
+    const MAX_RESUME_SIZE = 4 * 1024 * 1024; // 4MB
+
+    const form = document.getElementById('job-form');
+    const payloadSection = document.getElementById('payload-section');
+    const jsonOutput = document.getElementById('jsonOutput');
+    const copyBtn = document.getElementById('copyBtn');
+    const fileDrop = document.getElementById('fileDrop');
+    const resumeInput = document.getElementById('resume');
+    const fileName = document.getElementById('fileName');
+    const fileError = document.getElementById('fileError');
+    const reportInput = document.getElementById('reportInput');
+    const loadReportBtn = document.getElementById('loadReportBtn');
+    const noResultsCard = document.getElementById('no-results-card');
+    const resultsDashboard = document.getElementById('results-dashboard');
+    const toast = document.getElementById('toast');
+
+    // Tab switching (shared helper to avoid triggering click handlers)
+    function switchToPanel(panelId) {
+      document.querySelectorAll('.tab').forEach(t => {
+        t.classList.toggle('active', t.dataset.panel === panelId);
+      });
+      document.querySelectorAll('.panel').forEach(p => {
+        p.classList.toggle('active', p.id === panelId + '-panel');
+      });
+    }
+
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        switchToPanel(tab.dataset.panel);
+        if (tab.dataset.panel === 'dashboard') fetchReport();
+      });
+    });
+
+    // File handling
+    let resumeBase64 = null;
+    let resumeFilename = null;
+
+    resumeInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      fileError.textContent = '';
+      if (file.size > MAX_RESUME_SIZE) {
+        fileError.textContent = 'File too large (max 4MB). Use a smaller file or add resume to assets/docs/ manually.';
+        resumeInput.value = '';
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        resumeBase64 = reader.result.split(',')[1];
+        resumeFilename = file.name;
+        fileName.textContent = file.name;
+        fileDrop.classList.add('has-file');
+      };
+      reader.readAsDataURL(file);
+    });
+
+    fileDrop.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      fileDrop.style.borderColor = 'var(--accent-dim)';
+    });
+    fileDrop.addEventListener('dragleave', () => {
+      fileDrop.style.borderColor = '';
+    });
+    fileDrop.addEventListener('drop', (e) => {
+      e.preventDefault();
+      fileDrop.style.borderColor = '';
+      const file = e.dataTransfer.files[0];
+      if (file && /\.(pdf|docx?|txt)$/i.test(file.name)) {
+        resumeInput.files = e.dataTransfer.files;
+        resumeInput.dispatchEvent(new Event('change'));
+      } else {
+        fileError.textContent = 'Please upload PDF, DOCX, or TXT.';
+      }
+    });
+
+    // Form submit: POST to /api/request (auto-save) or fallback to copy
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const company = document.getElementById('company').value.trim();
+      if (!company) {
+        showToast('Company name is required');
+        return;
+      }
+
+      const payload = {
+        company,
+        jobTitle: document.getElementById('jobTitle').value.trim() || undefined,
+        location: document.getElementById('location').value.trim() || undefined,
+        jobUrl: document.getElementById('jobUrl').value.trim() || undefined,
+        linkedinUrl: document.getElementById('linkedinUrl').value.trim() || undefined,
+        resumeBase64: resumeBase64 || undefined,
+        resumeFilename: resumeFilename || undefined,
+        submittedAt: new Date().toISOString()
+      };
+
+      if (payload.resumeBase64 && payload.resumeBase64.length > 500000) {
+        payload.resumeBase64 = '[TRUNCATED - file too large for JSON. Add resume to assets/docs/ manually.]';
+        payload.resumeFilename = resumeFilename;
+      }
+
+      const jsonStr = JSON.stringify(payload, null, 2);
+      payloadSection.style.display = 'block';
+
+      try {
+        const r = await fetch('/api/request', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: jsonStr });
+        const data = await r.json();
+        if (data.ok) {
+          document.getElementById('saveInstructions').style.display = 'block';
+          document.getElementById('fallbackInstructions').style.display = 'none';
+          jsonOutput.style.display = 'none';
+          copyBtn.style.display = 'none';
+          showToast('Request saved to request.json');
+        } else throw new Error(data.error);
+      } catch (err) {
+        document.getElementById('saveInstructions').style.display = 'none';
+        document.getElementById('fallbackInstructions').style.display = 'block';
+        jsonOutput.style.display = 'block';
+        copyBtn.style.display = 'inline-flex';
+        jsonOutput.textContent = jsonStr;
+        showToast('Server not running — copy JSON and paste in Cursor');
+      }
+      payloadSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Copy button (fallback when server unavailable)
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      navigator.clipboard.writeText(jsonOutput.textContent).then(() => {
+        showToast('Copied to clipboard');
+      });
+    });
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Report parser
+    function parseReport(markdown) {
+      markdown = (markdown || '').replace(/^\uFEFF/, '').replace(/\r\n/g, '\n');
+      const result = {
+        overallScore: null,
+        summary: '',
+        dimensions: [],
+        strengths: [],
+        gaps: [],
+        focus: [],
+        actions: []
+      };
+
+      // Overall score: ## Overall Match Score: 78/100
+      const scoreMatch = markdown.match(/##\s*Overall\s+Match\s+Score:\s*(\d+)\/100/i);
+      if (scoreMatch) result.overallScore = parseInt(scoreMatch[1], 10);
+
+      // Summary: **Summary**: or **Summary:** (colon variants)
+      let summaryMatch = markdown.match(/\*\*Summary\*\*[:\uFF1A]\s*([\s\S]+?)(?=\n\n|\n---|\n##|$)/);
+      if (!summaryMatch) summaryMatch = markdown.match(/\*\*Summary\*\*[:\uFF1A]\s*([^\n]+)/);
+      if (summaryMatch) result.summary = summaryMatch[1].trim();
+
+      // Granular scores: try Granular Scores block first (most reliable)
+      const granularBlock = markdown.match(/##\s*Granular\s+Scores\s*\n+([\s\S]*?)(?=\n##|\n---|$)/i);
+      if (granularBlock) {
+        const block = granularBlock[1];
+        // Match table rows: | Name or **Name** | 72 | Rationale... | (skip header/separator)
+        const rowRegex = /\|\s*([^|]+)\s*\|\s*(\d+)\s*\|\s*([^|]*)\s*\|/g;
+        let m;
+        while ((m = rowRegex.exec(block)) !== null) {
+          const name = m[1].replace(/\*\*/g, '').trim();
+          if (name.toLowerCase() === 'dimension' || name.toLowerCase() === 'score' || /^[-:\s]+$/.test(name)) continue;
+          result.dimensions.push({ name, score: parseInt(m[2], 10), rationale: (m[3] || '').trim() });
+        }
+      }
+      // Fallback: primary table pattern if block parser got nothing
+      if (result.dimensions.length === 0) {
+        const tableMatch = markdown.match(/\|\s*Dimension\s*\|\s*Score\s*\|\s*Rationale\s*\|[\s\S]*?\n\|[-:\s|]+\|[\s\S]*?((?:\|[^|]+\|[^|]+\|[^|]+\|\n)+)/i);
+        if (tableMatch) {
+          const rows = tableMatch[1].trim().split('\n');
+          for (const row of rows) {
+            const cells = row.split('|').map(c => c.trim()).filter(Boolean);
+            if (cells.length >= 3) {
+              const name = cells[0].replace(/\*\*/g, '').trim();
+              const score = parseInt(cells[1], 10);
+              if (!isNaN(score)) result.dimensions.push({ name, score, rationale: cells[2] || '' });
+            }
+          }
+        }
+      }
+
+      // Strengths: ## Strengths\n1. ... or - **X**: ...
+      const strengthsMatch = markdown.match(/##\s*Strengths\s*\n([\s\S]*?)(?=\n##|\n---\n\n##|$)/i);
+      if (strengthsMatch) {
+        const block = strengthsMatch[1];
+        const numbered = block.split('\n').filter(l => /^\d+\.\s+/.test(l)).map(l => l.replace(/^\d+\.\s+/, '').trim());
+        const bulleted = block.split('\n').filter(l => /^\s*-\s+\*\*/.test(l)).map(l => l.replace(/^\s*-\s+/, '').trim());
+        result.strengths = numbered.length ? numbered : bulleted;
+      }
+
+      // Gaps & Recommendations: table or bullet list (- **Gap** -> Recommendation)
+      const gapsMatch = markdown.match(/##\s*Gaps\s*&\s*Recommendations\s*\n([\s\S]*?)(?=\n##|\n---\n\n##|$)/i);
+      if (gapsMatch) {
+        const block = gapsMatch[1];
+        const tableRows = block.match(/\|\s*\*\*([^|]+)\*\*\s*\|\s*([^|]+)\s*\|/g);
+        if (tableRows) {
+          tableRows.forEach(row => {
+            const m = row.match(/\|\s*\*\*([^|]+)\*\*\s*\|\s*([^|]+)\s*\|/);
+            if (m) result.gaps.push({ gap: m[1].trim(), recommendation: m[2].trim() });
+          });
+        } else {
+          block.split('\n').forEach(line => {
+            const m = line.match(/-\s+\*\*([^*]+)\*\*\s*[→:]\s*(.+)/);
+            if (m) result.gaps.push({ gap: m[1].trim(), recommendation: m[2].trim() });
+          });
+        }
+      }
+
+      // Interview Prep Focus
+      const focusMatch = markdown.match(/##\s*Interview\s+Prep\s+Focus\s*\n([\s\S]*?)(?=\n##|\n---\n\n##|$)/i);
+      if (focusMatch) {
+        const block = focusMatch[1];
+        result.focus = block.split('\n').filter(l => /^\d+\.\s+/.test(l)).map(l => l.replace(/^\d+\.\s+/, '').trim());
+      }
+
+      // Actionable Recommendations
+      const actionsMatch = markdown.match(/##\s*Actionable\s+Recommendations[\s\S]*?\n([\s\S]*?)(?=\n---|\n\*Report|$)/i);
+      if (actionsMatch) {
+        const block = actionsMatch[1];
+        result.actions = block.split('\n').filter(l => /^\d+\.\s+/.test(l)).map(l => l.replace(/^\d+\.\s+/, '').trim());
+      }
+
+      return result;
+    }
+
+    function renderDashboard(raw) {
+      const parsed = parseReport(raw);
+      if (!parsed.overallScore && parsed.dimensions.length === 0) return false;
+      // Normalize: ensure we have at least score or dimensions
+      if (!parsed.overallScore && parsed.dimensions.length > 0) {
+        parsed.overallScore = Math.round(parsed.dimensions.reduce((s, d) => s + d.score, 0) / parsed.dimensions.length);
+      }
+
+      const score = parsed.overallScore ?? 0;
+      document.getElementById('scoreCircle').style.setProperty('--score', score);
+      document.getElementById('scoreValue').textContent = score;
+      document.getElementById('summaryText').textContent = parsed.summary || 'No summary available.';
+
+      // Charts — destroy existing instances safely
+      try {
+        if (window.radarChart) { window.radarChart.destroy(); window.radarChart = null; }
+      } catch (_) { window.radarChart = null; }
+      try {
+        if (window.barChart) { window.barChart.destroy(); window.barChart = null; }
+      } catch (_) { window.barChart = null; }
+      if (parsed.dimensions.length > 0) {
+        const ctxRadar = document.getElementById('radarChart').getContext('2d');
+        window.radarChart = new Chart(ctxRadar, {
+          type: 'radar',
+          data: {
+            labels: parsed.dimensions.map(d => d.name),
+            datasets: [{
+              label: 'Score',
+              data: parsed.dimensions.map(d => d.score),
+              fill: true,
+              backgroundColor: 'rgba(13, 148, 136, 0.2)',
+              borderColor: '#0d9488',
+              borderWidth: 2,
+              pointBackgroundColor: '#0d9488',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: '#0d9488'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: { padding: { left: 10, right: 10, top: 10, bottom: 10 } },
+            scales: {
+              r: {
+                min: 0,
+                max: 100,
+                ticks: { stepSize: 25, font: { size: 10 } },
+                pointLabels: { font: { size: 10 } }
+              }
+            },
+            plugins: { legend: { display: false } }
+          }
+        });
+        const ctxBar = document.getElementById('barChart').getContext('2d');
+        window.barChart = new Chart(ctxBar, {
+          type: 'bar',
+          data: {
+            labels: parsed.dimensions.map(d => d.name),
+            datasets: [{
+              label: 'Score',
+              data: parsed.dimensions.map(d => d.score),
+              backgroundColor: parsed.dimensions.map(d =>
+                d.score >= 85 ? 'rgba(13, 148, 136, 0.7)' :
+                d.score >= 75 ? 'rgba(13, 148, 136, 0.5)' : 'rgba(124, 58, 237, 0.7)'
+              ),
+              borderColor: parsed.dimensions.map(d =>
+                d.score >= 85 ? '#0d9488' : d.score >= 75 ? '#0d9488' : '#7c3aed'
+              ),
+              borderWidth: 1
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: { padding: { left: 5, right: 10, top: 5, bottom: 5 } },
+            scales: {
+              x: { min: 0, max: 100 },
+              y: { ticks: { font: { size: 10 } } }
+            },
+            plugins: { legend: { display: false } }
+          }
+        });
+      }
+
+      document.getElementById('strengthsList').innerHTML = parsed.strengths.map(s =>
+        `<li>${escapeHtml(s)}</li>`
+      ).join('') || '<li>No strengths listed.</li>';
+
+      document.getElementById('gapsList').innerHTML = parsed.gaps.map(g =>
+        `<li><div class="gap-item"><strong>${escapeHtml(g.gap)}</strong><span>${escapeHtml(g.recommendation)}</span></div></li>`
+      ).join('') || '<li>No gaps listed.</li>';
+
+      document.getElementById('focusList').innerHTML = parsed.focus.map(f =>
+        `<li>${escapeHtml(f)}</li>`
+      ).join('') || '<li>No interview prep focus listed.</li>';
+
+      document.getElementById('actionsList').innerHTML = parsed.actions.map(a =>
+        `<li>${escapeHtml(a)}</li>`
+      ).join('') || '<li>No actionable recommendations listed.</li>';
+
+      document.querySelectorAll('.dash-tab').forEach(tab => {
+        tab.onclick = () => {
+          document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.dash-tab-content').forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById('dash-' + tab.dataset.dashTab).classList.add('active');
+        };
+      });
+
+      noResultsCard.style.display = 'none';
+      resultsDashboard.style.display = 'block';
+      return true;
+    }
+
+    async function fetchReport() {
+      try {
+        const r = await fetch('/api/report?t=' + Date.now());
+        if (r.ok) {
+          const text = await r.text();
+          if (renderDashboard(text)) {
+            reportInput.value = text;
+            switchToPanel('dashboard');
+            showToast('Report loaded from report.md');
+          }
+        } else if (r.status === 404) {
+          showToast('No report yet. Run Job Advisor in Cursor first.');
+        }
+      } catch (_) {
+        showToast('Server not running. Start with: npm run job-advisor');
+      }
+    }
+
+    loadReportBtn.addEventListener('click', () => {
+      const raw = reportInput.value.trim();
+      if (!raw) { showToast('Paste the report first'); return; }
+      if (renderDashboard(raw)) switchToPanel('dashboard');
+      else showToast('Could not parse report. Paste the full markdown from Job Advisor.');
+    });
+
+    document.getElementById('refreshReportBtn').addEventListener('click', async () => {
+      try {
+        const r = await fetch('/api/report?t=' + Date.now());
+        if (r.ok) {
+          const text = await r.text();
+          if (renderDashboard(text)) {
+            reportInput.value = text;
+            switchToPanel('dashboard');
+            showToast('Report loaded from report.md');
+          } else showToast('Report file exists but could not parse (' + text.length + ' chars).');
+        } else showToast('No report yet. Run Job Advisor in Cursor first.');
+      } catch (_) {
+        showToast('Server not running. Start with: node job-advisor-web/server.js');
+      }
+    });
+
+    // Auto-fetch report on load only (Dashboard tab click fetches via its handler above)
+    fetchReport();
+
+    document.getElementById('loadAnotherBtn').addEventListener('click', () => {
+      resultsDashboard.style.display = 'none';
+      noResultsCard.style.display = 'block';
+      reportInput.value = '';
+    });
+
+    document.getElementById('trySampleBtn').addEventListener('click', async () => {
+      try {
+        const r = await fetch('sample-report.md');
+        const text = await r.text();
+        reportInput.value = text;
+        showToast('Sample report loaded. Click "Load & display" to view.');
+      } catch (e) {
+        reportInput.value = `## Overall Match Score: 78/100
+
+**Summary**: Strong fit for the Advisory Solution Consultant role.
+
+## Granular Scores
+
+| Dimension | Score | Rationale |
+|-----------|-------|-----------|
+| **Skills** | 82 | Direct overlap with role requirements. |
+| **Experience** | 88 | 15+ years in enterprise pre-sales. |
+| **Education** | 75 | Meets typical degree expectations. |
+| **Location** | 65 | Geographic fit depends on territory. |
+| **Adaptability** | 85 | Strong learning agility. |
+| **Future career growth** | 80 | Role advances career goals. |
+| **Income** | 70 | Reasonable fit if expectations align. |
+
+## Strengths
+
+1. **Pre-sales depth**: 15+ years of full-cycle presales.
+2. **HR domain expertise**: Maps to Core Business Solutions.
+3. **Executive presence**: C-suite advisory across APAC.
+
+## Gaps & Recommendations
+
+| Gap | Recommendation |
+|-----|----------------|
+| **No ServiceNow experience** | Complete ServiceNow fundamentals training. |
+| **Geographic uncertainty** | Clarify role location in the interview. |
+
+## Interview Prep Focus
+
+1. **Core Business Solutions fluency**: Be ready to discuss HR, Legal, Finance use cases.
+2. **GenAI and agentic AI**: Highlight n8n, Flowise, AI agents.
+
+## Actionable Recommendations for the Application
+
+1. **Tailor the resume**: Add ServiceNow alignment section.
+2. **Cover letter**: Explain why moving to ServiceNow.`;
+        showToast('Inline sample loaded. Click "Load & display" to view.');
+      }
+    });
+
+    function escapeHtml(s) {
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Job Application",
+  "description": "Form data for Job-Advisor-for-Job-Seekers subagent",
+  "type": "object",
+  "required": ["company"],
+  "properties": {
+    "company": {
+      "type": "string",
+      "description": "Company name (required)"
+    },
+    "jobTitle": {
+      "type": "string",
+      "description": "Job title or role"
+    },
+    "jobUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Job posting URL"
+    },
+    "linkedinUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "LinkedIn profile URL"
+    },
+    "location": {
+      "type": "string",
+      "description": "Location (city, remote, hybrid)"
+    },
+    "resumeBase64": {
+      "type": "string",
+      "description": "Resume file as base64 (PDF, DOCX, TXT)"
+    },
+    "resumeFilename": {
+      "type": "string",
+      "description": "Original resume filename"
+    },
+    "submittedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO timestamp"
+    }
+  }
+}

@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Job Fit Analysis Dashboard | Job Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --ink: #0f172a;
+      --ink-muted: #64748b;
+      --paper: #f8fafc;
+      --accent: #0d9488;
+      --accent-dim: #5eead4;
+      --accent-dark: #0f766e;
+      --success: #059669;
+      --warn: #d97706;
+      --verify: #7c3aed;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+      --shadow-lg: 0 12px 48px rgba(15, 23, 42, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      padding-left: max(1.5rem, env(safe-area-inset-left));
+      padding-right: max(1.5rem, env(safe-area-inset-right));
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 2rem 0 1.5rem;
+      }
+
+      .subtitle {
+        font-size: 0.85rem;
+        word-break: break-word;
+      }
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+    }
+
+    .subtitle a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    /* Load JSON area */
+    .load-area {
+      background: var(--card);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .load-area input[type="file"] {
+      display: none;
+    }
+
+    .load-area .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: var(--ink);
+      color: white;
+      margin: 0 0.25rem;
+    }
+
+    .load-area .btn:hover {
+      background: #1a2332;
+    }
+
+    .load-area .btn-secondary {
+      background: var(--border);
+      color: var(--ink);
+    }
+
+    .load-area p {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      margin-top: 0.75rem;
+    }
+
+    /* Score hero */
+    .score-hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+      border-radius: var(--radius);
+      color: white;
+      box-shadow: var(--shadow-lg);
+      animation: fadeUp 0.6s ease-out;
+    }
+
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent) calc(var(--score) * 3.6deg), rgba(255,255,255,0.15) 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .score-inner {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-value {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .score-max {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .score-summary {
+      max-width: 420px;
+      min-width: 0;
+      text-align: left;
+    }
+
+    .score-summary h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--accent-dim);
+    }
+
+    .score-summary p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 640px) {
+      .score-hero {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .score-summary {
+        max-width: none;
+        text-align: center;
+      }
+
+      .score-summary p {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Section */
+    section {
+      margin: 2.5rem 0;
+      animation: fadeUp 0.6s ease-out backwards;
+    }
+
+    section:nth-child(3) { animation-delay: 0.1s; }
+    section:nth-child(4) { animation-delay: 0.15s; }
+    section:nth-child(5) { animation-delay: 0.2s; }
+    section:nth-child(6) { animation-delay: 0.25s; }
+    section:nth-child(7) { animation-delay: 0.3s; }
+    section:nth-child(8) { animation-delay: 0.35s; }
+    section:nth-child(9) { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+      max-width: 200px;
+    }
+
+    @media (max-width: 640px) {
+      h2 {
+        font-size: 1.25rem;
+        flex-wrap: wrap;
+      }
+
+      h2::after {
+        display: none;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+    }
+
+    /* Charts */
+    .chart-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .chart-container {
+      position: relative;
+      height: 280px;
+      padding: 1rem;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .chart-wrapper {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .chart-row {
+        grid-template-columns: 1fr;
+      }
+
+      .chart-container {
+        height: 260px;
+        padding: 0.5rem 0.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .chart-container {
+        height: 280px;
+        padding: 0.5rem 0 0.5rem 0.25rem;
+      }
+    }
+
+    /* Requirements table */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .req-table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+    }
+
+    .req-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .req-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .req-table tr:hover td {
+      background: rgba(13, 148, 136, 0.04);
+    }
+
+    @media (max-width: 640px) {
+      .req-table th,
+      .req-table td {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.8rem;
+      }
+
+      .req-table {
+        min-width: 480px;
+      }
+    }
+
+    .match-badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .match-exceeds { background: #ccfbf1; color: #0d9488; }
+    .match-strong { background: #d1fae5; color: #059669; }
+    .match-verify { background: #ede9fe; color: #7c3aed; }
+    .match-confirm { background: #fef3c7; color: #d97706; }
+    .match-elaborate { background: #fce7f3; color: #be185d; }
+    .match-partial { background: #e0e7ff; color: #4f46e5; }
+    .match-prepare { background: #fef3c7; color: #b45309; }
+
+    /* List styles */
+    .strength-list, .gap-list, .prep-list {
+      list-style: none;
+    }
+
+    .strength-list li, .gap-list li, .prep-list li {
+      padding: 0.75rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    @media (max-width: 640px) {
+      .strength-list li, .gap-list li, .prep-list li {
+        font-size: 0.9rem;
+      }
+    }
+
+    .strength-list li:last-child,
+    .gap-list li:last-child,
+    .prep-list li:last-child {
+      border-bottom: none;
+    }
+
+    .strength-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .gap-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--warn);
+      font-weight: 600;
+    }
+
+    .prep-list li::before {
+      content: '1';
+      position: absolute;
+      left: 0;
+      width: 1.2em;
+      height: 1.2em;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .prep-list li:nth-child(1)::before { content: '1'; }
+    .prep-list li:nth-child(2)::before { content: '2'; }
+    .prep-list li:nth-child(3)::before { content: '3'; }
+    .prep-list li:nth-child(4)::before { content: '4'; }
+    .prep-list li:nth-child(5)::before { content: '5'; }
+    .prep-list li:nth-child(6)::before { content: '6'; }
+
+    .gap-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .gap-item strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .gap-item span {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+
+    /* Company highlights */
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .highlight-grid {
+        grid-template-columns: 1fr;
+        min-width: 0;
+      }
+    }
+
+    .highlight-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .highlight-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .highlight-card h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-card p {
+      font-size: 0.9rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      transition: all 0.2s;
+    }
+
+    .tab:hover {
+      color: var(--ink);
+      border-color: var(--accent-dim);
+    }
+
+    .tab.active {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .verdict-badge {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #d1fae5;
+      color: #059669;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    .dashboard-content { display: none; }
+    .dashboard-content.visible { display: block; }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0.75rem;
+        padding-left: max(0.75rem, env(safe-area-inset-left));
+        padding-right: max(0.75rem, env(safe-area-inset-right));
+      }
+
+      header {
+        padding: 2rem 0 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .subtitle {
+        font-size: 0.85rem;
+      }
+
+      .score-circle {
+        width: 120px;
+        height: 120px;
+      }
+
+      .score-inner {
+        width: 92px;
+        height: 92px;
+      }
+
+      .score-value {
+        font-size: 2rem;
+      }
+
+      .chart-container {
+        height: 240px;
+        padding: 0.25rem;
+      }
+
+      .req-table {
+        min-width: 420px;
+      }
+
+      .req-table th,
+      .req-table td {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.8rem;
+      }
+
+      .match-badge {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.4rem;
+      }
+
+      .strength-list li,
+      .gap-list li,
+      .prep-list li {
+        font-size: 0.9rem;
+        padding-left: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Job Fit Analysis</h1>
+      <p class="subtitle" id="headerSubtitle">Load <code>job-fit-dashboard.json</code> to view your analysis</p>
+      <p class="subtitle" id="headerMeta"></p>
+    </header>
+
+    <div class="load-area" id="loadArea">
+      <label for="fileInput">
+        <button type="button" class="btn" onclick="document.getElementById('fileInput').click()">Choose JSON file</button>
+      </label>
+      <input type="file" id="fileInput" accept=".json">
+      <button type="button" class="btn btn-secondary" id="loadFromPath">Load job-fit-dashboard.json</button>
+      <p>Or run Job-Advisor-for-Job-Seekers to generate the JSON, then open this page.</p>
+    </div>
+
+    <div class="dashboard-content" id="dashboardContent">
+      <div class="score-hero">
+        <div class="score-circle" id="scoreCircle" style="--score: 0;">
+          <div class="score-inner">
+            <span class="score-value" id="scoreValue">--</span>
+            <span class="score-max">/ 100</span>
+          </div>
+        </div>
+        <div class="score-summary">
+          <h2>Overall Match</h2>
+          <p id="scoreSummary"></p>
+        </div>
+      </div>
+
+      <section id="granularSection">
+        <h2>Granular Scores</h2>
+        <div class="chart-row">
+          <div class="card chart-wrapper">
+            <div class="chart-container">
+              <canvas id="radarChart"></canvas>
+            </div>
+          </div>
+          <div class="card chart-wrapper">
+            <div class="chart-container">
+              <canvas id="barChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="requirementsSection" style="display: none;">
+        <h2>Job Requirements vs. Resume</h2>
+        <div class="card">
+          <div class="table-wrapper">
+            <table class="req-table">
+              <thead>
+                <tr>
+                  <th>Requirement</th>
+                  <th>Evidence</th>
+                  <th>Match</th>
+                </tr>
+              </thead>
+              <tbody id="reqTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="companySection" style="display: none;">
+        <h2 id="companySectionTitle">Company Research</h2>
+        <div class="highlight-grid" id="companyHighlights"></div>
+        <div class="card" id="companyVerdictCard" style="margin-top: 1rem; display: none;">
+          <h3 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--ink-muted);">Verdict</h3>
+          <p id="companyVerdict"></p>
+          <span class="verdict-badge" id="verdictBadge" style="display: none;"></span>
+        </div>
+      </section>
+
+      <section>
+        <div class="tabs">
+          <button class="tab active" data-tab="strengths">Strengths</button>
+          <button class="tab" data-tab="gaps">Gaps & How to Address</button>
+          <button class="tab" data-tab="prep">Interview Prep Focus</button>
+        </div>
+        <div id="strengths" class="tab-content active">
+          <div class="card">
+            <ul class="strength-list" id="strengthList"></ul>
+          </div>
+        </div>
+        <div id="gaps" class="tab-content">
+          <div class="card">
+            <ul class="gap-list" id="gapList"></ul>
+          </div>
+        </div>
+        <div id="prep" class="tab-content">
+          <div class="card">
+            <ul class="prep-list" id="prepList"></ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer id="footerText">
+      Generated by Job-Advisor-for-Job-Seekers · <a href="index.html">Job Advisor Web</a>
+    </footer>
+  </div>
+
+  <script>
+    let radarChart = null;
+    let barChart = null;
+
+    const matchClass = {
+      exceeds: 'match-exceeds',
+      strong: 'match-strong',
+      verify: 'match-verify',
+      confirm: 'match-confirm',
+      elaborate: 'match-elaborate',
+      partial: 'match-partial',
+      prepare: 'match-prepare'
+    };
+
+    const highlightLabels = {
+      executiveSummary: 'Executive Summary',
+      leadership: 'Leadership',
+      products: 'Products',
+      roleFocus: 'Role Focus',
+      keyRequirements: 'Key Requirements',
+      territory: 'Territory',
+      culture: 'Culture',
+      growth: 'Growth & AI',
+      apacExpansion: 'APAC Expansion',
+      hongKongPresence: 'Hong Kong Presence',
+      competitors: 'Competitors',
+      recommendation: 'Recommendation'
+    };
+
+    function renderDashboard(data) {
+      const meta = data.meta || {};
+      const overall = data.overallMatch || {};
+      const granular = data.granularScores || [];
+      const requirements = data.jobRequirements || [];
+      const strengths = data.strengths || [];
+      const gaps = data.gaps || [];
+      const prep = data.interviewPrepFocus || [];
+      const company = data.companyResearch?.highlights || {};
+
+      // Header (match Qualtrics layout)
+      const sub = document.getElementById('headerSubtitle');
+      const jobTitle = meta.jobTitle || 'Role';
+      const companyName = meta.company || 'Company';
+      if (meta.jobUrl) {
+        sub.innerHTML = `${meta.candidate || 'Candidate'} → <a href="${meta.jobUrl}" target="_blank" rel="noopener">${escapeHtml(jobTitle)}</a> at ${escapeHtml(companyName)}`;
+      } else {
+        sub.innerHTML = `${meta.candidate || 'Candidate'} → ${escapeHtml(jobTitle)} at ${escapeHtml(companyName)}`;
+      }
+      const metaLine = document.getElementById('headerMeta');
+      const locOrTerritory = meta.territory || meta.location;
+      const dateStr = meta.generatedAt ? formatDate(meta.generatedAt) : '';
+      const metaParts = [locOrTerritory, dateStr].filter(Boolean);
+      metaLine.textContent = metaParts.length ? metaParts.join(' · ') : '';
+      metaLine.style.display = metaParts.length ? 'block' : 'none';
+
+      // Page title (match Qualtrics)
+      if (meta.company && meta.jobTitle && meta.candidate) {
+        document.title = `${meta.company} ${meta.jobTitle} — Job Fit Analysis | ${meta.candidate}`;
+      }
+
+      // Score hero
+      const score = overall.score ?? 0;
+      document.getElementById('scoreCircle').style.setProperty('--score', score);
+      document.getElementById('scoreValue').textContent = score;
+      document.getElementById('scoreSummary').textContent = overall.summary || 'No summary available.';
+
+      // Charts
+      if (granular.length > 0) {
+        const ctxRadar = document.getElementById('radarChart').getContext('2d');
+        const ctxBar = document.getElementById('barChart').getContext('2d');
+
+        if (radarChart) radarChart.destroy();
+        radarChart = new Chart(ctxRadar, {
+          type: 'radar',
+          data: {
+            labels: granular.map(s => s.dimension),
+            datasets: [{
+              label: 'Score',
+              data: granular.map(s => s.score),
+              fill: true,
+              backgroundColor: 'rgba(13, 148, 136, 0.2)',
+              borderColor: '#0d9488',
+              borderWidth: 2,
+              pointBackgroundColor: '#0d9488',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: '#0d9488'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: { padding: { left: 10, right: 10, top: 10, bottom: 10 } },
+            scales: {
+              r: {
+                min: 0,
+                max: 100,
+                ticks: { stepSize: 25, font: { size: 10 } },
+                pointLabels: { font: { size: 10 } }
+              }
+            },
+            plugins: { legend: { display: false } }
+          }
+        });
+
+        if (barChart) barChart.destroy();
+        barChart = new Chart(ctxBar, {
+          type: 'bar',
+          data: {
+            labels: granular.map(s => s.dimension),
+            datasets: [{
+              label: 'Score',
+              data: granular.map(s => s.score),
+              backgroundColor: granular.map(s =>
+                s.score >= 85 ? 'rgba(13, 148, 136, 0.7)' :
+                s.score >= 75 ? 'rgba(13, 148, 136, 0.5)' : 'rgba(124, 58, 237, 0.7)'
+              ),
+              borderColor: granular.map(s =>
+                s.score >= 85 ? '#0d9488' : s.score >= 75 ? '#0d9488' : '#7c3aed'
+              ),
+              borderWidth: 1
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: { padding: { left: 5, right: 10, top: 5, bottom: 5 } },
+            scales: {
+              x: { min: 0, max: 100 },
+              y: { ticks: { font: { size: 10 } } }
+            },
+            plugins: { legend: { display: false } }
+          }
+        });
+      }
+
+      // Requirements table
+      const reqSection = document.getElementById('requirementsSection');
+      const reqBody = document.getElementById('reqTableBody');
+      reqBody.innerHTML = '';
+      if (requirements.length > 0) {
+        reqSection.style.display = 'block';
+        requirements.forEach(r => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${escapeHtml(r.requirement)}</td>
+            <td>${escapeHtml(r.evidence)}</td>
+            <td><span class="match-badge ${matchClass[r.match] || ''}">${escapeHtml(r.match || '—')}</span></td>
+          `;
+          reqBody.appendChild(tr);
+        });
+      }
+
+      // Company highlights
+      const companySection = document.getElementById('companySection');
+      const grid = document.getElementById('companyHighlights');
+      grid.innerHTML = '';
+      const verdictCard = document.getElementById('companyVerdictCard');
+      const verdictText = document.getElementById('companyVerdict');
+      const verdictBadge = document.getElementById('verdictBadge');
+
+      const excludeKeys = ['recommendation', 'verdict', 'verdictBadge'];
+      let hasHighlights = false;
+      for (const [k, v] of Object.entries(company)) {
+        if (!v || excludeKeys.includes(k)) continue;
+        hasHighlights = true;
+        const card = document.createElement('div');
+        card.className = 'highlight-card';
+        card.innerHTML = `<h3>${highlightLabels[k] || k}</h3><p>${escapeHtml(v)}</p>`;
+        grid.appendChild(card);
+      }
+      const verdict = company.verdict || company.recommendation;
+      let badge = company.verdictBadge || data.companyResearch?.verdictBadge;
+      if (verdict) {
+        verdictCard.style.display = 'block';
+        verdictText.textContent = verdict;
+        if (!badge && verdict.startsWith('Good —')) {
+          badge = 'Good — Proceed with application';
+        }
+        if (badge) {
+          verdictBadge.textContent = badge;
+          verdictBadge.style.display = 'inline-block';
+        } else {
+          verdictBadge.style.display = 'none';
+        }
+      } else {
+        verdictCard.style.display = 'none';
+      }
+      companySection.style.display = hasHighlights || verdict ? 'block' : 'none';
+      document.getElementById('companySectionTitle').textContent = `Company Research — ${meta.company || 'Company'}`;
+
+      // Strengths
+      const strengthList = document.getElementById('strengthList');
+      strengthList.innerHTML = strengths.map(s =>
+        `<li>${escapeHtml(typeof s === 'string' ? s : s.text || s.gap || JSON.stringify(s))}</li>`
+      ).join('') || '<li>No strengths listed.</li>';
+
+      // Gaps
+      const gapList = document.getElementById('gapList');
+      gapList.innerHTML = gaps.map(g => {
+        const gap = typeof g === 'string' ? g : g.gap;
+        const rec = typeof g === 'object' && g.recommendation ? g.recommendation : '';
+        return `<li><div class="gap-item"><strong>${escapeHtml(gap)}</strong><span>${escapeHtml(rec)}</span></div></li>`;
+      }).join('') || '<li>No gaps listed.</li>';
+
+      // Interview prep
+      const prepList = document.getElementById('prepList');
+      prepList.innerHTML = prep.map(p =>
+        `<li>${escapeHtml(typeof p === 'string' ? p : p.text || JSON.stringify(p))}</li>`
+      ).join('') || '<li>No interview prep focus listed.</li>';
+
+      // Footer (match reference: no .md extensions, candidate name in resume report)
+      const footer = document.getElementById('footerText');
+      if (meta.company) {
+        const candidateShort = (meta.candidate || 'Candidate').split(/\s+/).slice(0, 2).join('-');
+        footer.innerHTML = `Generated by Job-Advisor-for-Job-Seekers · ${meta.company}-Company-Research-Report · ${meta.company}-${candidateShort}-Resume-Match-Report`;
+      } else {
+        footer.innerHTML = 'Generated by Job-Advisor-for-Job-Seekers · <a href="index.html">Job Advisor Web</a>';
+      }
+
+      // Tabs
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.onclick = () => {
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+        };
+      });
+
+      document.getElementById('loadArea').style.display = 'none';
+      document.getElementById('dashboardContent').classList.add('visible');
+    }
+
+    function escapeHtml(s) {
+      if (!s) return '';
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    function formatDate(s) {
+      if (!s) return '';
+      const m = String(s).match(/^(\d{4})-(\d{2})/);
+      if (!m) return s;
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      return `${months[parseInt(m[2], 10) - 1]} ${m[1]}`;
+    }
+
+    // Load from file
+    document.getElementById('fileInput').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const data = JSON.parse(reader.result);
+          renderDashboard(data);
+        } catch (err) {
+          alert('Invalid JSON: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    // Load from same directory (job-fit-dashboard.json)
+    document.getElementById('loadFromPath').addEventListener('click', () => {
+      fetch('job-fit-dashboard.json')
+        .then(r => r.json())
+        .then(data => renderDashboard(data))
+        .catch(err => alert('Could not load job-fit-dashboard.json: ' + err.message));
+    });
+
+    // Try to auto-load on page load if JSON exists
+    fetch('job-fit-dashboard.json')
+      .then(r => r.json())
+      .then(data => {
+        renderDashboard(data);
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>
