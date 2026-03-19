@@ -1,49 +1,58 @@
-# Job Fit Report: Max Seto → Solution Sales Executive at Moveworks
+# Job Fit Analysis: Max Seto → Solution Sales Executive at Moveworks
 
-*Generated: March 20, 2025*
+**Job Link**: https://www.moveworks.com/us/en/company/careers/position?gh_jid=8371211002  
+**Status**: Job link verified accessible ✓
 
----  this is new
+---
 
-# Part 1: Company Research
+# Part 1: Company Research Report — Moveworks
 
---NEW --    
+*Applying for Solution Sales Executive (Remote, Hong Kong)*
 
 ## Executive Summary
 
-Moveworks is an enterprise AI company that provides an AI Assistant platform for workforce productivity—combining context-aware search and end-to-end task automation across business applications. Founded in 2016, it serves 350+ enterprises and 5M+ employees, including 10% of the Fortune 500. In **December 2025**, Moveworks was acquired by ServiceNow for **$2.85 billion** (ServiceNow's largest acquisition). For a Solution Sales Executive, this means selling a mature, high-value AI platform with strong enterprise traction, deep ServiceNow integration, and a clear path to growth within a larger organization.
+Moveworks is an Agentic AI Assistant platform that empowers the entire workforce. Founded in 2016, the company was acquired by ServiceNow in December 2025 for $2.85 billion—ServiceNow's largest acquisition. Moveworks is trusted by over 5.5 million employees at 350+ companies, including 10% of the Fortune 500. The platform enables employees to converse with business systems through natural language to find answers and automate tasks. The **Solution Sales Executive** role oversees market success of ServiceNow's Moveworks AI products, supporting territory strategy, coaching AEs/ADRs/ACE teams, and guiding customers on digital transformation. The role is **Remote, Hong Kong** with 30–50% travel required.
 
-## Target Role: Solution Sales Executive
+## Company Background
 
-**Key Requirements & Qualifications** (from job aggregators):
+- **Mission:** Transform how work gets done by allowing AI to take initiative, streamline complex workflows, and continuously learn and adapt
+- **Founded:** 2016; Acquired by ServiceNow Dec 15, 2025 for $2.85B
+- **HQ:** Mountain View, CA (Moveworks); ServiceNow Santa Clara, CA
+- **Market:** 350+ enterprises; 5.5M+ users; 10% Fortune 500; ~250 mutual ServiceNow customers
 
-| Category | Requirements |
-|----------|--------------|
-| **Experience** | 5–7+ years closing complex software deals; Account Executive or equivalent sales experience |
-| **Deal size** | Track record of $1M+ annual quota; average deal $250K+; multi-million dollar deals |
-| **Methodology** | Value selling (MEDDPIC, Force Management, Challenger) |
-| **Relationships** | Ability to build and drive C-level relationships |
-| **Tools** | Salesforce; forecasting |
-| **Travel** | 30–50% |
+## Leadership
 
-**Products**: AI Assistant, Enterprise Search, Agent Studio, Reasoning Engine, AI Agent Marketplace, Service Management (strong ServiceNow integration).
+- **Bhavin Shah** — CEO and Co-founder
+- **Varun Singh** — President and Co-founder
+- **Jiang Chen** — CTO of AI
+- **Vaibhav Nivargi** — CTO
 
-**Culture**: 7 values—Excellence, Ownership, Action, Execution, Transparency, Growth mindset, Speed. Glassdoor 3.8–4.1/5; 82% CEO approval.
+## Products
 
-*Full company research: `job-advisor-web/Moveworks-Company-Research-Report.md`*
+AI Assistant, Enterprise Search, Agent Studio, Reasoning Engine, Service Management, AI Agent Marketplace. Post-acquisition: integrates with ServiceNow workflow automation for "AI-native front door" to work.
+
+## Job Posting Requirements (Verified)
+
+- AI integration experience (work processes, decision-making, problem-solving)
+- 5+ years ROI/solution win knowledge
+- Experience as AE or alternative sales/customer service role
+- Understanding of business sales processes
+- Travel: 30–50%
 
 ---
 
 # Part 2: Resume–Job Match Report
 
-**Candidate**: Max Seto  
-**Target**: Solution Sales Executive at Moveworks  
-**Location**: Hong Kong SAR (candidate) / Role location TBD (Moveworks is US-based; ServiceNow has APAC presence)
+**Candidate**: Max Seto (SETO Wai)  
+**Target**: Solution Sales Executive at Moveworks (ServiceNow)  
+**Location**: Remote, Hong Kong  
+**Resume Source**: LinkedIn (https://www.linkedin.com/in/max-seto-pmp-75ab992b/)
 
 ---
 
-## Overall Match Score: 68/100
+## Overall Match Score: 72/100
 
-**Summary:** Max has deep enterprise SaaS and presales leadership experience at Workday and Oracle, with strong domain expertise in HCM and workforce solutions that align well with Moveworks' AI platform for workforce productivity. However, the Solution Sales Executive role is fundamentally a quota-carrying, deal-closing position, whereas Max's background is presales/solution consulting. His profile is an excellent fit for Advisory Solution Consultant or Director Solution Consulting roles; for Solution Sales Executive, he would need to demonstrate or pivot toward direct sales and quota ownership.
+**Summary**: Strong moderate-to-good fit for the Solution Sales Executive role. Max brings 21+ years of enterprise software experience, including 18+ years in presales/sales consulting at Workday and Oracle. His deep HCM and workforce domain expertise aligns well with Moveworks' AI platform for employee productivity. The job posting explicitly accepts "alternative sales/customer service role" alongside AE experience—presales qualifies. Key strengths: Hong Kong location (exact match), AI integration experience (n8n, Flowise, Cursor, AI agents), C-level engagement, and ROI/solution win expertise. Main consideration: the role emphasizes coaching AEs and territory strategy; Max's presales leadership maps well, but he should articulate how his experience translates to supporting quota-carrying sales teams.
 
 ---
 
@@ -51,24 +60,25 @@ Moveworks is an enterprise AI company that provides an AI Assistant platform for
 
 | Dimension | Score | Rationale |
 |-----------|-------|-----------|
-| Skills | 65 | Strong enterprise SaaS, HCM, CRM, and presales skills; value selling methodology (MEDDPIC, Challenger) not explicitly cited; Salesforce and forecasting experience unclear. Skills are presales-heavy vs. AE closing focus. |
-| Experience | 60 | 21 years in enterprise software; 18+ in presales/sales consulting at Oracle and Workday. Domain and tenure align, but role type differs—presales leadership vs. quota-carrying sales. |
-| Education | 70 | PMP® credential; no degree explicitly listed on LinkedIn. Role typically expects bachelor's; PMP adds credibility for complex deal execution. |
-| Location | 75 | Hong Kong-based; Moveworks/ServiceNow has APAC presence. Role requires 30–50% travel. Geographic fit plausible for APAC-focused role; US-based role would be a stretch. |
-| Adaptability | 85 | Strong career evolution: programmer → PM → consultant → presales → Head of Presales. Cross-domain (ERP, HCM, PLM, VCP, retail). Demonstrated learning agility. |
-| Future career growth | 70 | Moveworks post-acquisition offers growth. Presales-to-sales pivot is possible but represents a role shift. Clear path if he targets Solution Consulting vs. Sales. |
-| Income | 75 | Workday/Oracle presales leadership typically commands strong compensation. No explicit data; assumed within range with some uncertainty. |
+| Skills | 75 | AI integration (n8n, Flowise, Cursor, AI agents); 5+ years ROI knowledge; consultative selling, discovery, demos. Value selling methodology not explicitly cited. |
+| Experience | 70 | 21 years enterprise software; 18+ presales. Job accepts AE or alternative—presales qualifies. Head of Presales; coached teams; complex deals. |
+| Education | 75 | BSc Computing Studies; PMP®. Meets expectations; PMP adds credibility. |
+| Location | 95 | **Excellent fit.** Role is Remote, Hong Kong; Max is Hong Kong-based. No relocation required. |
+| Adaptability | 88 | Career evolution: technical → PM → consultant → presales → Head of Presales. AI/automation; cross-domain. Strong learning agility. |
+| Future career growth | 78 | Moveworks post-acquisition offers agentic AI growth. Presales-to-sales-support is natural extension. |
+| Income | 72 | Workday/Oracle presales leadership; role ~$124K–$205K (US). Reasonable fit. |
 
 ---
 
 ## Strengths
 
-- **Enterprise SaaS pedigree**: 10+ years at Oracle and Workday—both Fortune 500 vendors with complex, high-value deals.
-- **HCM and workforce domain**: Deep expertise in HCM, ERP, and workforce solutions; directly relevant to Moveworks' AI Assistant for workforce productivity.
-- **Presales leadership**: Head of Presales Greater China at Workday; proven ability to scale teams and drive technical discovery, demos, and POCs.
-- **C-level engagement**: Experience providing insights to C-level in retail, EMS, high-tech, and F&B; Go-to-Market strategy development.
-- **PMP certification**: Strong project and program management discipline for complex, multi-stakeholder deals.
-- **ServiceNow ecosystem awareness**: Moveworks acquired by ServiceNow (Dec 2025); Workday and ServiceNow operate in adjacent enterprise software spaces.
+1. **Location alignment**: Hong Kong-based; role is Remote, Hong Kong—exact geographic match.
+2. **AI and automation**: Hands-on n8n, Flowise, Cursor, AI agent development; aligns with Moveworks' agentic AI platform.
+3. **HCM and workforce domain**: Workday HCM, Oracle HCM; Moveworks targets HR, IT, employee experience—same buyer personas.
+4. **Presales leadership**: Head of Presales Greater China; coaches teams, territory strategy, account planning.
+5. **C-level engagement**: Executive demos, C-suite advisory across Greater China.
+6. **Complex deal experience**: JD.com, Tencent, Bytedance, Jardine Matheson.
+7. **PMP certification**: Project discipline for multi-stakeholder deals.
 
 ---
 
@@ -76,27 +86,31 @@ Moveworks is an enterprise AI company that provides an AI Assistant platform for
 
 | Gap | Recommendation |
 |-----|----------------|
-| **Presales vs. Sales role mismatch** | Solution Sales Executive is quota-carrying; Max's background is presales. If targeting this role, highlight any deal-closing, pipeline ownership, or quota experience. Otherwise, consider Advisory Solution Consultant or Director Solution Consulting roles at Moveworks/ServiceNow. |
-| **Value selling methodology not cited** | Add MEDDPIC, Challenger, or Force Management training/experience to resume and LinkedIn. Prepare stories that demonstrate value selling and business case development. |
-| **Deal size and quota metrics missing** | Quantify: deal sizes closed or influenced, pipeline generated, quota attainment, and annual contract values. Even presales-influenced metrics strengthen the narrative. |
-| **Salesforce and forecasting** | Explicitly list Salesforce and forecasting tools used; these are standard requirements for the role. |
-| **Geography** | Confirm whether the role is US-based or APAC. If US-based, address relocation or remote-work expectations. |
+| Presales vs. sales role | Frame presales as "alternative sales/customer service role" per job posting. Emphasize deal influence, pipeline contribution, coaching of sales teams. |
+| Value selling methodology | Add MEDDPIC, Challenger, or similar to resume/LinkedIn if applicable. Prepare ROI and business case stories. |
+| Deal and quota metrics | Quantify deal sizes influenced, pipeline generated, ACV—even if presales-influenced. |
+| Moveworks product knowledge | Research Moveworks AI Assistant, Reasoning Engine, ServiceNow integration. Prepare "Why Moveworks" narrative. |
 
 ---
 
 ## Interview Prep Focus
 
-1. **Role clarity**: Be ready to explain why you're moving from presales leadership to Solution Sales Executive (quota-carrying). Frame presales as a foundation for sales—e.g., "I've built the technical and business case for hundreds of deals; now I want to own the full sales cycle."
-2. **Moveworks + ServiceNow**: Understand the acquisition rationale, product integration roadmap, and how Moveworks fits into ServiceNow's AI strategy. Reference the $2.85B deal and ~250 mutual customers.
-3. **Value selling and C-level relationships**: Prepare 2–3 stories of complex deals where you developed business cases for unbudgeted spend and engaged C-level stakeholders.
-4. **Metrics**: Prepare specific numbers: deal sizes, pipeline, quota attainment, and ACV—even if presales-influenced.
+1. **Role clarity**: Explain how presales qualifies as "alternative sales/customer service role." Emphasize coaching, territory strategy, solution win.
+2. **Moveworks + ServiceNow**: Understand Dec 2025 acquisition, product integration, AI strategy. Reference 250 mutual customers.
+3. **AI integration**: Prepare 2–3 stories of AI/automation work (n8n, Flowise, AI agents).
+4. **Territory and coaching**: Describe supporting sales teams, territory strategy, coaching AEs.
+5. **Travel**: Confirm 30–50% expectations and APAC flexibility.
 
 ---
 
 ## Actionable Recommendations
 
-1. **Verify role fit**: Confirm whether you want a quota-carrying sales role (Solution Sales Executive) or a presales/consulting role (Advisory Solution Consultant, Director Solution Consulting). Your profile is stronger for the latter.
-2. **Update resume and LinkedIn**: Add value selling methodology, Salesforce, deal metrics, and quota/ACV where applicable.
-3. **Leverage Workday–ServiceNow adjacency**: Emphasize enterprise HCM and workforce domain; Moveworks targets similar buyer personas (HR, IT, employee experience).
-4. **Network**: Connect with Moveworks/ServiceNow employees in APAC, especially post-acquisition; understand team structure and hiring priorities.
-5. **Prepare for role-type questions**: Expect "Why sales vs. presales?" and "What's your quota experience?"—have clear, evidence-based answers.
+1. **Tailor application**: Add "Moveworks alignment" section—AI integration, workforce domain, Hong Kong base, coaching experience.
+2. **Cover letter**: Explain interest post-acquisition; emphasize AI platform fit; address "alternative sales" framing.
+3. **LinkedIn**: Highlight workflow automation, AI agents, presales leadership, Hong Kong. Connect with Moveworks/ServiceNow APAC.
+4. **Prepare metrics**: Compile deal sizes, pipeline influenced, ACV.
+5. **Research**: ServiceNow fundamentals; Moveworks product pages and agentic AI blog posts.
+
+---
+
+*Report generated by Job-Interview-resume-skill-matching agent. Job posting verified March 19, 2026.*
