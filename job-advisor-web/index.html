@@ -1132,9 +1132,16 @@
       return true;
     }
 
+    function getReportUrl() {
+      if (window.location.hostname.includes('github.io')) {
+        return 'report.md?t=' + Date.now();
+      }
+      return '/api/report?t=' + Date.now();
+    }
+
     async function fetchReport() {
       try {
-        const r = await fetch('/api/report?t=' + Date.now());
+        const r = await fetch(getReportUrl());
         if (r.ok) {
           const text = await r.text();
           if (renderDashboard(text)) {
@@ -1159,7 +1166,7 @@
 
     document.getElementById('refreshReportBtn').addEventListener('click', async () => {
       try {
-        const r = await fetch('/api/report?t=' + Date.now());
+        const r = await fetch(getReportUrl());
         if (r.ok) {
           const text = await r.text();
           if (renderDashboard(text)) {
@@ -1169,7 +1176,7 @@
           } else showToast('Report file exists but could not parse (' + text.length + ' chars).');
         } else showToast('No report yet. Run Job Advisor in Cursor first.');
       } catch (_) {
-        showToast('Server not running. Start with: node job-advisor-web/server.js');
+        showToast('Server not running. Start with: npm run job-advisor');
       }
     });
 
