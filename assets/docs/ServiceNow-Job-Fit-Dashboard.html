@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiceNow Solution Sales Executive — Job Fit Analysis | Jeffrey Lam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --ink: #0f172a;
+      --ink-muted: #64748b;
+      --paper: #f8fafc;
+      --accent: #0d9488;
+      --accent-dim: #5eead4;
+      --accent-dark: #0f766e;
+      --success: #059669;
+      --warn: #d97706;
+      --verify: #7c3aed;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+      --shadow-lg: 0 12px 48px rgba(15, 23, 42, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+    }
+
+    .subtitle a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    .score-hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+      border-radius: var(--radius);
+      color: white;
+      box-shadow: var(--shadow-lg);
+      animation: fadeUp 0.6s ease-out;
+    }
+
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent) calc(var(--score) * 3.6deg), rgba(255,255,255,0.15) 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .score-inner {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-value {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .score-max {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .score-summary {
+      max-width: 420px;
+      text-align: left;
+    }
+
+    .score-summary h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--accent-dim);
+    }
+
+    .score-summary p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    section {
+      margin: 2.5rem 0;
+      animation: fadeUp 0.6s ease-out backwards;
+    }
+
+    section:nth-child(3) { animation-delay: 0.1s; }
+    section:nth-child(4) { animation-delay: 0.15s; }
+    section:nth-child(5) { animation-delay: 0.2s; }
+    section:nth-child(6) { animation-delay: 0.25s; }
+    section:nth-child(7) { animation-delay: 0.3s; }
+    section:nth-child(8) { animation-delay: 0.35s; }
+    section:nth-child(9) { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+      max-width: 200px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+    }
+
+    .chart-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .chart-row { grid-template-columns: 1fr; }
+    }
+
+    .chart-container {
+      position: relative;
+      height: 280px;
+      padding: 1rem;
+    }
+
+    .req-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .req-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .req-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .req-table tr:hover td {
+      background: rgba(13, 148, 136, 0.04);
+    }
+
+    .match-badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .match-exceeds { background: #ccfbf1; color: #0d9488; }
+    .match-strong { background: #d1fae5; color: #059669; }
+    .match-verify { background: #ede9fe; color: #7c3aed; }
+    .match-confirm { background: #fef3c7; color: #d97706; }
+    .match-elaborate { background: #fce7f3; color: #be185d; }
+    .match-partial { background: #e0e7ff; color: #4f46e5; }
+    .match-prepare { background: #fef3c7; color: #b45309; }
+
+    .strength-list, .gap-list, .prep-list {
+      list-style: none;
+    }
+
+    .strength-list li, .gap-list li, .prep-list li {
+      padding: 0.75rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .strength-list li:last-child,
+    .gap-list li:last-child,
+    .prep-list li:last-child {
+      border-bottom: none;
+    }
+
+    .strength-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .gap-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--warn);
+      font-weight: 600;
+    }
+
+    .prep-list li::before {
+      content: '1';
+      position: absolute;
+      left: 0;
+      width: 1.2em;
+      height: 1.2em;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .prep-list li:nth-child(1)::before { content: '1'; }
+    .prep-list li:nth-child(2)::before { content: '2'; }
+    .prep-list li:nth-child(3)::before { content: '3'; }
+    .prep-list li:nth-child(4)::before { content: '4'; }
+    .prep-list li:nth-child(5)::before { content: '5'; }
+    .prep-list li:nth-child(6)::before { content: '6'; }
+
+    .gap-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .gap-item strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .gap-item span {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .highlight-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .highlight-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .highlight-card h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-card p {
+      font-size: 0.9rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      transition: all 0.2s;
+    }
+
+    .tab:hover {
+      color: var(--ink);
+      border-color: var(--accent-dim);
+    }
+
+    .tab.active {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .verdict-badge {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #d1fae5;
+      color: #059669;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Job Fit Analysis</h1>
+      <p class="subtitle">Jeffrey Lam → <a href="https://www.linkedin.com/jobs/view/4369902279" target="_blank" rel="noopener">Solution Sales Executive, Core Business Solutions (Hong Kong)</a> at ServiceNow</p>
+      <p class="subtitle">North Asia (HK, Macau, Taiwan, Philippines) · March 2026</p>
+    </header>
+
+    <div class="score-hero">
+      <div class="score-circle" style="--score: 87;">
+        <div class="score-inner">
+          <span class="score-value">87</span>
+          <span class="score-max">/ 100</span>
+        </div>
+      </div>
+      <div class="score-summary">
+        <h2>Overall Match</h2>
+        <p>Strong fit. Jeffrey has 15+ years of enterprise SaaS sales, direct Workday and Oracle HCM experience, and strong quota attainment (118–143% team, 300%+ individual). His Hong Kong base and fluency in English/Cantonese/Mandarin align well with the North Asia territory. Main points to clarify: RSD applying for IC role; Procurement/Legal/Coupa/Ariba experience; AI integration learnable.</p>
+      </div>
+    </div>
+
+    <section>
+      <h2>Granular Scores</h2>
+      <div class="chart-row">
+        <div class="card">
+          <div class="chart-container">
+            <canvas id="radarChart"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <div class="chart-container">
+            <canvas id="barChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Job Requirements vs. Resume</h2>
+      <div class="card">
+        <table class="req-table">
+          <thead>
+            <tr>
+              <th>Requirement</th>
+              <th>Evidence</th>
+              <th>Match</th>
+            </tr>
+          </thead>
+          <tbody id="reqTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Company Research — ServiceNow</h2>
+      <div class="highlight-grid" id="companyHighlights"></div>
+      <div class="card" style="margin-top: 1rem;">
+        <h3 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--ink-muted);">Verdict</h3>
+        <p>ServiceNow is a strong employer for a Solution Sales Executive in Hong Kong, with market leadership (~$13B+ revenue, ~$120B market cap), ~21–24% YoY growth, and investment in AI and Core Business Solutions. North Asia HQ in Causeway Bay; Glassdoor 4.2/5, 93% CEO approval.</p>
+        <span class="verdict-badge">Good — Proceed with application</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="tabs">
+        <button class="tab active" data-tab="strengths">Strengths</button>
+        <button class="tab" data-tab="gaps">Gaps & How to Address</button>
+        <button class="tab" data-tab="prep">Interview Prep Focus</button>
+      </div>
+      <div id="strengths" class="tab-content active">
+        <div class="card">
+          <ul class="strength-list" id="strengthList"></ul>
+        </div>
+      </div>
+      <div id="gaps" class="tab-content">
+        <div class="card">
+          <ul class="gap-list" id="gapList"></ul>
+        </div>
+      </div>
+      <div id="prep" class="tab-content">
+        <div class="card">
+          <ul class="prep-list" id="prepList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Generated by Job-Advisor-for-Job-Seekers · ServiceNow-Company-Research-Report · ServiceNow-Jeffrey-Lam-Resume-Match-Report
+    </footer>
+  </div>
+
+  <script>
+    const data = {
+      meta: {
+        candidate: "Jeffrey Lam Man Kit",
+        company: "ServiceNow",
+        jobTitle: "Solution Sales Executive, Core Business Solutions (Hong Kong)",
+        location: "Causeway Bay, Hong Kong",
+        territory: "North Asia (Hong Kong, Macau, Taiwan) and Philippines",
+        jobUrl: "https://www.linkedin.com/jobs/view/4369902279",
+        resumePath: "assets/docs/Jeffrey Lam Resume.pdf",
+        generatedAt: "2026-03-19"
+      },
+      overallMatch: {
+        score: 87,
+        maxScore: 100,
+        summary: "Strong fit for the Solution Sales Executive role. Jeffrey brings 15+ years of enterprise SaaS sales across Workday, Oracle, Microsoft, and Infor—with direct knowledge of Workday and Oracle HCM. His quota attainment (118–143% team, 300%+ individual) far exceeds the 100%+ preference, and his Hong Kong base and fluency in English/Cantonese/Mandarin align perfectly with the North Asia territory."
+      },
+      granularScores: [
+        { dimension: "Skills", score: 88, rationale: "Direct overlap: Workday and Oracle HCM; consultative selling, HR/Finance transformation. Gaps: Procurement, Legal, Coupa/Ariba, Now Value, AI." },
+        { dimension: "Experience", score: 92, rationale: "15+ years (vs. 7+ required); 100%+ attainment every year; full-cycle and competitive displacement." },
+        { dimension: "Education", score: 75, rationale: "Bachelor of Accounting meets requirements." },
+        { dimension: "Location", score: 98, rationale: "Hong Kong SAR; Greater China focus; ideal for North Asia territory." },
+        { dimension: "Adaptability", score: 90, rationale: "Progression across Infor, Oracle, Microsoft, Workday; IC → RSD; HR/Finance across vendors." },
+        { dimension: "Future career growth", score: 78, rationale: "RSD → IC move; clarify intent. ServiceNow GenAI and Core Business Solutions offer strong upside." },
+        { dimension: "Income", score: 82, rationale: "ServiceNow OTE likely comparable to Workday RSD in Hong Kong." }
+      ],
+      jobRequirements: [
+        { requirement: "7+ years enterprise software sales", evidence: "15+ years (Workday 9+, Oracle 2.5, Microsoft 1.5, Infor 1.5, Exact 2, UFIDA 1.5)", match: "exceeds" },
+        { requirement: "100%+ quota attainment preferred", evidence: "FY26 143%, FY25 128%, FY24 118% (team); FY23 380%, FY22 130%, FY19 300%, FY18 330% (individual)", match: "exceeds" },
+        { requirement: "Full-cycle sales; competitive deal experience", evidence: "Full-cycle at Workday, Oracle, Microsoft; Oracle replacement (MOL), SAP replacement (Emperor Group)", match: "strong" },
+        { requirement: "Displacing incumbents", evidence: "MOL Liner (Oracle replacement), Emperor Group (SAP replacement)", match: "strong" },
+        { requirement: "Knowledge of Workday", evidence: "9+ years at Workday; selling HCM/Finance", match: "strong" },
+        { requirement: "Knowledge of Oracle HCM", evidence: "Oracle HCM Cloud (Fusion & Taleo) pioneer; first Fusion HCM deal in HK", match: "strong" },
+        { requirement: "Knowledge of SAP SuccessFactors, Coupa, Ariba", evidence: "SAP replacement experience at Microsoft; not explicitly stated", match: "verify" },
+        { requirement: "Business process expertise: HR, Finance, Procurement, Legal", evidence: "HR and Finance: strong. Procurement, Legal: not explicitly stated", match: "partial" },
+        { requirement: "Consultative selling; ROI models; Now Value", evidence: "Consultative selling, solution selling, complex sales cycle management", match: "strong" },
+        { requirement: "Experience with CHROs, CFOs, CPOs, General Counsel", evidence: "CHROs/CFOs via HR/Finance deals; CPOs/General Counsel not stated", match: "partial" },
+        { requirement: "AI integration awareness (Now Assist, AI Agents)", evidence: "Not stated", match: "prepare" },
+        { requirement: "Hong Kong / Greater China / Philippines experience", evidence: "Hong Kong SAR; Greater China focus; Philippines not stated", match: "strong" },
+        { requirement: "30% travel", evidence: "Not stated; Greater China role implies travel", match: "confirm" }
+      ],
+      strengths: [
+        "Quota attainment – Consistently over-attained: 118%, 128%, 143% team (FY24–FY26); 300%+ individual in multiple years; Top AE APJ (FY19, FY23); Top Financial Contributor APJ (FY18)",
+        "Workday and Oracle HCM expertise – Direct knowledge of two key platforms in job requirements; understands competitive landscape and displacement",
+        "Greater China enterprise wins – AIA Insurance, Melco Resorts, SFC, Klook, HKEX, Li & Fung, Johnson Electric (HK); Tencent International, Ctrip, NIO, Bytedance (China)",
+        "Location and languages – Hong Kong–based; fluent English, Cantonese (native), Mandarin; ideal for North Asia territory",
+        "HR/Finance transformation – Core expertise in consultative selling for HR and Finance digital transformations",
+        "Competitive displacement – Proven Oracle and SAP replacements (MOL, Emperor Group)",
+        "Complex sales cycle – Enterprise deal experience; long-cycle HR/Finance transformations"
+      ],
+      gaps: [
+        { gap: "Procurement, Legal, Coupa/Ariba not highlighted", recommendation: "Emphasize transferable skills: business process selling, cross-functional discovery. Research ServiceNow Procurement and Legal workflows; prepare 1–2 stories connecting HR/Finance to Procurement/Legal use cases." },
+        { gap: "AI integration (Now Assist, AI Agents) not stated", recommendation: "Complete ServiceNow's AI/GenAI resources; mention Workday AI (Paradox, Sana) if applicable. Prepare a 'Why ServiceNow AI' narrative." },
+        { gap: "CPOs, General Counsel experience", recommendation: "If you have dealt with Procurement or Legal stakeholders, add to resume or prepare stories. Otherwise, frame HR/Finance executive engagement as template for expanding to CPO/GC." },
+        { gap: "Philippines market", recommendation: "Clarify any Philippines experience or relationships. Outline how you would cover Philippines as part of North Asia territory." },
+        { gap: "IC vs. management (currently RSD applying for IC role)", recommendation: "Prepare clear narrative: platform breadth, Core Business Solutions expansion, GenAI focus. If expecting hybrid responsibilities, clarify with recruiter." },
+        { gap: "Now Value and ROI models", recommendation: "Research ServiceNow Now Value methodology; prepare examples of ROI/value storytelling from Workday deals." }
+      ],
+      interviewPrepFocus: [
+        "Core Business Solutions breadth – HR, Finance, Procurement, Legal, Workplace Service Delivery; use Workday/Oracle examples, connect to ServiceNow's unified platform",
+        "Competitive displacement – 2–3 stories of displacing incumbents (Oracle, SAP); full-cycle sales, discovery, value-based selling",
+        "GenAI and Now Assist – Research AI Agent Control Tower, Now Assist, 'Put AI to Work'; tie to digital transformation and workflow automation",
+        "IC narrative – If stepping from RSD to IC, explain why: platform breadth, Core Business Solutions scope, focus on large strategic deals",
+        "North Asia and Philippines – 90-day plan for Hong Kong, Macau, Taiwan, Philippines: target accounts, partners, coverage model",
+        "Now Value and ROI – 1–2 examples of ROI/value models from HR/Finance deals"
+      ],
+      companyResearch: {
+        highlights: {
+          executiveSummary: "ServiceNow is a leading enterprise workflow and AI platform (~$13B+ revenue, ~$120B market cap). Solution Sales Executive role is quota-carrying, Causeway Bay–based, focused on expanding beyond IT into HR, Finance, Procurement, Legal, Workplace across North Asia and Philippines.",
+          roleFocus: "Core Business Solutions – HR Service Delivery, Procurement, Finance Operations, Legal Contract Management, Workplace Service Delivery",
+          keyRequirements: "7+ years enterprise software sales; 100%+ quota attainment; Workday/SAP SuccessFactors/Oracle HCM/Coupa/Ariba knowledge; business process expertise; consultative selling; CHROs/CFOs/CPOs/General Counsel experience",
+          territory: "North Asia (Hong Kong, Macau, Taiwan) and Philippines; 30% travel",
+          culture: "Glassdoor 4.2/5, 93% CEO approval; strong sales culture, high quota attainment, competitive OTE",
+          growth: "~21–24% YoY; sharp focus on agentic AI and GenAI; North Asia HQ in Hong Kong (2013); AI Summits in Hong Kong (2025, 2026)"
+        }
+      }
+    };
+
+    // Radar chart
+    new Chart(document.getElementById('radarChart'), {
+      type: 'radar',
+      data: {
+        labels: data.granularScores.map(s => s.dimension),
+        datasets: [{
+          label: 'Score',
+          data: data.granularScores.map(s => s.score),
+          fill: true,
+          backgroundColor: 'rgba(13, 148, 136, 0.2)',
+          borderColor: '#0d9488',
+          borderWidth: 2,
+          pointBackgroundColor: '#0d9488',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: '#0d9488'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            min: 0,
+            max: 100,
+            ticks: { stepSize: 25 }
+          }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    // Bar chart
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: data.granularScores.map(s => s.dimension),
+        datasets: [{
+          label: 'Score',
+          data: data.granularScores.map(s => s.score),
+          backgroundColor: data.granularScores.map(s =>
+            s.score >= 85 ? 'rgba(13, 148, 136, 0.7)' :
+            s.score >= 75 ? 'rgba(13, 148, 136, 0.5)' : 'rgba(124, 58, 237, 0.7)'
+          ),
+          borderColor: data.granularScores.map(s =>
+            s.score >= 85 ? '#0d9488' : s.score >= 75 ? '#0d9488' : '#7c3aed'
+          ),
+          borderWidth: 1
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { min: 0, max: 100 }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    // Requirements table
+    const reqBody = document.getElementById('reqTableBody');
+    const matchClass = { exceeds: 'match-exceeds', strong: 'match-strong', verify: 'match-verify', confirm: 'match-confirm', elaborate: 'match-elaborate', partial: 'match-partial', prepare: 'match-prepare' };
+    data.jobRequirements.forEach(r => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${r.requirement}</td>
+        <td>${r.evidence}</td>
+        <td><span class="match-badge ${matchClass[r.match] || ''}">${r.match}</span></td>
+      `;
+      reqBody.appendChild(tr);
+    });
+
+    // Company highlights
+    const highlights = data.companyResearch.highlights;
+    const highlightKeys = ['executiveSummary', 'roleFocus', 'keyRequirements', 'territory', 'culture', 'growth'];
+    const highlightLabels = {
+      executiveSummary: 'Executive Summary',
+      roleFocus: 'Role Focus',
+      keyRequirements: 'Key Requirements',
+      territory: 'Territory',
+      culture: 'Culture',
+      growth: 'Growth & AI'
+    };
+    const grid = document.getElementById('companyHighlights');
+    highlightKeys.forEach(k => {
+      if (highlights[k]) {
+        const card = document.createElement('div');
+        card.className = 'highlight-card';
+        card.innerHTML = `<h3>${highlightLabels[k] || k}</h3><p>${highlights[k]}</p>`;
+        grid.appendChild(card);
+      }
+    });
+
+    // Strengths
+    data.strengths.forEach(s => {
+      const li = document.createElement('li');
+      li.textContent = s;
+      document.getElementById('strengthList').appendChild(li);
+    });
+
+    // Gaps
+    data.gaps.forEach(g => {
+      const li = document.createElement('li');
+      li.innerHTML = `<div class="gap-item"><strong>${g.gap}</strong><span>${g.recommendation}</span></div>`;
+      document.getElementById('gapList').appendChild(li);
+    });
+
+    // Interview prep
+    data.interviewPrepFocus.forEach(p => {
+      const li = document.createElement('li');
+      li.textContent = p;
+      document.getElementById('prepList').appendChild(li);
+    });
+
+    // Tabs
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

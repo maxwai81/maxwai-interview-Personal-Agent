@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "candidate": "Jeffrey Lam Man Kit",
+    "company": "Qualtrics",
+    "jobTitle": "Head of Sales - Greater China",
+    "location": "Hong Kong SAR",
+    "jobUrl": "https://www.linkedin.com/jobs/view/4369682861",
+    "resumePath": "assets/docs/Jeffrey Lam Resume.pdf",
+    "generatedAt": "2026-03-19"
+  },
+  "overallMatch": {
+    "score": 82,
+    "maxScore": 100,
+    "summary": "Strong fit. Jeffrey has 15+ years of enterprise SaaS sales in Greater China, 3+ years leading teams with strong quota attainment (118–143%), and fluency in English and Cantonese. He is Hong Kong–based and has sold Workday HCM/Finance SaaS to major enterprises. Gaps are mainly around explicit MEDDPICC/Salesforce mentions and direct XM/VoC experience; these are addressable in the interview."
+  },
+  "granularScores": [
+    {
+      "dimension": "Skills",
+      "score": 85,
+      "rationale": "Strong SaaS, enterprise sales, complex deal cycles, and leadership. MEDDPICC and Salesforce not stated but likely used at Workday. XM/VoC is adjacent to HCM/HR transformation."
+    },
+    {
+      "dimension": "Experience",
+      "score": 90,
+      "rationale": "15+ years enterprise sales, 3+ years managing teams, consistent over-attainment (118–143% team, 300%+ individual). Workday/Oracle/Microsoft SaaS background."
+    },
+    {
+      "dimension": "Education",
+      "score": 75,
+      "rationale": "Bachelor of Accounting meets typical requirements. No MBA or sales certifications; experience compensates."
+    },
+    {
+      "dimension": "Location",
+      "score": 95,
+      "rationale": "Hong Kong SAR, Greater China focus, and Mandarin fluency support Hong Kong + Taiwan coverage."
+    },
+    {
+      "dimension": "Adaptability",
+      "score": 85,
+      "rationale": "Career progression from Infor/Oracle to Microsoft to Workday; moved from IC to RSD; HR/Finance SaaS across multiple vendors."
+    },
+    {
+      "dimension": "Future career growth",
+      "score": 80,
+      "rationale": "Head of Sales aligns with his trajectory. Qualtrics APAC expansion and Silver Lake ownership offer growth."
+    },
+    {
+      "dimension": "Income",
+      "score": 75,
+      "rationale": "Workday RSD likely in a similar band. No explicit comp data; assume reasonable fit with room to negotiate."
+    }
+  ],
+  "jobRequirements": [
+    {
+      "requirement": "8-10 years individual enterprise sales",
+      "evidence": "15+ years; Workday AE 2015–2023 (8 years), Oracle, Microsoft, Infor",
+      "match": "exceeds"
+    },
+    {
+      "requirement": "3+ years managing sales team",
+      "evidence": "RSD Feb 2023–Present (3+ years); managed 3 AEs; 118–143% team attainment",
+      "match": "exceeds"
+    },
+    {
+      "requirement": "SaaS selling experience",
+      "evidence": "Workday, Oracle HCM Cloud/Fusion/Taleo, Microsoft Dynamics; Deep expertise in SaaS",
+      "match": "strong"
+    },
+    {
+      "requirement": "MEDDPICC or similar",
+      "evidence": "Complex Sales Cycle Management, Solution Selling; methodology not named",
+      "match": "verify"
+    },
+    {
+      "requirement": "Salesforce and system compliance",
+      "evidence": "Not stated; Workday typically uses Salesforce",
+      "match": "verify"
+    },
+    {
+      "requirement": "Complex contract negotiations",
+      "evidence": "Enterprise deals (AIA, HKEX, Tencent, etc.); Complex Sales Cycle Management",
+      "match": "strong"
+    },
+    {
+      "requirement": "Over-achieving team quotas via metrics",
+      "evidence": "143%, 128%, 118% FY24–FY26; metric based skill development implied",
+      "match": "strong"
+    },
+    {
+      "requirement": "Fluency in English and Cantonese",
+      "evidence": "English (Fluent), Cantonese (Native)",
+      "match": "strong"
+    },
+    {
+      "requirement": "Hong Kong based",
+      "evidence": "Hong Kong SAR",
+      "match": "strong"
+    },
+    {
+      "requirement": "Travel 1-2x/month",
+      "evidence": "Not stated; Greater China role implies travel",
+      "match": "confirm"
+    },
+    {
+      "requirement": "Validated winner, breakthrough results",
+      "evidence": "143%, 128%, 118% team; 300%+ individual; Top AE APJ",
+      "match": "strong"
+    },
+    {
+      "requirement": "Entrepreneurial business management",
+      "evidence": "15+ years, team leadership, territory ownership",
+      "match": "elaborate"
+    }
+  ],
+  "strengths": [
+    "Quota attainment – Team attainment 118%, 128%, 143% FY24–FY26; individual 300%+ in multiple years; Top AE APJ FY19, FY23; Top Financial Contributor APJ FY18",
+    "Greater China SaaS experience – Workday RSD (Greater China), Oracle HCM Cloud, Microsoft Dynamics AX; strong enterprise deal list (AIA, HKEX, Tencent, Bytedance, NIO, etc.)",
+    "Language and location – Cantonese (native), English (fluent), Mandarin (fluent); Hong Kong–based; ideal for Hong Kong + Taiwan",
+    "Leadership and team management – 3+ years managing AEs; clear record of building and leading teams to over-attainment",
+    "Complex enterprise sales – Long-cycle HR/Finance transformations; experience with large, complex contracts and negotiations",
+    "Brand alignment – Workday and Qualtrics both enterprise SaaS; Qualtrics XM complements HR/employee experience"
+  ],
+  "gaps": [
+    {
+      "gap": "MEDDPICC not mentioned",
+      "recommendation": "State explicitly if used at Workday; if not, describe a similar qualification framework (Challenger, SPIN, etc.) and how you qualify and close deals."
+    },
+    {
+      "gap": "Salesforce not mentioned",
+      "recommendation": "Confirm use at Workday; describe CRM hygiene, forecasting, pipeline management, and compliance metrics."
+    },
+    {
+      "gap": "XM/VoC vs. HCM/Finance",
+      "recommendation": "Emphasize employee experience and feedback in HR transformation; connect Workday's people analytics to Qualtrics' XM and VoC."
+    },
+    {
+      "gap": "Taiwan market experience",
+      "recommendation": "Clarify any Taiwan deals or relationships; show how you would build presence there."
+    },
+    {
+      "gap": "Travel flexibility",
+      "recommendation": "Confirm willingness to travel 1–2x/month within Greater China."
+    }
+  ],
+  "interviewPrepFocus": [
+    "MEDDPICC and Salesforce – Prepare concrete examples of how you qualify opportunities, run pipeline reviews, and use CRM for forecasting and compliance",
+    "XM and VoC positioning – Learn Qualtrics' XM/VoC story and link it to your HR/Finance transformation experience and employee experience work",
+    "Taiwan strategy – Outline a 90-day plan for Hong Kong and Taiwan: target accounts, partners, and coverage model",
+    "Business management – Prepare examples of P&L thinking, territory planning, and resource allocation"
+  ],
+  "companyResearch": {
+    "reportPath": "assets/docs/Qualtrics-Company-Research-Report.md",
+    "highlights": {
+      "executiveSummary": "Qualtrics is a category-defining Experience Management (XM) platform serving 20,000+ brands across 100+ countries. Founded 2002, acquired by SAP ($8B), IPO 2021, $12.5B Silver Lake buyout 2023. Privately held with strong AI investment.",
+      "leadership": "New CEO Jason Maynard (Feb 2026), ex-Oracle/NetSuite, strong enterprise sales background",
+      "products": "XM platform (CX, EX, product, brand); Gartner VoC leader; AI roadmap",
+      "apacExpansion": "~1,200 hires planned; Singapore data centre; Center for Experience Management in Singapore",
+      "hongKongPresence": "Target market; XM Live events; Country Manager role may be filled",
+      "culture": "TACOS values; Glassdoor 3.5/5, 57% recommend; sales quotas described as demanding",
+      "competitors": ["Medallia", "SurveyMonkey/Momentive", "Birdeye", "QuestionPro"],
+      "recommendation": "Proceed with caution – Strong category position and APAC expansion, but Hong Kong presence is less established than Singapore/Tokyo, and Glassdoor scores (especially senior management at 2.6/5) suggest due diligence."
+    }
+  }
+}

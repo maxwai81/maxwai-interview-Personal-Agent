@@ -1,0 +1,16 @@
+# Max n8n Agent Project Rules
+
+## Project Structure
+- Keep code modular and well-organized
+- Use ES modules (type: "module" in package.json)
+- Follow Node.js best practices
+
+## Code Style
+- Use meaningful variable and function names
+- Add comments for complex logic
+- Keep functions focused and single-purpose
+
+## n8n Integration
+- Follow n8n API patterns and conventions
+- Handle errors gracefully
+- Provide clear logging for debugging

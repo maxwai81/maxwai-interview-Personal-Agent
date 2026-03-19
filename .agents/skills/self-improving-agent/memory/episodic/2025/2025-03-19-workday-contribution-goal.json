@@ -1,0 +1,15 @@
+{
+  "id": "ep-2025-03-19-001",
+  "timestamp": "2025-03-19T00:00:00Z",
+  "skill": "web-navigator",
+  "situation": "User requested creating a Contribution Goal in Workday with due date 01312027. Instruction was to type date directly instead of using calendar picker.",
+  "root_cause": "Workday date fields use client-side validation that rejects direct fill/type in MMDDYYYY format. The form expects input via the calendar picker widget.",
+  "solution": "When direct typing caused validation error, switched to calendar picker (January 31, 2027) which succeeded. Same end result achieved.",
+  "lesson": "Enterprise form date fields often reject direct typing. Prefer calendar picker when direct fill/type causes validation errors—don't retry typing; switch immediately.",
+  "related_pattern": "date_field_form_automation",
+  "outcome": "success",
+  "user_feedback": {
+    "implicit": true,
+    "notes": "Task completed successfully; user requested lesson recording"
+  }
+}

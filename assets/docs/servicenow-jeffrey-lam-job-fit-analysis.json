@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "candidate": "Jeffrey Lam Man Kit",
+    "company": "ServiceNow",
+    "jobTitle": "Solution Sales Executive, Core Business Solutions (Hong Kong)",
+    "location": "Causeway Bay, Hong Kong",
+    "territory": "North Asia (Hong Kong, Macau, Taiwan) and Philippines",
+    "jobUrl": "https://www.linkedin.com/jobs/view/4369902279",
+    "resumePath": "assets/docs/Jeffrey Lam Resume.pdf",
+    "generatedAt": "2026-03-19"
+  },
+  "overallMatch": {
+    "score": 87,
+    "maxScore": 100,
+    "summary": "Strong fit for the Solution Sales Executive role. Jeffrey brings 15+ years of enterprise SaaS sales across Workday, Oracle, Microsoft, and Infor—with direct knowledge of Workday and Oracle HCM, which are core competitors and adjacent platforms to ServiceNow's Core Business Solutions. His quota attainment (118–143% team, 300%+ individual) far exceeds the 100%+ preference, and his Hong Kong base, Greater China focus, and fluency in English/Cantonese/Mandarin align perfectly with the North Asia territory. Main considerations: (1) currently RSD (management) applying for IC role; (2) Procurement, Legal, Coupa/Ariba not highlighted; (3) AI integration learnable."
+  },
+  "granularScores": [
+    {
+      "dimension": "Skills",
+      "score": 88,
+      "rationale": "Direct overlap: Workday and Oracle HCM (explicitly required); consultative selling, HR/Finance transformation, solution selling. Strong business process expertise in HR and Finance. Gaps: Procurement, Legal, Coupa/Ariba not highlighted; Now Value/ROI models and AI integration not stated."
+    },
+    {
+      "dimension": "Experience",
+      "score": 92,
+      "rationale": "15+ years enterprise software sales (exceeds 7+); 100%+ attainment in every year (118–143% team, 300%+ individual); full-cycle sales; competitive deal experience (Oracle replacement, SAP replacement); experience with CHROs/CFOs via HR/Finance deals."
+    },
+    {
+      "dimension": "Education",
+      "score": 75,
+      "rationale": "Bachelor of Accounting (Curtin) meets typical requirements. No MBA or advanced certs; experience compensates."
+    },
+    {
+      "dimension": "Location",
+      "score": 98,
+      "rationale": "Hong Kong SAR; Greater China focus; ideal for North Asia territory. Philippines experience not stated but Hong Kong/Macau/Taiwan strongly covered."
+    },
+    {
+      "dimension": "Adaptability",
+      "score": 90,
+      "rationale": "Career progression across Infor, Oracle, Microsoft, Workday; moved from IC to RSD; HR/Finance SaaS across multiple vendors. Transferable skills to Procurement/Legal."
+    },
+    {
+      "dimension": "Future career growth",
+      "score": 78,
+      "rationale": "Currently RSD (management); role is IC. Clarify intent: step to IC for platform breadth, or expect hybrid? ServiceNow's GenAI growth and Core Business Solutions expansion offer strong upside."
+    },
+    {
+      "dimension": "Income",
+      "score": 82,
+      "rationale": "ServiceNow competitive OTE; Workday RSD in Hong Kong likely in comparable band. Glassdoor 4.2/5, high quota attainment culture supports fit."
+    }
+  ],
+  "jobRequirements": [
+    {
+      "requirement": "7+ years enterprise software sales",
+      "evidence": "15+ years (Workday 9+, Oracle 2.5, Microsoft 1.5, Infor 1.5, Exact 2, UFIDA 1.5)",
+      "match": "exceeds"
+    },
+    {
+      "requirement": "100%+ quota attainment preferred",
+      "evidence": "FY26 143%, FY25 128%, FY24 118% (team); FY23 380%, FY22 130%, FY19 300%, FY18 330% (individual)",
+      "match": "exceeds"
+    },
+    {
+      "requirement": "Full-cycle sales; competitive deal experience",
+      "evidence": "Full-cycle at Workday, Oracle, Microsoft; Oracle replacement (MOL), SAP replacement (Emperor Group)",
+      "match": "strong"
+    },
+    {
+      "requirement": "Displacing incumbents",
+      "evidence": "MOL Liner (Oracle replacement), Emperor Group (SAP replacement)",
+      "match": "strong"
+    },
+    {
+      "requirement": "Knowledge of Workday",
+      "evidence": "9+ years at Workday; selling HCM/Finance",
+      "match": "strong"
+    },
+    {
+      "requirement": "Knowledge of Oracle HCM",
+      "evidence": "Oracle HCM Cloud (Fusion & Taleo) pioneer; first Fusion HCM deal in HK",
+      "match": "strong"
+    },
+    {
+      "requirement": "Knowledge of SAP SuccessFactors, Coupa, Ariba",
+      "evidence": "SAP replacement experience at Microsoft; not explicitly stated",
+      "match": "verify"
+    },
+    {
+      "requirement": "Business process expertise: HR, Finance, Procurement, Legal",
+      "evidence": "HR and Finance: strong. Procurement, Legal: not explicitly stated",
+      "match": "partial"
+    },
+    {
+      "requirement": "Consultative selling; ROI models; Now Value",
+      "evidence": "Consultative selling, solution selling, complex sales cycle management",
+      "match": "strong"
+    },
+    {
+      "requirement": "Experience with CHROs, CFOs, CPOs, General Counsel",
+      "evidence": "CHROs/CFOs via HR/Finance deals; CPOs/General Counsel not stated",
+      "match": "partial"
+    },
+    {
+      "requirement": "AI integration awareness (Now Assist, AI Agents)",
+      "evidence": "Not stated",
+      "match": "prepare"
+    },
+    {
+      "requirement": "Hong Kong / Greater China / Philippines experience",
+      "evidence": "Hong Kong SAR; Greater China focus; Philippines not stated",
+      "match": "strong"
+    },
+    {
+      "requirement": "30% travel",
+      "evidence": "Not stated; Greater China role implies travel",
+      "match": "confirm"
+    }
+  ],
+  "strengths": [
+    "Quota attainment – Consistently over-attained: 118%, 128%, 143% team (FY24–FY26); 300%+ individual in multiple years; Top AE APJ (FY19, FY23); Top Financial Contributor APJ (FY18)",
+    "Workday and Oracle HCM expertise – Direct knowledge of two key platforms in job requirements; understands competitive landscape and displacement",
+    "Greater China enterprise wins – AIA Insurance, Melco Resorts, SFC, Klook, HKEX, Li & Fung, Johnson Electric (HK); Tencent International, Ctrip, NIO, Bytedance (China)",
+    "Location and languages – Hong Kong–based; fluent English, Cantonese (native), Mandarin; ideal for North Asia territory",
+    "HR/Finance transformation – Core expertise in consultative selling for HR and Finance digital transformations",
+    "Competitive displacement – Proven Oracle and SAP replacements (MOL, Emperor Group)",
+    "Complex sales cycle – Enterprise deal experience; long-cycle HR/Finance transformations"
+  ],
+  "gaps": [
+    {
+      "gap": "Procurement, Legal, Coupa/Ariba not highlighted",
+      "recommendation": "Emphasize transferable skills: business process selling, cross-functional discovery. Research ServiceNow Procurement and Legal workflows; prepare 1–2 stories connecting HR/Finance to Procurement/Legal use cases."
+    },
+    {
+      "gap": "AI integration (Now Assist, AI Agents) not stated",
+      "recommendation": "Complete ServiceNow's AI/GenAI resources; mention Workday AI (Paradox, Sana) if applicable. Prepare a 'Why ServiceNow AI' narrative."
+    },
+    {
+      "gap": "CPOs, General Counsel experience",
+      "recommendation": "If you have dealt with Procurement or Legal stakeholders, add to resume or prepare stories. Otherwise, frame HR/Finance executive engagement as template for expanding to CPO/GC."
+    },
+    {
+      "gap": "Philippines market",
+      "recommendation": "Clarify any Philippines experience or relationships. Outline how you would cover Philippines as part of North Asia territory."
+    },
+    {
+      "gap": "IC vs. management (currently RSD applying for IC role)",
+      "recommendation": "Prepare clear narrative: platform breadth, Core Business Solutions expansion, GenAI focus. If expecting hybrid responsibilities, clarify with recruiter."
+    },
+    {
+      "gap": "Now Value and ROI models",
+      "recommendation": "Research ServiceNow Now Value methodology; prepare examples of ROI/value storytelling from Workday deals."
+    }
+  ],
+  "interviewPrepFocus": [
+    "Core Business Solutions breadth – HR, Finance, Procurement, Legal, Workplace Service Delivery; use Workday/Oracle examples, connect to ServiceNow's unified platform",
+    "Competitive displacement – 2–3 stories of displacing incumbents (Oracle, SAP); full-cycle sales, discovery, value-based selling",
+    "GenAI and Now Assist – Research AI Agent Control Tower, Now Assist, 'Put AI to Work'; tie to digital transformation and workflow automation",
+    "IC narrative – If stepping from RSD to IC, explain why: platform breadth, Core Business Solutions scope, focus on large strategic deals",
+    "North Asia and Philippines – 90-day plan for Hong Kong, Macau, Taiwan, Philippines: target accounts, partners, coverage model",
+    "Now Value and ROI – 1–2 examples of ROI/value models from HR/Finance deals"
+  ],
+  "companyResearch": {
+    "reportSource": "Job-Interview-company-research-agent",
+    "highlights": {
+      "executiveSummary": "ServiceNow is a leading enterprise workflow and AI platform (~$13B+ revenue, ~$120B market cap). Solution Sales Executive role is quota-carrying, Causeway Bay–based, focused on expanding beyond IT into HR, Finance, Procurement, Legal, Workplace across North Asia and Philippines.",
+      "roleFocus": "Core Business Solutions – HR Service Delivery, Procurement, Finance Operations, Legal Contract Management, Workplace Service Delivery",
+      "keyRequirements": "7+ years enterprise software sales; 100%+ quota attainment; Workday/SAP SuccessFactors/Oracle HCM/Coupa/Ariba knowledge; business process expertise; consultative selling; CHROs/CFOs/CPOs/General Counsel experience",
+      "territory": "North Asia (Hong Kong, Macau, Taiwan) and Philippines; 30% travel",
+      "culture": "Glassdoor 4.2/5, 93% CEO approval; strong sales culture, high quota attainment, competitive OTE",
+      "growth": "~21–24% YoY; sharp focus on agentic AI and GenAI; North Asia HQ in Hong Kong (2013); AI Summits in Hong Kong (2025, 2026)"
+    }
+  }
+}

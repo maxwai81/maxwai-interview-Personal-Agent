@@ -1,0 +1,21 @@
+{
+  "name": "interview-agent",
+  "version": "1.0.0",
+  "description": "Max interview Agent - A custom agent implementation",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  
+  },
+  "keywords": [
+    "n8n",
+    "agent",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
