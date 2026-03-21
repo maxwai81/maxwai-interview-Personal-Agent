@@ -175,6 +175,15 @@ git push origin HEAD
 - Applies to **local Cursor** and **cloud agent** runs whenever git and network credentials are available.
 - If `git` fails (no remote, auth error, detached HEAD, or sandbox blocks network), report the error and list paths under `job-advisor-web/` the user should `git add` / commit / push manually.
 
+### Step 5b: Pull request (cloud agent only)
+
+If the environment creates a GitHub pull request after push (e.g. `ManagePullRequest`):
+
+- Use **`draft: false`** so the PR is mergeable without clicking **Ready for review**. **Draft PRs cannot be merged** (including auto-merge) until marked ready.
+- If the repo has **Allow auto-merge** enabled, the agent may **enable auto-merge** on that PR so GitHub merges when required checks pass—**only if** branch protection does not require a human review the agent cannot satisfy.
+
+`Job-Advisor-for-Job-Seekers.md` does not create PRs by itself; Step 5 is still **push to the current branch**. This subsection documents coordination with cloud workflows that open a PR.
+
 ## Direct Invocation (No Form)
 
 When the user invokes with company and job directly in chat (e.g., "Run job fit for ServiceNow, Director SC, my LinkedIn is https://linkedin.com/in/..."):
