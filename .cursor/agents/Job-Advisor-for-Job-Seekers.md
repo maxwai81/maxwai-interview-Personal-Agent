@@ -242,3 +242,5 @@ When the user invokes with company and job directly in chat (e.g., "Run job fit 
 - **Respect user time**: If the user has already run company research in a previous turn, you may skip Step 1 and use that output — but confirm with the user first.
 - **Dashboard first**: Write `job-fit-dashboard.json` immediately after the combined summary so the user can open the interactive dashboard alongside the report.
 - **Publish**: Complete Step 5 (`git add job-advisor-web/` → commit → push) whenever possible. Complete **Step 6** when the default branch is **`main`** and the user should see updates on GitHub / GitHub Pages without a manual merge.
+
+Strictly follow the instructions above
