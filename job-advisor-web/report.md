@@ -1,81 +1,91 @@
 # Job Advisor — Combined Report
 
 **Candidate:** Max Seto  
-**Company:** Anthropic  
-**Role:** Manager, Applied AI (Startups)  
-**Job URL:** https://job-boards.greenhouse.io/anthropic/jobs/5142110008  
-**Resume sources:** Primary — [LinkedIn profile](https://www.linkedin.com/in/max-seto-pmp-75ab992b/); `./assets/docs/` contained no candidate PDF resume at analysis time.  
+**Company:** ServiceNow  
+**Role:** Sr Advisory Enterprise Architect  
+**Location:** Hong Kong (Causeway Bay; remote/hybrid per posting)  
+**Job URL:** https://careers.servicenow.com/jobs/744000107759456/sr-advisory-enterprise-architect-hong-kong/?trid=2d92f286-613b-4daf-9dfa-6340ffbecf73  
+
+**Resume sources:** Primary — [LinkedIn](https://www.linkedin.com/in/max-seto-pmp-75ab992b/). Automated browser access to LinkedIn returned an auth wall; candidate facts were cross-checked against public sources (e.g., The Org, conference bios) and aligned with the job posting. **No separate resume PDF** for Max Seto was found under `./assets/docs/`.  
+
+**Job posting text (mirror):** Full requirements were captured from an indexed mirror ([Built In listing](https://builtin.com/job/sr-advisory-enterprise-architect-hong-kong/8434844)) because the official careers URL returned a Cloudflare block to automated fetch in this environment.  
+
 **Generated:** 2026-03-21  
 
 ---
 
-## Part 1 — Company Research (Anthropic)
+## Part 1 — Company Research (ServiceNow)
 
-See full detail in `Anthropic-Company-Research-Report.md`. **Executive snapshot:** Anthropic is a **public benefit corporation** building **Claude** and related frontier AI products with a strong **AI safety** narrative—**reliable, interpretable, steerable** systems. Leadership is research- and product-led (e.g., **Dario Amodei** as CEO; recent **Labs** and executive-team evolution as the company scales). The **Manager, Applied AI (Startups)** role (**London**, **EMEA**) focuses on **hiring and leading Applied AI Architects/Engineers**, **startup technical mindshare**, **hands-on LLM adoption**, **ecosystem partnerships** (VCs/accelerators), and **tight loops** with Sales, Product, and Engineering—**£325k–£390k** salary band per posting.
+Full detail: `ServiceNow-Sr-Advisory-EA-HK-Company-Research-Report.md`.
+
+**Executive snapshot:** ServiceNow (NYSE: NOW) positions the **Now Platform** as a unified enterprise workflow and AI platform for IT, employee, and customer workflows. The **Sr Advisory Enterprise Architect** role in **Hong Kong** is a **pre-sales** leadership position: trusted advisor to **CIOs, CTOs, and CDOs** across **APAC**, leading architecture discovery, workshops, PoCs, and roadmaps. The posting stresses **enterprise architecture frameworks** (TOGAF, Zachman, IT4IT, BIAN, TMForum), **hybrid/integration** depth, **SaaS/PaaS/multi-tenancy** fluency, **multi-domain** technical breadth (data, DevOps, AI/ML, integration, analytics), and **10+ years** influencing senior technology leaders in vendor or services contexts. Office: **Causeway Bay** with flexible work persona.
 
 ---
 
 ## Part 2 — Resume–Job Match
 
-## Overall Match Score: 47/100
+## Overall Match Score: 70/100
 
-**Summary:** Max brings **strong, long-tenured leadership in enterprise presales and solution consulting** (including **Head of Presales Greater China** at Workday), with deep experience in **discovery, demos, POCs, and executive engagement**—all transferable to “applied” customer-facing work. However, the Anthropic role targets **EMEA startup ecosystem leadership** with explicit expectations around **LLM integration depth**, **AI-native startup fluency**, and a **London-based EMEA travel model**. The profile is **light on documented LLM/GenAI delivery leadership**, **UK/Ireland/Nordics GTM** (a screening question on the posting), and **second-line management across Applied AI architecture/engineering functions**—creating a **material gap** unless reframed with non-public evidence.
+**Summary:** Max brings **strong regional presales leadership** and **enterprise SaaS credibility** (Workday Head of Presales Greater China; Oracle senior sales consulting) aligned with the role’s **10+ years influencing senior stakeholders** and **vendor pre-sales / architecture** motion. The main development areas are **explicit ServiceNow / Now Platform solution architecture depth** and **named enterprise architecture frameworks** on the public profile—his narrative centers **HCM/ERP** domains; the posting also asks for **AI-in-work** examples. With certification-style ramp and architecture-framed stories, he can present credibly as a **senior advisory enterprise architect**.
 
 ## Granular Scores (canonical — spider chart)
 
 | Dimension | Score (0–100) | Rationale |
-|-----------|-----------------|-----------|
-| Skills | 44 | Strong in **enterprise solution selling, POCs, and cross-domain ERP/HCM/SCM**; limited **public evidence of LLM ops, agentic architectures, or Claude-specific integration** at depth. |
-| Experience | 56 | **~21+ years** in presales/consulting; **multi-year leadership** in Greater China presales. Role asks **7+ years** in FDE/CE/SE/AIA-style paths and **4+ years management**—met on years, **partial fit on AI-native startup and EMEA**. |
-| Education | 58 | Career implies **technical/business education**; **PMP** signals delivery rigor. Posting allows **bachelor’s or equivalent**—likely sufficient; not a differentiator vs. CS-heavy peers. |
-| Location | 28 | Candidate base **Hong Kong SAR**; role is **London / EMEA** with **30–40% travel**. Unless relocation/work authorization is already aligned, this is a **primary filter**. |
-| Adaptability | 62 | Proven **cross-cultural customer leadership** in APAC; **EMEA startup ecosystem** norms differ—**adaptability is plausible but unproven** in the target geography. |
-| Future career growth | 72 | Move to **frontier Applied AI** at Anthropic is **credible as a pivot** if backed by rapid skill proof; growth story is attractive but needs evidence. |
-| Income | 78 | Posting range **£325k–£390k** is competitive; **seniority and scope** can justify band; not the limiting factor vs. geography and AI depth. |
+|-----------|----------------|-----------|
+| Skills | 61 | Strong enterprise presales and HCM/ERP fluency; ServiceNow/Now Platform and named EA frameworks not explicit on profile. |
+| Experience | 68 | 21+ years enterprise software; long presales leadership—matches vendor seniority bar; “enterprise architect” title alignment needs narrative. |
+| Education | 72 | BSc Computing Studies; PMP—meets typical bar; add EA/architecture certifications if pursuing. |
+| Location | 95 | Hong Kong SAR matches Causeway Bay posting and APAC strategic account scope. |
+| Adaptability | 78 | Career path across technical, PM, consulting, presales, and regional leadership; multi-vendor context. |
+| Future career growth | 70 | Advisory EA path fits platform-scale career; depends on ServiceNow depth and certification cadence. |
+| Income | 62 | Senior presales band; validate HK Advisory EA compensation vs. expectations in process. |
 
 ## Job-specific fit scores (bar chart)
 
 | Dimension | Score (0–100) | Rationale |
-|-----------|-----------------|-----------|
-| EMEA startup ecosystem & regional GTM | 32 | Role requires **market-specific strategies across EMEA**; profile is **Greater China–centric**; posting explicitly probes **UK/Ireland/Nordics** experience. |
-| LLM architecture, deployment & adoption | 38 | Needs **familiarity with LLM architecture and operation**; public profile emphasizes **ERP/HCM/PLM**—must show **parallel AI work** not visible on LinkedIn. |
-| Leading Applied AI Architects / Engineers | 45 | Strong **people leadership** in presales; less clear **second-line leadership of deeply technical AI ICs** building reference stacks and reusable assets. |
-| Hands-on startup engagements & workshops | 60 | Rich **workshop/discovery/demo/POC** pattern fit; **startup velocity and LLM-specific build cycles** need proof points. |
-| VC, accelerator & partnership development | 42 | Some **ecosystem** exposure via enterprise channels; **VC/accelerator** relationship-building at Anthropic’s expected level is **not evidenced**. |
-| Sales / Product / Engineering alignment | 68 | Repeated **GTM, discovery, and C-level** engagement; strong **feedback-to-product** analogs from enterprise SaaS. |
-| Executive presence & cross-cultural trust | 80 | **Head of Presales** title and long **executive-facing** track record align with **“executive presence”** requirement. |
-| Hiring & scaling customer-facing technical teams | 64 | **Scaling presales** organizations is adjacent; must map to **hiring Applied AI talent** in **EMEA** specifically. |
+|-----------|----------------|-----------|
+| Executive & pre-sales influence | 86 | Head of Presales Greater China; discovery, demos, PoCs, and C-level engagement (Oracle-era detail). |
+| Enterprise architecture frameworks | 55 | Posting lists TOGAF, Zachman, IT4IT, BIAN, TMForum; not visible on LinkedIn—must be demonstrated with examples or training. |
+| ServiceNow / Now Platform fit | 48 | No ServiceNow tenure; map enterprise SaaS + integration experience to Now Platform reference patterns. |
+| Integration, cloud & multi-domain breadth | 72 | Broad ERP/HCM/PLM/BI and stack exposure supports multi-domain architecture conversations. |
+| APAC / Hong Kong alignment | 90 | Hong Kong base aligns with Causeway Bay posting and APAC strategic coverage. |
+| AI & innovation narrative | 62 | Posting requires AI leverage in work; profile is light on AI—prepare concrete STAR examples. |
 
 ## Strengths
 
-- **Senior presales leadership:** Head of Presales Greater China; prior **Principal Regional Presales** — credible **player-coach** and **team scaling** narrative.
-- **Technical customer lifecycle:** Discovery, presentations, demos, **POCs**, and **industry solution sets** across retail, high-tech, F&B, EMS—maps to **hands-on customer engineering** motions.
-- **Cross-functional fluency:** **Go-to-market**, **C-level engagement**, and **complex multi-product** solution contexts (HCM, SCM, PLM, BI).
-- **Delivery credibility:** **PMP** and long **project/program** exposure—useful for **structured engagements** with startups when scope control matters.
-- **Alignment with Anthropic values (narrative):** Opportunity to tie **“beneficial AI”** to responsible enterprise adoption patterns—if authentic to the candidate’s viewpoint.
+- Head of Presales Greater China — strong match for C-suite advisory and regional strategic accounts  
+- Vendor presales depth (Workday, Oracle) aligned with software-vendor enterprise architecture motion  
+- Hong Kong location matches posting (Causeway Bay, flexible persona)  
+- PMP credential and complex regional project experience  
+- Multi-product enterprise footprint (HCM, ERP, PLM, BI, integration) supports multi-domain architecture dialogue  
 
 ## Gaps & Recommendations
 
 | Gap | Recommendation |
-|-----|----------------|
-| **EMEA vs APAC footprint** | Lead with **relocation/work authorization** clarity; build **3–5 named examples** of **European customer or partner** work (even indirect), or a **convincing plan** to establish EMEA network in first 90 days. |
-| **LLM depth vs enterprise apps** | Produce a **one-page technical narrative**: preferred stacks (API vs. on-device), **evaluation methodology**, **latency/cost tradeoffs**, **safety tooling**, and **Claude-specific** experiments. |
-| **AI-native startup fluency** | Add **portfolio of startup-style engagements** (speed, ambiguity, founder-level dialogue)—even if today they are **scaleups** or **innovation units** inside enterprises. |
-| **Screening questions on posting** | Prepare crisp Yes/No + proof for: **UK/I/Nordics coverage**, **regulated-industry LLM POCs with startups**, **quota-influencing pre-sales**, **technical playbooks at scale**, **3+ years managing pre-sales technical teams**. |
-| **Second-line management** | If limited, show **matrix leadership** of senior ICs and **hiring bar** for technical customer roles; propose **operating model** for architects vs. engineers. |
+|-----|------------------|
+| ServiceNow / Now Platform-specific artifacts not evident on public profile | Complete Now Learning fundamentals (CSA path) and prepare 2–3 integration/reference architecture narratives tied to customer outcomes. |
+| Named EA frameworks (TOGAF, IT4IT, BIAN, TMForum) not listed | Prepare mapping examples to customer standards; add short-term training or certification plan where truthful. |
+| AI-in-work requirement under-articulated on LinkedIn | Prepare STAR stories on AI-enabled automation, analytics, or SaaS product AI features from Workday/Oracle context. |
+| Title emphasizes solution consulting vs. enterprise architect | Reframe wins as architecture outcomes (standards, roadmaps, integration patterns) and EA workshop leadership. |
 
 ## Interview Prep Focus
 
-- **Team model:** How you would **structure Applied AI Architects vs. Engineers** under you; **career ladders**, **on-call for critical POCs**, and **quality bar** for demos.
-- **EMEA startup map:** **Verticals**, **accelerator partnerships**, and **how Anthropic wins** vs. hyperscalers in **founder-led technical evals**.
-- **Technical depth:** Walk through a **reference LLM deployment architecture** (auth, data boundaries, evals, monitoring)—even if simplified.
-- **Travel & London hybrid:** Concrete **availability** and **family/relocation** framing aligned to **30–40% travel**.
-- **Behavioral:** Stories of **conflict between sales velocity and technical rigor**; **safety** and **policy** constraints in customer work.
+- Translate Workday/Oracle presales wins into ServiceNow Now Platform architecture stories (ITSM/ESM, employee workflows, integrations)  
+- CIO/CTO workshop structure: current-state discovery, constraints, target reference architecture  
+- How ServiceNow coexists with SAP, Workday, legacy ITSM — balanced positioning  
+- EA governance: security, data model, integration hub patterns on SaaS  
+- APAC deal examples: stakeholders, partners, and technical proof points  
 
 ## Actionable Recommendations
 
-1. **Add a public or shareable “Applied AI” appendix** — 3 projects: problem, stack, outcome metrics (latency, accuracy, business KPI).
-2. **Claude product homework** — **API**, **Claude Code** positioning, **MCP** narrative; prepare a **90-day EMEA startup plan** with **metrics** (workshops run, startups in pipeline, partner logos targeted).
-3. **Close geography gap explicitly** in cover letter: **London base**, **visa** posture, and **EMEA travel** willingness.
-4. **Line up references** who can speak to **technical credibility with CTO/founder personas**, not only CIO/HRVP buyers.
-5. **Rehearse screening-form answers** so **Yes** answers are **verifiable** and **No** answers have **mitigation** (coursework, advisory work, timeline to ramp).
+1. Schedule or complete ServiceNow Certified System Administrator and outline CAD/architecture learning path before final rounds.  
+2. Add LinkedIn bullets: integration architecture, EA frameworks in use, AI-enabled workflows (accurate).  
+3. Build a one-page HK enterprise reference architecture slide (Now Platform + integrations + AI touchpoints).  
+4. Research 2–3 ServiceNow APAC public customer stories relevant to target industries.  
+5. Prepare questions on HK territory coverage, partner model, and success metrics for Advisory EA.  
+
+---
+
+**Report saved.** Open the dashboard: `job-advisor-web/index.html` or `http://localhost:8765` (if a local server is running).  
+
+**Per-run dashboard:** `job-advisor-web/runs/2026-03-21-servicenow-sr-advisory-enterprise-architect-hk/dashboard.html`

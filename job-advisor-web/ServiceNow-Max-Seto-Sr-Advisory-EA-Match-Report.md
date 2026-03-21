@@ -1,8 +1,10 @@
 # Resume–Job Match Report: Max Seto → ServiceNow Sr Advisory Enterprise Architect (Hong Kong)
 
-**Sources:** LinkedIn public profile (https://www.linkedin.com/in/max-seto-pmp-75ab992b/) — no separate resume file found under `./assets/docs/` for Max Seto.
+**Sources:** LinkedIn profile (https://www.linkedin.com/in/max-seto-pmp-75ab992b/) — automated fetch hit an **auth wall**; facts cross-checked via public sources (e.g., The Org, conference bios). **No separate resume file** found under `./assets/docs/` for Max Seto.
 
-**Job posting:** https://careers.servicenow.com/jobs/744000107759456/sr-advisory-enterprise-architect-hong-kong/
+**Job posting:** https://careers.servicenow.com/jobs/744000107759456/sr-advisory-enterprise-architect-hong-kong/  
+
+**Requirements mirror used (full text):** https://builtin.com/job/sr-advisory-enterprise-architect-hong-kong/8434844 (official careers page blocked automated fetch in this environment).
 
 ---
 
@@ -12,13 +14,27 @@
 
 ---
 
-## Granular Scores
+## Granular Scores (canonical — spider chart)
 
-| Dimension | Score | Rationale |
-|-----------|-------|-----------|
-| Executive & pre-sales influence | 86 | Head of Presales Greater China; long track record with discovery, demos, PoCs, C-level engagement (Oracle detail). |
+| Dimension | Score (0–100) | Rationale |
+|-----------|----------------|-----------|
+| Skills | 61 | Strong enterprise presales and HCM/ERP fluency; ServiceNow/Now Platform and named EA frameworks not explicit on profile. |
+| Experience | 68 | 21+ years enterprise software; 18+ in presales leadership—matches vendor seniority bar; architecture title alignment needs narrative. |
+| Education | 72 | BSc Computing Studies; PMP—meets typical bar; add EA/architecture certifications if pursuing. |
+| Location | 95 | Hong Kong SAR matches Causeway Bay posting and APAC strategic account scope. |
+| Adaptability | 78 | Career evolution technical → PM → consultant → presales → Head of Presales; multi-vendor context. |
+| Future career growth | 70 | Advisory EA path aligns with platform scale-up post-AI; depends on ServiceNow depth and certification cadence. |
+| Income | 62 | Senior presales band; validate HK Advisory EA comp vs. expectations in process. |
+
+---
+
+## Job-specific fit scores (bar chart)
+
+| Dimension | Score (0–100) | Rationale |
+|-----------|----------------|-----------|
+| Executive & pre-sales influence | 86 | Head of Presales Greater China; discovery, demos, PoCs, C-level engagement (Oracle detail). |
 | Enterprise architecture frameworks | 55 | Posting stresses TOGAF/Zachman/IT4IT/BIAN/TMForum; not visible on LinkedIn—likely experiential but must be made explicit. |
-| ServiceNow / Now Platform fit | 48 | No ServiceNow tenure; must map Workday/oracle enterprise SaaS + integration experience to Now Platform stories. |
+| ServiceNow / Now Platform fit | 48 | No ServiceNow tenure; must map Workday/Oracle enterprise SaaS + integration experience to Now Platform stories. |
 | Integration, cloud & multi-domain breadth | 72 | Deep enterprise stack exposure (ERP, HCM, PLM, BI, J2EE/.NET, DB); aligns with multi-domain requirement. |
 | APAC / Hong Kong alignment | 90 | Based in Hong Kong; Greater China scope matches APAC strategic account context. |
 | AI & innovation narrative | 62 | Posting requires AI in work processes; profile does not highlight AI—prepare concrete examples from recent work. |
@@ -38,7 +54,7 @@
 ## Gaps & Recommendations
 
 | Gap | Recommendation |
-|-----|----------------|
+|-----|------------------|
 | Limited **ServiceNow-specific** artifacts on profile | Complete **Now Platform** and **CSA** (or **CAD** / architecture-relevant) learning paths; build 2–3 **reference architecture** stories (integration hub, ESM, employee workflows). |
 | **EA frameworks** not listed | Prepare **mapping examples**: how a customer’s TOGAF/IT4IT layers map to ServiceNow capabilities; cite **one certification or formal training** if available or plan short-term. |
 | **AI** requirement on posting | Prepare **2 STAR stories** on AI-assisted workflows, analytics, or automation—even if adjacent (e.g., process automation, ML in SaaS products). |

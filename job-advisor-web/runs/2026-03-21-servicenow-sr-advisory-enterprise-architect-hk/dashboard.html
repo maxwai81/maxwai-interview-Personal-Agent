@@ -1,3 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Fit — ServiceNow · Sr Advisory Enterprise Architect | Job Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../dashboard-shared.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../../dashboard-run-app.js" defer></script>
+</head>
+<body class="run-dashboard-page">
+  <div class="run-page-header">
+    <p class="run-back-link"><a href="../../index.html">← Job Advisor main</a></p>
+    <h1>Job fit dashboard — Max Seto</h1>
+    <p class="run-page-meta">ServiceNow · Sr Advisory Enterprise Architect · Hong Kong · 2026-03-21 · Run <code>2026-03-21-servicenow-sr-advisory-enterprise-architect-hk</code></p>
+    <nav class="run-source-links" aria-label="Source markdown">
+      <a href="../../report.md">Combined report (report.md)</a>
+      <a href="../../ServiceNow-Sr-Advisory-EA-HK-Company-Research-Report.md">Company research</a>
+      <a href="../../ServiceNow-Max-Seto-Sr-Advisory-EA-Match-Report.md">Resume–job match</a>
+      <a href="../../job-fit-dashboard.json">Latest dashboard JSON</a>
+    </nav>
+  </div>
+  <div class="run-dashboard-wrap">
+    <div class="dashboard-snow">
+      <div class="score-hero">
+        <div class="score-circle" id="scoreCircle" style="--score: 0;">
+          <div class="score-inner">
+            <span class="score-value" id="scoreValue">--</span>
+            <span class="score-max">/ 100</span>
+          </div>
+        </div>
+        <div class="score-summary">
+          <h2>Overall Match</h2>
+          <p class="summary-text" id="summaryText">Loading…</p>
+        </div>
+      </div>
+
+      <div class="section-title">Granular Scores</div>
+      <div class="chart-row-labels" aria-hidden="true">
+        <span>Canonical (spider)</span>
+        <span>Job-specific (bar)</span>
+      </div>
+      <div class="chart-row">
+        <div class="chart-card">
+          <div class="chart-container">
+            <canvas id="radarChart"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-container">
+            <canvas id="barChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <section id="companyResearchSummarySection" class="company-research-exec-summary-wrap" hidden aria-label="Company research executive summary">
+        <div class="section-title">Company research — Executive summary</div>
+        <div class="company-research-exec-summary-card dash-card" id="companyResearchExecutiveSummary"></div>
+      </section>
+
+      <div class="dash-tabs">
+        <button type="button" class="dash-tab active" data-dash-tab="strengths">Strengths</button>
+        <button type="button" class="dash-tab" data-dash-tab="gaps">Gaps & How to Address</button>
+        <button type="button" class="dash-tab" data-dash-tab="prep">Interview Prep Focus</button>
+        <button type="button" class="dash-tab" data-dash-tab="actions">Actionable Recommendations</button>
+      </div>
+      <div id="dash-strengths" class="dash-tab-content active">
+        <div class="dash-card">
+          <ul class="strength-list" id="strengthsList"></ul>
+        </div>
+      </div>
+      <div id="dash-gaps" class="dash-tab-content">
+        <div class="dash-card">
+          <ul class="gap-list" id="gapsList"></ul>
+        </div>
+      </div>
+      <div id="dash-prep" class="dash-tab-content">
+        <div class="dash-card">
+          <ul class="prep-list" id="focusList"></ul>
+        </div>
+      </div>
+      <div id="dash-actions" class="dash-tab-content">
+        <div class="dash-card">
+          <ul class="prep-list" id="actionsList"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="application/json" id="job-fit-embed">
 {
   "meta": {
     "candidate": "Max Seto",
@@ -180,3 +272,26 @@
     }
   }
 }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function start() {
+        if (!window.dashboardRunApp || !window.dashboardRunApp.initRunPage) return false;
+        window.dashboardRunApp.initRunPage('./job-fit.json');
+        return true;
+      }
+      if (start()) return;
+      var n = 0;
+      var id = setInterval(function () {
+        if (start() || ++n > 100) {
+          clearInterval(id);
+          if (n > 100 && (!window.dashboardRunApp || !window.dashboardRunApp.initRunPage)) {
+            var el = document.getElementById('summaryText');
+            if (el) el.textContent = 'Could not load dashboard-run-app.js.';
+          }
+        }
+      }, 25);
+    });
+  </script>
+</body>
+</html>

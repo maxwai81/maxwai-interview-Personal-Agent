@@ -97,6 +97,7 @@ ServiceNow is a global enterprise workflow and AI platform (NYSE: NOW) that posi
 
 - https://www.servicenow.com  
 - https://careers.servicenow.com/jobs/744000107759456/sr-advisory-enterprise-architect-hong-kong/  
+- https://builtin.com/job/sr-advisory-enterprise-architect-hong-kong/8434844 (indexed job description mirror; used when automated fetch of careers URL is blocked)  
 - https://www.linkedin.com/company/servicenow  
 - Internal repo reference: `assets/docs/ServiceNow-Company-Research-Report.md` (general company snapshot)
 
