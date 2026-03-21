@@ -14,3 +14,8 @@
 - Follow n8n API patterns and conventions
 - Handle errors gracefully
 - Provide clear logging for debugging
+
+## Cursor Cloud Agent — Job fit & Git (project-specific)
+
+- **Do not** invoke the `Job-Advisor-for-Job-Seekers` subagent (e.g. `Task` with `subagent_type: "Job-Advisor-for-Job-Seekers"`) unless the **user’s message explicitly names it** — acceptable phrases include `Job-Advisor-for-Job-Seekers`, **Job Advisor for Job Seekers**, or clear intent like *"use the Job Advisor agent"*. Generic requests such as *"run job fit analysis"* alone are **not** sufficient; answer with research/matching using normal tools, or ask the user to name the agent if they want the full orchestrated workflow and `job-advisor-web/` artifacts.
+- **Do not** merge into `main`, **do not** `git push origin main`, and **do not** open/merge PRs to `main` on the user’s behalf **unless they explicitly ask** to land changes on `main` / push to `main`. After job-fit work, **only** push the **current working branch** (`git push origin HEAD` or the assigned feature branch). Tell the user that updates on `main` require an explicit follow-up if they want that.

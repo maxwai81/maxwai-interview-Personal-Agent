@@ -443,5 +443,14 @@ Validation: ✅ Passed"
 
 ---
 
+## Job Advisor (this repo)
+
+This workspace also contains **job-advisor-web** and the **Job-Advisor-for-Job-Seekers** agent (`.cursor/agents/Job-Advisor-for-Job-Seekers.md`). For Cursor / Cloud agents:
+
+- **Do not** invoke `Task` / `Job-Advisor-for-Job-Seekers` unless the user **explicitly names** that agent in their message.
+- **Do not** push or merge to **`main`** unless the user **explicitly asks**; after job-fit work, push only the **current branch**. Details: `.cursorrules` and `job-advisor-web/AGENT_INSTRUCTIONS.md`.
+
+---
+
 **Built with ❤️ for the n8n community**  
 Making AI + n8n workflow creation delightful
