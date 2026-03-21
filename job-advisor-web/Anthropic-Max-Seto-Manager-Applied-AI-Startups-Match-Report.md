@@ -1,25 +1,17 @@
-# Job Advisor — Combined Report
+# Resume–Job Match Report — Max Seto × Anthropic
 
-**Candidate:** Max Seto  
-**Company:** Anthropic  
 **Role:** Manager, Applied AI (Startups)  
-**Job URL:** https://job-boards.greenhouse.io/anthropic/jobs/5142110008  
-**Resume sources:** Primary — [LinkedIn profile](https://www.linkedin.com/in/max-seto-pmp-75ab992b/); `./assets/docs/` contained no candidate PDF resume at analysis time.  
-**Generated:** 2026-03-21  
+**Location:** London, UK (EMEA)  
+**Primary resume source:** [LinkedIn — Max Seto](https://www.linkedin.com/in/max-seto-pmp-75ab992b/)  
+**Job posting:** https://job-boards.greenhouse.io/anthropic/jobs/5142110008  
 
 ---
-
-## Part 1 — Company Research (Anthropic)
-
-See full detail in `Anthropic-Company-Research-Report.md`. **Executive snapshot:** Anthropic is a **public benefit corporation** building **Claude** and related frontier AI products with a strong **AI safety** narrative—**reliable, interpretable, steerable** systems. Leadership is research- and product-led (e.g., **Dario Amodei** as CEO; recent **Labs** and executive-team evolution as the company scales). The **Manager, Applied AI (Startups)** role (**London**, **EMEA**) focuses on **hiring and leading Applied AI Architects/Engineers**, **startup technical mindshare**, **hands-on LLM adoption**, **ecosystem partnerships** (VCs/accelerators), and **tight loops** with Sales, Product, and Engineering—**£325k–£390k** salary band per posting.
-
----
-
-## Part 2 — Resume–Job Match
 
 ## Overall Match Score: 47/100
 
 **Summary:** Max brings **strong, long-tenured leadership in enterprise presales and solution consulting** (including **Head of Presales Greater China** at Workday), with deep experience in **discovery, demos, POCs, and executive engagement**—all transferable to “applied” customer-facing work. However, the Anthropic role targets **EMEA startup ecosystem leadership** with explicit expectations around **LLM integration depth**, **AI-native startup fluency**, and a **London-based EMEA travel model**. The profile is **light on documented LLM/GenAI delivery leadership**, **UK/Ireland/Nordics GTM** (a screening question on the posting), and **second-line management across Applied AI architecture/engineering functions**—creating a **material gap** unless reframed with non-public evidence.
+
+---
 
 ## Granular Scores (canonical — spider chart)
 
@@ -32,6 +24,8 @@ See full detail in `Anthropic-Company-Research-Report.md`. **Executive snapshot:
 | Adaptability | 62 | Proven **cross-cultural customer leadership** in APAC; **EMEA startup ecosystem** norms differ—**adaptability is plausible but unproven** in the target geography. |
 | Future career growth | 72 | Move to **frontier Applied AI** at Anthropic is **credible as a pivot** if backed by rapid skill proof; growth story is attractive but needs evidence. |
 | Income | 78 | Posting range **£325k–£390k** is competitive; **seniority and scope** can justify band; not the limiting factor vs. geography and AI depth. |
+
+---
 
 ## Job-specific fit scores (bar chart)
 
@@ -46,6 +40,8 @@ See full detail in `Anthropic-Company-Research-Report.md`. **Executive snapshot:
 | Executive presence & cross-cultural trust | 80 | **Head of Presales** title and long **executive-facing** track record align with **“executive presence”** requirement. |
 | Hiring & scaling customer-facing technical teams | 64 | **Scaling presales** organizations is adjacent; must map to **hiring Applied AI talent** in **EMEA** specifically. |
 
+---
+
 ## Strengths
 
 - **Senior presales leadership:** Head of Presales Greater China; prior **Principal Regional Presales** — credible **player-coach** and **team scaling** narrative.
@@ -53,6 +49,8 @@ See full detail in `Anthropic-Company-Research-Report.md`. **Executive snapshot:
 - **Cross-functional fluency:** **Go-to-market**, **C-level engagement**, and **complex multi-product** solution contexts (HCM, SCM, PLM, BI).
 - **Delivery credibility:** **PMP** and long **project/program** exposure—useful for **structured engagements** with startups when scope control matters.
 - **Alignment with Anthropic values (narrative):** Opportunity to tie **“beneficial AI”** to responsible enterprise adoption patterns—if authentic to the candidate’s viewpoint.
+
+---
 
 ## Gaps & Recommendations
 
@@ -64,6 +62,8 @@ See full detail in `Anthropic-Company-Research-Report.md`. **Executive snapshot:
 | **Screening questions on posting** | Prepare crisp Yes/No + proof for: **UK/I/Nordics coverage**, **regulated-industry LLM POCs with startups**, **quota-influencing pre-sales**, **technical playbooks at scale**, **3+ years managing pre-sales technical teams**. |
 | **Second-line management** | If limited, show **matrix leadership** of senior ICs and **hiring bar** for technical customer roles; propose **operating model** for architects vs. engineers. |
 
+---
+
 ## Interview Prep Focus
 
 - **Team model:** How you would **structure Applied AI Architects vs. Engineers** under you; **career ladders**, **on-call for critical POCs**, and **quality bar** for demos.
@@ -71,6 +71,8 @@ See full detail in `Anthropic-Company-Research-Report.md`. **Executive snapshot:
 - **Technical depth:** Walk through a **reference LLM deployment architecture** (auth, data boundaries, evals, monitoring)—even if simplified.
 - **Travel & London hybrid:** Concrete **availability** and **family/relocation** framing aligned to **30–40% travel**.
 - **Behavioral:** Stories of **conflict between sales velocity and technical rigor**; **safety** and **policy** constraints in customer work.
+
+---
 
 ## Actionable Recommendations
 
