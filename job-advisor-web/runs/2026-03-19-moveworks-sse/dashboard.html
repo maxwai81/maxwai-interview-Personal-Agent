@@ -80,14 +80,131 @@
       </div>
     </div>
   </div>
+  <script type="application/json" id="job-fit-embed">
+{
+  "meta": {
+    "candidate": "Max Seto (SETO Wai)",
+    "company": "Moveworks",
+    "jobTitle": "Solution Sales Executive",
+    "location": "Remote, Hong Kong",
+    "jobUrl": "https://www.moveworks.com/us/en/company/careers/position?gh_jid=8371211002",
+    "resumePath": "LinkedIn",
+    "linkedIn": "https://www.linkedin.com/in/max-seto-pmp-75ab992b/",
+    "generatedAt": "2026-03-19"
+  },
+  "overallMatch": {
+    "score": 72,
+    "maxScore": 100,
+    "summary": "Strong moderate-to-good fit. Max brings 21+ years enterprise software experience, 18+ in presales at Workday and Oracle. Hong Kong location is an exact match. AI integration experience (n8n, Flowise, Cursor, AI agents) and HCM domain align well with Moveworks' workforce AI platform. Job accepts 'alternative sales/customer service role'—presales qualifies. Key: articulate how presales leadership translates to coaching AEs and territory strategy."
+  },
+  "granularScores": [
+    {
+      "dimension": "Skills",
+      "score": 75,
+      "rationale": "AI integration (n8n, Flowise, Cursor, AI agents); 5+ years ROI knowledge; consultative selling, discovery, demos. Value selling methodology not explicitly cited."
+    },
+    {
+      "dimension": "Experience",
+      "score": 70,
+      "rationale": "21 years enterprise software; 18+ presales. Job accepts AE or alternative—presales qualifies. Head of Presales; coached teams; complex deals. Sales-support vs. direct quota."
+    },
+    {
+      "dimension": "Education",
+      "score": 75,
+      "rationale": "BSc Computing Studies; PMP®. Meets expectations; PMP adds credibility for complex deals."
+    },
+    {
+      "dimension": "Location",
+      "score": 95,
+      "rationale": "Role is Remote, Hong Kong; Max is Hong Kong-based. Exact match. 30–50% travel manageable for APAC."
+    },
+    {
+      "dimension": "Adaptability",
+      "score": 88,
+      "rationale": "Career evolution: technical → PM → consultant → presales → Head of Presales. AI/automation; cross-domain. Strong learning agility."
+    },
+    {
+      "dimension": "Future career growth",
+      "score": 78,
+      "rationale": "Moveworks post-acquisition offers agentic AI growth. Presales-to-sales-support is natural extension."
+    },
+    {
+      "dimension": "Income",
+      "score": 72,
+      "rationale": "Workday/Oracle presales leadership; role ~$124K–$205K (US). Reasonable fit; HK/APAC may vary."
+    }
+  ],
+  "jobRequirements": [],
+  "strengths": [
+    "Location: Hong Kong-based; role is Remote, Hong Kong—exact match.",
+    "AI integration: n8n, Flowise, Cursor, AI agent development; aligns with Moveworks agentic AI.",
+    "HCM and workforce domain: Workday/Oracle HCM; same buyer personas as Moveworks.",
+    "Presales leadership: Head of Presales Greater China; coaches teams, territory strategy.",
+    "C-level engagement: Executive demos, C-suite advisory across Greater China.",
+    "Complex deal experience: JD.com, Tencent, Bytedance, Jardine Matheson.",
+    "PMP certification: Project discipline for multi-stakeholder deals."
+  ],
+  "gaps": [
+    {
+      "gap": "Presales vs. sales role framing",
+      "recommendation": "Frame presales as 'alternative sales/customer service role' per job posting. Emphasize deal influence, pipeline contribution, coaching of sales teams."
+    },
+    {
+      "gap": "Value selling methodology not cited",
+      "recommendation": "Add MEDDPIC, Challenger, or similar to resume/LinkedIn if applicable. Prepare ROI and business case stories."
+    },
+    {
+      "gap": "Deal and quota metrics missing",
+      "recommendation": "Quantify deal sizes influenced, pipeline generated, ACV—even if presales-influenced."
+    },
+    {
+      "gap": "Moveworks product knowledge",
+      "recommendation": "Research Moveworks AI Assistant, Reasoning Engine, ServiceNow integration. Prepare 'Why Moveworks' narrative."
+    }
+  ],
+  "interviewPrepFocus": [
+    "Role clarity: Explain how presales qualifies as 'alternative sales/customer service role.' Emphasize coaching, territory strategy, solution win.",
+    "Moveworks + ServiceNow: Understand Dec 2025 acquisition, product integration, AI strategy. Reference 250 mutual customers.",
+    "AI integration: Prepare 2–3 stories of AI/automation work (n8n, Flowise, AI agents).",
+    "Territory and coaching: Describe supporting sales teams, territory strategy, coaching AEs.",
+    "Travel: Confirm 30–50% expectations and APAC flexibility."
+  ],
+  "actionableRecommendations": [
+    "Tailor application: Add 'Moveworks alignment' section—AI integration, workforce domain, Hong Kong base, coaching experience.",
+    "Cover letter: Explain interest post-acquisition; emphasize AI platform fit; address 'alternative sales' framing.",
+    "LinkedIn: Highlight workflow automation, AI agents, presales leadership, Hong Kong. Connect with Moveworks/ServiceNow APAC.",
+    "Prepare metrics: Compile deal sizes, pipeline influenced, ACV.",
+    "Research: ServiceNow fundamentals; Moveworks product pages and agentic AI blog posts."
+  ],
+  "companyResearch": {
+    "highlights": {
+      "executiveSummary": "Moveworks is an Agentic AI Assistant platform for workforce productivity.",
+      "leadership": "",
+      "products": "",
+      "culture": "",
+      "recommendation": ""
+    }
+  }
+}
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      if (!window.dashboardRunApp) return;
-      window.dashboardRunApp.loadJobFitJson('./job-fit.json').then(function (data) {
-        window.dashboardRunApp.renderFromJson(data);
-      }).catch(function () {
-        document.getElementById('summaryText').textContent = 'Could not load job-fit.json for this run.';
-      });
+      function start() {
+        if (!window.dashboardRunApp || !window.dashboardRunApp.initRunPage) return false;
+        window.dashboardRunApp.initRunPage('./job-fit.json');
+        return true;
+      }
+      if (start()) return;
+      var n = 0;
+      var id = setInterval(function () {
+        if (start() || ++n > 100) {
+          clearInterval(id);
+          if (n > 100 && (!window.dashboardRunApp || !window.dashboardRunApp.initRunPage)) {
+            var el = document.getElementById('summaryText');
+            if (el) el.textContent = 'Could not load dashboard-run-app.js.';
+          }
+        }
+      }, 25);
     });
   </script>
 </body>

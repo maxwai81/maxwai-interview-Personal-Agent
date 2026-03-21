@@ -150,14 +150,49 @@
     return true;
   }
 
+  /**
+   * Loads job-fit data. Tries fetch first (works over http/https). If fetch fails
+   * (common when opening dashboard.html via file:// — browsers block local fetch),
+   * falls back to <script type="application/json" id="job-fit-embed"> duplicated from job-fit.json.
+   */
   async function loadJobFitJson(url) {
-    const r = await fetch(url + (url.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now());
-    if (!r.ok) throw new Error('Failed to load ' + url);
-    return r.json();
+    const bust = (url.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
+    try {
+      const r = await fetch(url + bust);
+      if (!r.ok) throw new Error('Failed to load ' + url);
+      return r.json();
+    } catch (err) {
+      const el = document.getElementById('job-fit-embed');
+      if (el && el.textContent.trim()) {
+        try {
+          return JSON.parse(el.textContent);
+        } catch (parseErr) {
+          console.warn('job-fit-embed: JSON parse failed', parseErr);
+        }
+      }
+      throw err;
+    }
+  }
+
+  /**
+   * For per-run dashboard.html: call once `dashboardRunApp` exists (after deferred script loads).
+   */
+  function initRunPage(jobFitUrl) {
+    const url = jobFitUrl || './job-fit.json';
+    const fail = function (msg) {
+      const el = document.getElementById('summaryText');
+      if (el) el.textContent = msg || 'Could not load job-fit.json for this run.';
+    };
+    loadJobFitJson(url).then(function (data) {
+      renderFromJson(data);
+    }).catch(function () {
+      fail('Could not load job-fit.json for this run.');
+    });
   }
 
   global.dashboardRunApp = {
     renderFromJson: renderFromJson,
-    loadJobFitJson: loadJobFitJson
+    loadJobFitJson: loadJobFitJson,
+    initRunPage: initRunPage
   };
 })(typeof window !== 'undefined' ? window : this);

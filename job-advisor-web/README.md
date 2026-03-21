@@ -64,7 +64,7 @@ The agent will run company research + resume matching, write `report.md` to `job
 
 Each Job Advisor run can also produce a **standalone** dashboard that matches the `index.html` Dashboard tab (same CSS/JS):
 
-- `runs/<slug>/dashboard.html` — loads `./job-fit.json` (same schema as `job-fit-dashboard.json`)
+- `runs/<slug>/dashboard.html` — loads `./job-fit.json` (same schema as `job-fit-dashboard.json`); includes an embedded copy for `file://` viewing (see `runs/README.md`)
 - Shared styles: `dashboard-shared.css` · logic: `dashboard-run-app.js`
 - Template to copy: `run-dashboard-template.html` · example: `runs/2026-03-19-moveworks-sse/`
 

@@ -38,7 +38,10 @@ IMPORTANT: When you complete the report, write the full markdown (company resear
 After the subagent returns:
 - If the subagent wrote a file (e.g. a custom filename), copy/rename that content to `job-advisor-web/report.md`
 - If the subagent returned the full report in its response, write it to `job-advisor-web/report.md`
+- **Canonical path:** `job-advisor-web/report.md` at the **repository root** (same folder as `index.html`). If the user opens `report.md` from a per-run dashboard link (`../../report.md`) via `file://`, the OS may open the browser or an editor depending on the OS; the main app (`index.html` Dashboard tab) loads the file via fetch when using a local HTTP server (recommended).
 - Tell the user: "Report saved. Refresh the Dashboard to view."
+
+**Per-run dashboard:** When creating `runs/<slug>/dashboard.html`, duplicate `job-fit.json` inside `<script type="application/json" id="job-fit-embed">` so charts load when the HTML file is opened without a server (see `runs/README.md`).
 
 ## 5. Git publish (when possible)
 

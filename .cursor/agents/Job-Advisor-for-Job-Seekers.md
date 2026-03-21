@@ -155,8 +155,9 @@ After Step 4, create a **per-run** folder under `job-advisor-web/runs/<slug>/` s
 
 1. **Slug** — Use `YYYY-MM-DD-<company-short>-<role-short>` (lowercase, hyphens), e.g. `2026-03-19-moveworks-sse`.
 2. **Copy `job-fit-dashboard.json`** to `job-advisor-web/runs/<slug>/job-fit.json` (same schema).
-3. **Create `dashboard.html`** — Copy [job-advisor-web/runs/2026-03-19-moveworks-sse/dashboard.html](job-advisor-web/runs/2026-03-19-moveworks-sse/dashboard.html) as a template: it loads `../../dashboard-shared.css`, `../../dashboard-run-app.js`, and `./job-fit.json`. Update the `<title>`, `<h1>`, meta line, and **run-source-links** so they point to the actual markdown files for this run (e.g. `../../{Company}-Company-Research-Report.md`, `../../report.md`, match report filename if separate).
-4. **Do not duplicate** dashboard CSS/JS — always reference `dashboard-shared.css` and `dashboard-run-app.js` from the parent `job-advisor-web/` folder.
+3. **Create `dashboard.html`** — Copy [job-advisor-web/run-dashboard-template.html](job-advisor-web/run-dashboard-template.html) or an existing `runs/<slug>/dashboard.html` as a template: it loads `../../dashboard-shared.css`, `../../dashboard-run-app.js`, and `./job-fit.json`. Update the `<title>`, `<h1>`, meta line, and **run-source-links** so they point to the actual markdown files for this run (e.g. `../../{Company}-Company-Research-Report.md`, `../../report.md`, match report filename if separate).
+4. **Embed JSON for `file://`:** Paste the **exact same JSON** as `job-fit.json` inside `<script type="application/json" id="job-fit-embed">` in `dashboard.html` (before the init script). Browsers block `fetch()` for local files; `dashboard-run-app.js` falls back to this embed. See `job-advisor-web/runs/README.md`.
+5. **Do not duplicate** dashboard CSS/JS — always reference `dashboard-shared.css` and `dashboard-run-app.js` from the parent `job-advisor-web/` folder.
 
 Tell the user: *"Per-run dashboard: `job-advisor-web/runs/<slug>/dashboard.html`"*
 

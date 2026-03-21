@@ -2,6 +2,8 @@
   TEMPLATE: Copy to job-advisor-web/runs/<slug>/dashboard.html
   - Replace TITLE, H1, meta line, and run-source-links hrefs for your company research + match markdown files.
   - Copy job-fit-dashboard.json → runs/<slug>/job-fit.json for this run.
+  - Duplicate the same JSON inside <script type="application/json" id="job-fit-embed"> so the dashboard
+    works when opened via file:// (browsers block fetch() for local JSON).
   See job-advisor-web/runs/README.md
 -->
 <!DOCTYPE html>
@@ -26,6 +28,7 @@
       <a href="../../report.md">Combined report (report.md)</a>
       <a href="../../Company-Company-Research-Report.md">Company research</a>
       <a href="../../Company-Candidate-Role-Match-Report.md">Resume–job match</a>
+      <a href="../../job-fit-dashboard.json">Latest dashboard JSON</a>
     </nav>
   </div>
   <div class="run-dashboard-wrap">
@@ -59,14 +62,27 @@
       <div id="dash-actions" class="dash-tab-content"><div class="dash-card"><ul class="prep-list" id="actionsList"></ul></div></div>
     </div>
   </div>
+  <script type="application/json" id="job-fit-embed">
+  {}
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      if (!window.dashboardRunApp) return;
-      window.dashboardRunApp.loadJobFitJson('./job-fit.json').then(function (data) {
-        window.dashboardRunApp.renderFromJson(data);
-      }).catch(function () {
-        document.getElementById('summaryText').textContent = 'Could not load job-fit.json for this run.';
-      });
+      function start() {
+        if (!window.dashboardRunApp || !window.dashboardRunApp.initRunPage) return false;
+        window.dashboardRunApp.initRunPage('./job-fit.json');
+        return true;
+      }
+      if (start()) return;
+      var n = 0;
+      var id = setInterval(function () {
+        if (start() || ++n > 100) {
+          clearInterval(id);
+          if (n > 100 && (!window.dashboardRunApp || !window.dashboardRunApp.initRunPage)) {
+            var el = document.getElementById('summaryText');
+            if (el) el.textContent = 'Could not load dashboard-run-app.js.';
+          }
+        }
+      }, 25);
     });
   </script>
 </body>
