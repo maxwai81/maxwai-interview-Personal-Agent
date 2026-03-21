@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Job Application",
-  "description": "Form data for Job-Advisor-for-Job-Seekers subagent",
+  "description": "Form data for Job-Advisor-for-Job-Seekers subagent (cloud agents auto-invoke that subagent for job-fit flows; see AGENT_INSTRUCTIONS.md)",
   "type": "object",
   "required": ["company"],
   "properties": {

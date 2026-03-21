@@ -1,5 +1,10 @@
 # Agent Instructions: File-Based Job Advisor Workflow
 
+## Full automation (cloud / Cursor agents)
+
+- **Auto-invoke Job-Advisor-for-Job-Seekers** for any job-fit, application-analysis, or “run job fit” request (including free-form chat that includes company + role and resume/LinkedIn). Use `mcp_task` / `Task` with `subagent_type: "Job-Advisor-for-Job-Seekers"` **without** requiring the user to type the agent name.
+- After outputs exist under `job-advisor-web/`, follow **Step 5 then Step 6** in `.cursor/agents/Job-Advisor-for-Job-Seekers.md`: push the current branch, then **automatically merge to `main`** and `git push origin main` when allowed, else non-draft PR + auto-merge.
+
 When the user says **"Process job-advisor-web/request.json"** or **"Run Job Advisor for the request in request.json"**:
 
 ## 1. Read the request
@@ -52,5 +57,7 @@ git add job-advisor-web/
 git commit -m "job-advisor: request/processed"
 git push origin HEAD
 ```
+
+Then **automatically** land on **`main`** per Job-Advisor Step 6 (merge feature branch → `main` → `git push origin main`, or PR + auto-merge when protection requires it).
 
 If git is not available in the environment, tell the user to commit and push manually.

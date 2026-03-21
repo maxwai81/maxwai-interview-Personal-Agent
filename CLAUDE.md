@@ -443,5 +443,12 @@ Validation: ✅ Passed"
 
 ---
 
+## Job Advisor (this repo) — full automation
+
+- **Auto-invoke** `Job-Advisor-for-Job-Seekers` for job-fit / application-analysis requests (see `.cursorrules`).
+- After artifacts land under `job-advisor-web/`, **auto-merge to `main`** (Step 6) when git and branch policy allow.
+
+---
+
 **Built with ❤️ for the n8n community**  
 Making AI + n8n workflow creation delightful
