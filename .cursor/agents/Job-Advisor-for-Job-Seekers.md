@@ -184,19 +184,40 @@ If the environment creates a GitHub pull request after push (e.g. `ManagePullReq
 
 `Job-Advisor-for-Job-Seekers.md` does not create PRs by itself; Step 5 is still **push to the current branch**. This subsection documents coordination with cloud workflows that open a PR.
 
+### Step 6: Land changes on `main` (so GitHub / Pages see them)
+
+Step 5 only pushes to the **current branch**. Published sites and collaborators looking at **`main`** will **not** see new files until that branch is **merged into `main`**.
+
+**When the user wants updates on `main`** (default for GitHub Pages sourced from `main`), run **one** of the following after Step 5 succeeds:
+
+1. **Pull request (recommended for branch protection)**  
+   - Ensure the working branch is **up to date** with `main` (`git fetch origin main && git merge origin/main`, resolve conflicts if any, then push).  
+   - Open a PR **base: `main`**, **head: current branch** with **`draft: false`**.  
+   - If the repo has **Allow auto-merge** and rules allow it, **enable auto-merge** on the PR (e.g. `gh pr merge <n> --auto --merge` when the CLI is available and permitted).  
+   - Wait for required checks (and reviews, if any) to pass; GitHub merges into `main` automatically when auto-merge is satisfied.
+
+2. **Direct push to `main` (only if allowed)**  
+   - If branch protection allows it: `git checkout main`, `git pull origin main`, `git merge <feature-branch>`, `git push origin main`.  
+   - Do **not** force-push to `main` unless the user explicitly requests it and policy allows.
+
+3. **If tools are restricted** (no PR API, no `gh`)  
+   - Tell the user: *"Changes are on branch `<name>`. Open a PR to `main` on GitHub (not draft) and merge, or merge locally and push `main`."*
+
+**After `main` updates:** GitHub Pages (if configured from `main`) rebuilds on the next deploy; confirm in the repo **Actions** or **Pages** settings if needed.
+
 ## Direct Invocation (No Form)
 
 When the user invokes with company and job directly in chat (e.g., "Run job fit for ServiceNow, Director SC, my LinkedIn is https://linkedin.com/in/..."):
 
 1. **Skip request.json** — Use the inputs from the chat message.
-2. **Proceed with the workflow** — Run Step 1 (company research), Step 2 (resume matching), Step 3 (combined summary), Step 3b (write report.md + dashboard link), Step 4 (dashboard JSON), Step 4b (per-run `runs/<slug>/`), Step 5 (git add / commit / push).
+2. **Proceed with the workflow** — Run Step 1 (company research), Step 2 (resume matching), Step 3 (combined summary), Step 3b (write report.md + dashboard link), Step 4 (dashboard JSON), Step 4b (per-run `runs/<slug>/`), Step 5 (git add / commit / push), then **Step 6** if the user wants the work on **`main`** (GitHub Pages / default branch).
 3. **Resume source**: If the user provides a LinkedIn URL, pass it to resume-skill-matching. If they also provide a resume path, pass both. If neither, use `./assets/docs/`.
 
 ## When Invoked
 
 1. **Check inputs**: Do you have company (required)? Location, job title, resume path or LinkedIn URL (optional)?
 2. **If missing company**: Use the prompt template above to ask.
-3. **If company provided**: Run Step 1 (company research), then Step 2 (resume matching), then Step 3 (combined summary), then Step 3b (write report.md + dashboard link), then Step 4 (dashboard JSON), then Step 4b (per-run dashboard under `runs/<slug>/`), then Step 5 (git push).
+3. **If company provided**: Run Step 1 (company research), then Step 2 (resume matching), then Step 3 (combined summary), then Step 3b (write report.md + dashboard link), then Step 4 (dashboard JSON), then Step 4b (per-run dashboard under `runs/<slug>/`), then Step 5 (git push), then **Step 6** when the user expects **`main`** to reflect the new files.
 4. **If resume path missing and no LinkedIn URL**: Use `./assets/docs/` and look for common resume filenames (e.g., `*Resume*.pdf`, `*resume*.pdf`).
 
 ## Delegation Rules
@@ -220,4 +241,4 @@ When the user invokes with company and job directly in chat (e.g., "Run job fit 
 - **Prioritize actionability**: The final recommendations should be specific and immediately useful for the user.
 - **Respect user time**: If the user has already run company research in a previous turn, you may skip Step 1 and use that output — but confirm with the user first.
 - **Dashboard first**: Write `job-fit-dashboard.json` immediately after the combined summary so the user can open the interactive dashboard alongside the report.
-- **Publish**: Complete Step 5 (`git add job-advisor-web/` → commit → push) whenever possible so GitHub Pages and collaborators see the latest `report.md` and run dashboards.
+- **Publish**: Complete Step 5 (`git add job-advisor-web/` → commit → push) whenever possible. Complete **Step 6** when the default branch is **`main`** and the user should see updates on GitHub / GitHub Pages without a manual merge.
