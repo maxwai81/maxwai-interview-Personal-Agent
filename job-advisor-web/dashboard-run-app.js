@@ -79,13 +79,64 @@
     return out.join('\n');
   }
 
+  /** Canonical Tier-A labels (spider chart). Order matters when JSON lists all seven. */
+  var CANONICAL_DIMENSIONS = [
+    'Skills', 'Experience', 'Education', 'Location', 'Adaptability', 'Future career growth', 'Income'
+  ];
+
+  function mapScoreRows(arr) {
+    if (!arr || !arr.length) return [];
+    return arr.map(function (g) {
+      return {
+        name: g.dimension || g.name || '—',
+        score: g.score,
+        rationale: g.rationale || ''
+      };
+    });
+  }
+
+  /**
+   * Radar: prefer seven canonical dimensions when present (by name, case-insensitive).
+   * If fewer than four canonical matches, fall back to legacy single-array behavior (all granularScores).
+   */
+  function buildRadarDims(data) {
+    const raw = data.granularScores || [];
+    if (!raw.length) return [];
+    const byName = {};
+    raw.forEach(function (g) {
+      const n = String(g.dimension || g.name || '').trim();
+      if (n) byName[n.toLowerCase()] = g;
+    });
+    const ordered = [];
+    CANONICAL_DIMENSIONS.forEach(function (label) {
+      const g = byName[label.toLowerCase()];
+      if (g) {
+        ordered.push({
+          name: label,
+          score: g.score,
+          rationale: g.rationale || ''
+        });
+      }
+    });
+    if (ordered.length >= 4) return ordered;
+    return mapScoreRows(raw);
+  }
+
+  /**
+   * Bar chart: jobSpecificScores when present; else legacy fallback to granularScores (same data as radar).
+   */
+  function buildBarDims(data) {
+    const job = data.jobSpecificScores;
+    if (job && job.length) return mapScoreRows(job);
+    return mapScoreRows(data.granularScores || []);
+  }
+
   function renderFromJson(data) {
     if (!data || !data.overallMatch) return false;
     const score = data.overallMatch.score ?? 0;
     const summary = data.overallMatch.summary || '';
-    const dims = (data.granularScores || []).map(function (g) {
-      return { name: g.dimension || g.name || '—', score: g.score, rationale: g.rationale || '' };
-    });
+    const radarDims = buildRadarDims(data);
+    const barDims = buildBarDims(data);
 
     const scoreCircle = document.getElementById('scoreCircle');
     const scoreValue = document.getElementById('scoreValue');
@@ -107,17 +158,21 @@
       }
     } catch (_) { global.barChart = null; }
 
-    if (dims.length > 0 && typeof Chart !== 'undefined') {
+    if ((radarDims.length > 0 || barDims.length > 0) && typeof Chart !== 'undefined') {
       const radarEl = document.getElementById('radarChart');
       const barEl = document.getElementById('barChart');
-      if (radarEl) {
+      const radarLabels = radarDims.map(function (d) { return d.name; });
+      const radarData = radarDims.map(function (d) { return d.score; });
+      const barLabels = barDims.map(function (d) { return d.name; });
+      const barData = barDims.map(function (d) { return d.score; });
+      if (radarEl && radarDims.length > 0) {
         global.radarChart = new Chart(radarEl.getContext('2d'), {
           type: 'radar',
           data: {
-            labels: dims.map(function (d) { return d.name; }),
+            labels: radarLabels,
             datasets: [{
               label: 'Score',
-              data: dims.map(function (d) { return d.score; }),
+              data: radarData,
               fill: true,
               backgroundColor: 'rgba(13, 148, 136, 0.2)',
               borderColor: '#0d9488',
@@ -144,19 +199,19 @@
           }
         });
       }
-      if (barEl) {
+      if (barEl && barDims.length > 0) {
         global.barChart = new Chart(barEl.getContext('2d'), {
           type: 'bar',
           data: {
-            labels: dims.map(function (d) { return d.name; }),
+            labels: barLabels,
             datasets: [{
               label: 'Score',
-              data: dims.map(function (d) { return d.score; }),
-              backgroundColor: dims.map(function (d) {
+              data: barData,
+              backgroundColor: barDims.map(function (d) {
                 return d.score >= 85 ? 'rgba(13, 148, 136, 0.7)' :
                   d.score >= 75 ? 'rgba(13, 148, 136, 0.5)' : 'rgba(124, 58, 237, 0.7)';
               }),
-              borderColor: dims.map(function (d) {
+              borderColor: barDims.map(function (d) {
                 return d.score >= 85 ? '#0d9488' : d.score >= 75 ? '#0d9488' : '#7c3aed';
               }),
               borderWidth: 1

@@ -77,7 +77,7 @@ Use browser/API to fetch this LinkedIn profile and include it as part of the can
 
 **Target role**: [JOB TITLE if provided, else "general role at [COMPANY]"]
 
-Produce the full Resume–Job Match Report with overall score, granular scores, strengths, gaps, and interview prep focus. Ensure the report uses this structure so the dashboard can parse it: ## Overall Match Score: X/100, **Summary:**, ## Granular Scores (table), ## Strengths, ## Gaps & Recommendations, ## Interview Prep Focus, ## Actionable Recommendations.
+Produce the full Resume–Job Match Report with overall score, **two** granular tables (**canonical** seven dimensions for the spider chart, plus **job-specific** dimensions for the bar chart), strengths, gaps, and interview prep focus. Ensure the report uses this structure so the dashboard can parse it: ## Overall Match Score: X/100, **Summary:**, ## Granular Scores (canonical — spider chart) (table), ## Job-specific fit scores (bar chart) (table), ## Strengths, ## Gaps & Recommendations, ## Interview Prep Focus, ## Actionable Recommendations.
 ```
 
 Capture the full match report from the subagent's response.
@@ -96,7 +96,7 @@ Present to the user:
 After producing the combined summary, write the full markdown report to `job-advisor-web/report.md`:
 
 - **Content**: Part 1 (Company Research) + Part 2 (Resume–Job Match) in a single file
-- **Format**: Must include `## Overall Match Score: X/100`, `**Summary:**`, `## Granular Scores` (markdown table), `## Strengths`, `## Gaps & Recommendations`, `## Interview Prep Focus`, `## Actionable Recommendations` so the dashboard parser can load it
+- **Format**: Must include `## Overall Match Score: X/100`, `**Summary:**`, `## Granular Scores (canonical — spider chart)` (markdown table, seven rows), `## Job-specific fit scores (bar chart)` (markdown table), `## Strengths`, `## Gaps & Recommendations`, `## Interview Prep Focus`, `## Actionable Recommendations` so the dashboard parser can load it
 
 Tell the user: *"Report saved. Open the dashboard: job-advisor-web/index.html or http://localhost:8765 (if server is running)."*
 
@@ -123,7 +123,14 @@ After producing the combined summary, create a JSON file at `job-advisor-web/job
   "granularScores": [
     { "dimension": "Skills", "score": [0-100], "rationale": "..." },
     { "dimension": "Experience", "score": [0-100], "rationale": "..." },
-    ...
+    { "dimension": "Education", "score": [0-100], "rationale": "..." },
+    { "dimension": "Location", "score": [0-100], "rationale": "..." },
+    { "dimension": "Adaptability", "score": [0-100], "rationale": "..." },
+    { "dimension": "Future career growth", "score": [0-100], "rationale": "..." },
+    { "dimension": "Income", "score": [0-100], "rationale": "..." }
+  ],
+  "jobSpecificScores": [
+    { "dimension": "[Company/role-specific label]", "score": [0-100], "rationale": "..." }
   ],
   "jobRequirements": [
     { "requirement": "...", "evidence": "...", "match": "exceeds|strong|verify|confirm|elaborate" },
@@ -148,6 +155,8 @@ After producing the combined summary, create a JSON file at `job-advisor-web/job
 }
 ```
 
+- **`granularScores`**: Exactly **seven** canonical rows (Skills → … → Income) for the **spider/radar chart** — from Job-Interview-resume-skill-matching Tier A.
+- **`jobSpecificScores`**: **4–8** rows with **dynamic** `dimension` labels for **this job** for the **horizontal bar chart** — from Tier B in the same agent. Omit only if you must fall back to legacy single-table output (dashboard will duplicate `granularScores` for the bar chart).
 - **jobRequirements**: Extract from the job posting / company research; use `match` values: `exceeds` (green), `strong` (green), `verify` (purple), `confirm` (amber), `elaborate` (pink)
 - **companyResearch.highlights**: Map key sections from the company research report
 - **`companyResearch.highlights.executiveSummary` (required for per-run dashboard):** Write the **full executive-summary body in Markdown** (same substance as in the company research report). This populates the **“Company research — Executive summary”** block on `runs/<slug>/dashboard.html` (directly below the granular score charts). Supported patterns: `##` / `###` headings, `-` bullet lists, `**bold**`, and paragraphs. Example structure:

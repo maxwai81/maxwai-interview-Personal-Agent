@@ -26,6 +26,16 @@
 
 ---
 
+## Job-specific fit scores (bar chart)
+
+| Dimension | Score | Rationale |
+|-----------|-------|-----------|
+| **Core Business Solutions / HR pillar** | 84 | Deep Workday HCM maps to CBS HR use cases. |
+| **ServiceNow platform & certification** | 42 | No ServiceNow tenure yet; plan CSA + advisory path. |
+| **GenAI / agentic positioning** | 78 | n8n, Flowise, Cursor agents align with ServiceNow AI narrative. |
+
+---
+
 ## Strengths
 
 1. **Pre-sales depth**: 15+ years of full-cycle presales at Workday and Oracle.

@@ -16,6 +16,43 @@
   },
   "granularScores": [
     {
+      "dimension": "Skills",
+      "score": 61,
+      "rationale": "Strong enterprise presales and HCM/ERP fluency; ServiceNow/Now Platform and named EA frameworks not explicit on profile."
+    },
+    {
+      "dimension": "Experience",
+      "score": 68,
+      "rationale": "21+ years enterprise software; 18+ in presales leadership—matches vendor seniority bar; architecture title alignment needs narrative."
+    },
+    {
+      "dimension": "Education",
+      "score": 72,
+      "rationale": "BSc Computing Studies; PMP—meets typical bar; add EA/architecture certifications if pursuing."
+    },
+    {
+      "dimension": "Location",
+      "score": 95,
+      "rationale": "Hong Kong SAR matches Causeway Bay posting and APAC strategic account scope."
+    },
+    {
+      "dimension": "Adaptability",
+      "score": 78,
+      "rationale": "Career evolution technical → PM → consultant → presales → Head of Presales; multi-vendor context."
+    },
+    {
+      "dimension": "Future career growth",
+      "score": 70,
+      "rationale": "Advisory EA path aligns with platform scale-up post-AI; depends on ServiceNow depth and certification cadence."
+    },
+    {
+      "dimension": "Income",
+      "score": 62,
+      "rationale": "Senior presales band; validate HK Advisory EA comp vs. expectations in process."
+    }
+  ],
+  "jobSpecificScores": [
+    {
       "dimension": "Executive & pre-sales influence",
       "score": 86,
       "rationale": "Head of Presales Greater China; discovery, demos, PoCs, and C-level engagement called out in Oracle-era experience."

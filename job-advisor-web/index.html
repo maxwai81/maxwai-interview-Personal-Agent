@@ -458,6 +458,10 @@
           </div>
 
           <div class="section-title">Granular Scores</div>
+          <div class="chart-row-labels" aria-hidden="true">
+            <span>Canonical (spider)</span>
+            <span>Job-specific (bar)</span>
+          </div>
           <div class="chart-row">
             <div class="chart-card">
               <div class="chart-container">
@@ -646,6 +650,55 @@
       setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
+    function parseDimensionTableRows(block) {
+      const rows = [];
+      if (!block) return rows;
+      const rowRegex = /\|\s*([^|]+)\s*\|\s*(\d+)\s*\|\s*([^|]*)\s*\|/g;
+      let m;
+      while ((m = rowRegex.exec(block)) !== null) {
+        const name = m[1].replace(/\*\*/g, '').trim();
+        if (name.toLowerCase() === 'dimension' || name.toLowerCase() === 'score' || /^[-:\s]+$/.test(name)) continue;
+        rows.push({ name, score: parseInt(m[2], 10), rationale: (m[3] || '').trim() });
+      }
+      return rows;
+    }
+
+    const INDEX_CANONICAL_DIMENSIONS = [
+      'Skills', 'Experience', 'Education', 'Location', 'Adaptability', 'Future career growth', 'Income'
+    ];
+
+    function indexMapScoreRows(arr) {
+      if (!arr || !arr.length) return [];
+      return arr.map(d => ({
+        name: d.dimension || d.name || '—',
+        score: d.score,
+        rationale: d.rationale || ''
+      }));
+    }
+
+    function indexBuildRadarDims(dimensions) {
+      const raw = dimensions.map(d => ({ dimension: d.name, score: d.score, rationale: d.rationale || '' }));
+      if (!raw.length) return [];
+      const byName = {};
+      raw.forEach(g => {
+        const n = String(g.dimension || g.name || '').trim();
+        if (n) byName[n.toLowerCase()] = g;
+      });
+      const ordered = [];
+      INDEX_CANONICAL_DIMENSIONS.forEach(label => {
+        const g = byName[label.toLowerCase()];
+        if (g) ordered.push({ name: label, score: g.score, rationale: g.rationale || '' });
+      });
+      if (ordered.length >= 4) return ordered;
+      return indexMapScoreRows(raw);
+    }
+
+    function indexBuildBarDims(dimensions, jobSpecificDimensions) {
+      const job = (jobSpecificDimensions || []).map(d => ({ dimension: d.name, score: d.score, rationale: d.rationale || '' }));
+      if (job.length) return indexMapScoreRows(job);
+      return indexMapScoreRows(dimensions.map(d => ({ dimension: d.name, score: d.score, rationale: d.rationale || '' })));
+    }
+
     // Report parser
     function parseReport(markdown) {
       markdown = (markdown || '').replace(/^\uFEFF/, '').replace(/\r\n/g, '\n');
@@ -653,6 +706,7 @@
         overallScore: null,
         summary: '',
         dimensions: [],
+        jobSpecificDimensions: [],
         strengths: [],
         gaps: [],
         focus: [],
@@ -668,18 +722,14 @@
       if (!summaryMatch) summaryMatch = markdown.match(/(?:\*\*Summary\*\*[:\uFF1A]|\*\*Summary[:\uFF1A]\*\*)\s*([^\n]+)/);
       if (summaryMatch) result.summary = summaryMatch[1].trim();
 
-      // Granular scores: try Granular Scores block first (most reliable)
-      const granularBlock = markdown.match(/##\s*Granular\s+Scores\s*\n+([\s\S]*?)(?=\n##|\n---|$)/i);
+      // Granular scores (canonical): heading may include "(canonical — spider chart)" etc.
+      const granularBlock = markdown.match(/##\s*Granular\s+Scores[^\n]*\n+([\s\S]*?)(?=\n##|\n---|$)/i);
       if (granularBlock) {
-        const block = granularBlock[1];
-        // Match table rows: | Name or **Name** | 72 | Rationale... | (skip header/separator)
-        const rowRegex = /\|\s*([^|]+)\s*\|\s*(\d+)\s*\|\s*([^|]*)\s*\|/g;
-        let m;
-        while ((m = rowRegex.exec(block)) !== null) {
-          const name = m[1].replace(/\*\*/g, '').trim();
-          if (name.toLowerCase() === 'dimension' || name.toLowerCase() === 'score' || /^[-:\s]+$/.test(name)) continue;
-          result.dimensions.push({ name, score: parseInt(m[2], 10), rationale: (m[3] || '').trim() });
-        }
+        result.dimensions = parseDimensionTableRows(granularBlock[1]);
+      }
+      const jobSpecificBlock = markdown.match(/##\s*Job-specific[^\n]*\n+([\s\S]*?)(?=\n##|\n---|$)/i);
+      if (jobSpecificBlock) {
+        result.jobSpecificDimensions = parseDimensionTableRows(jobSpecificBlock[1]);
       }
       // Fallback: primary table pattern if block parser got nothing
       if (result.dimensions.length === 0) {
@@ -743,7 +793,7 @@
 
     function renderDashboard(raw) {
       const parsed = parseReport(raw);
-      if (!parsed.overallScore && parsed.dimensions.length === 0) return false;
+      if (!parsed.overallScore && parsed.dimensions.length === 0 && (parsed.jobSpecificDimensions || []).length === 0) return false;
       // Normalize: ensure we have at least score or dimensions
       if (!parsed.overallScore && parsed.dimensions.length > 0) {
         parsed.overallScore = Math.round(parsed.dimensions.reduce((s, d) => s + d.score, 0) / parsed.dimensions.length);
@@ -761,15 +811,19 @@
       try {
         if (window.barChart) { window.barChart.destroy(); window.barChart = null; }
       } catch (_) { window.barChart = null; }
-      if (parsed.dimensions.length > 0) {
+      const radarDims = indexBuildRadarDims(parsed.dimensions);
+      const barDims = indexBuildBarDims(parsed.dimensions, parsed.jobSpecificDimensions);
+
+      if (radarDims.length > 0 || barDims.length > 0) {
+        if (radarDims.length > 0) {
         const ctxRadar = document.getElementById('radarChart').getContext('2d');
         window.radarChart = new Chart(ctxRadar, {
           type: 'radar',
           data: {
-            labels: parsed.dimensions.map(d => d.name),
+            labels: radarDims.map(d => d.name),
             datasets: [{
               label: 'Score',
-              data: parsed.dimensions.map(d => d.score),
+              data: radarDims.map(d => d.score),
               fill: true,
               backgroundColor: 'rgba(13, 148, 136, 0.2)',
               borderColor: '#0d9488',
@@ -795,19 +849,23 @@
             plugins: { legend: { display: false } }
           }
         });
+        } else {
+          window.radarChart = null;
+        }
+        if (barDims.length > 0) {
         const ctxBar = document.getElementById('barChart').getContext('2d');
         window.barChart = new Chart(ctxBar, {
           type: 'bar',
           data: {
-            labels: parsed.dimensions.map(d => d.name),
+            labels: barDims.map(d => d.name),
             datasets: [{
               label: 'Score',
-              data: parsed.dimensions.map(d => d.score),
-              backgroundColor: parsed.dimensions.map(d =>
+              data: barDims.map(d => d.score),
+              backgroundColor: barDims.map(d =>
                 d.score >= 85 ? 'rgba(13, 148, 136, 0.7)' :
                 d.score >= 75 ? 'rgba(13, 148, 136, 0.5)' : 'rgba(124, 58, 237, 0.7)'
               ),
-              borderColor: parsed.dimensions.map(d =>
+              borderColor: barDims.map(d =>
                 d.score >= 85 ? '#0d9488' : d.score >= 75 ? '#0d9488' : '#7c3aed'
               ),
               borderWidth: 1
@@ -825,6 +883,9 @@
             plugins: { legend: { display: false } }
           }
         });
+        } else {
+          window.barChart = null;
+        }
       }
 
       document.getElementById('strengthsList').innerHTML = parsed.strengths.map(s =>

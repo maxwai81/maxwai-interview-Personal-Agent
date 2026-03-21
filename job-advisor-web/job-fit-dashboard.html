@@ -300,6 +300,24 @@
     }
 
     /* Charts */
+    .chart-row-labels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 0 0 0.35rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+    }
+
+    @media (max-width: 768px) {
+      .chart-row-labels {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .chart-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -683,6 +701,10 @@
 
       <section id="granularSection">
         <h2>Granular Scores</h2>
+        <div class="chart-row-labels" aria-hidden="true">
+          <span>Canonical (spider)</span>
+          <span>Job-specific (bar)</span>
+        </div>
         <div class="chart-row">
           <div class="card chart-wrapper">
             <div class="chart-container">
@@ -758,6 +780,42 @@
     let radarChart = null;
     let barChart = null;
 
+    const CANONICAL_DIMENSIONS = [
+      'Skills', 'Experience', 'Education', 'Location', 'Adaptability', 'Future career growth', 'Income'
+    ];
+
+    function mapScoreRows(arr) {
+      if (!arr || !arr.length) return [];
+      return arr.map(g => ({
+        name: g.dimension || g.name || '—',
+        score: g.score,
+        rationale: g.rationale || ''
+      }));
+    }
+
+    function buildRadarDims(data) {
+      const raw = data.granularScores || [];
+      if (!raw.length) return [];
+      const byName = {};
+      raw.forEach(g => {
+        const n = String(g.dimension || g.name || '').trim();
+        if (n) byName[n.toLowerCase()] = g;
+      });
+      const ordered = [];
+      CANONICAL_DIMENSIONS.forEach(label => {
+        const g = byName[label.toLowerCase()];
+        if (g) ordered.push({ name: label, score: g.score, rationale: g.rationale || '' });
+      });
+      if (ordered.length >= 4) return ordered;
+      return mapScoreRows(raw);
+    }
+
+    function buildBarDims(data) {
+      const job = data.jobSpecificScores;
+      if (job && job.length) return mapScoreRows(job);
+      return mapScoreRows(data.granularScores || []);
+    }
+
     const matchClass = {
       exceeds: 'match-exceeds',
       strong: 'match-strong',
@@ -786,7 +844,8 @@
     function renderDashboard(data) {
       const meta = data.meta || {};
       const overall = data.overallMatch || {};
-      const granular = data.granularScores || [];
+      const radarDims = buildRadarDims(data);
+      const barDims = buildBarDims(data);
       const requirements = data.jobRequirements || [];
       const strengths = data.strengths || [];
       const gaps = data.gaps || [];
@@ -821,18 +880,19 @@
       document.getElementById('scoreSummary').textContent = overall.summary || 'No summary available.';
 
       // Charts
-      if (granular.length > 0) {
+      if (radarDims.length > 0 || barDims.length > 0) {
         const ctxRadar = document.getElementById('radarChart').getContext('2d');
         const ctxBar = document.getElementById('barChart').getContext('2d');
 
         if (radarChart) radarChart.destroy();
+        if (radarDims.length > 0) {
         radarChart = new Chart(ctxRadar, {
           type: 'radar',
           data: {
-            labels: granular.map(s => s.dimension),
+            labels: radarDims.map(s => s.name),
             datasets: [{
               label: 'Score',
-              data: granular.map(s => s.score),
+              data: radarDims.map(s => s.score),
               fill: true,
               backgroundColor: 'rgba(13, 148, 136, 0.2)',
               borderColor: '#0d9488',
@@ -858,20 +918,24 @@
             plugins: { legend: { display: false } }
           }
         });
+        } else {
+          radarChart = null;
+        }
 
         if (barChart) barChart.destroy();
+        if (barDims.length > 0) {
         barChart = new Chart(ctxBar, {
           type: 'bar',
           data: {
-            labels: granular.map(s => s.dimension),
+            labels: barDims.map(s => s.name),
             datasets: [{
               label: 'Score',
-              data: granular.map(s => s.score),
-              backgroundColor: granular.map(s =>
+              data: barDims.map(s => s.score),
+              backgroundColor: barDims.map(s =>
                 s.score >= 85 ? 'rgba(13, 148, 136, 0.7)' :
                 s.score >= 75 ? 'rgba(13, 148, 136, 0.5)' : 'rgba(124, 58, 237, 0.7)'
               ),
-              borderColor: granular.map(s =>
+              borderColor: barDims.map(s =>
                 s.score >= 85 ? '#0d9488' : s.score >= 75 ? '#0d9488' : '#7c3aed'
               ),
               borderWidth: 1
@@ -889,6 +953,9 @@
             plugins: { legend: { display: false } }
           }
         });
+        } else {
+          barChart = null;
+        }
       }
 
       // Requirements table

@@ -142,6 +142,27 @@ body.run-dashboard-page .dashboard-snow .section-title::after {
   max-width: 200px;
 }
 
+#dashboard-panel .dashboard-snow .chart-row-labels,
+body.run-dashboard-page .dashboard-snow .chart-row-labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 768px) {
+  #dashboard-panel .dashboard-snow .chart-row-labels,
+  body.run-dashboard-page .dashboard-snow .chart-row-labels {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
 #dashboard-panel .dashboard-snow .chart-row,
 body.run-dashboard-page .dashboard-snow .chart-row {
   display: grid;
