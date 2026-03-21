@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Job Application",
-  "description": "Form data for Job-Advisor-for-Job-Seekers subagent (invoke that agent only when the user explicitly names it in the Cursor prompt; see AGENT_INSTRUCTIONS.md)",
+  "description": "Form data for Job-Advisor-for-Job-Seekers subagent",
   "type": "object",
   "required": ["company"],
   "properties": {

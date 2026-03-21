@@ -18,4 +18,4 @@ Each Job Advisor run can produce a **slugged folder** under `job-advisor-web/run
 
 **Source links** in each `dashboard.html` should point to the markdown files for that run (company research, match report, `report.md`) using relative paths to `job-advisor-web/`.
 
-After adding or updating a run, include `job-advisor-web/` in git (see Job-Advisor agent Step 5: push **current branch** only; merging to `main` requires an **explicit** user request — see `.cursor/agents/Job-Advisor-for-Job-Seekers.md` Step 6).
+After adding or updating a run, include `job-advisor-web/` in git (see Job-Advisor agent Step 5).

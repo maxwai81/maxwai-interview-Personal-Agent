@@ -1,11 +1,6 @@
 # Agent Instructions: File-Based Job Advisor Workflow
 
-## Invocation (all agents)
-
-- **Do not** call the `Job-Advisor-for-Job-Seekers` subagent unless the **user explicitly named it** in the prompt (e.g. `Job-Advisor-for-Job-Seekers`, **Job Advisor for Job Seekers**, or *"use the Job Advisor agent"*). Generic *"job fit"* or *"analyze this role"* requests should **not** auto-launch this workflow; use normal tools or ask the user to name the agent if they want the full orchestrated run and `job-advisor-web/` outputs.
-- **Do not** merge to `main`, push `origin main`, or merge PRs to `main` **unless the user explicitly asks**. After updates under `job-advisor-web/`, only `git push` the **current branch** (see §5).
-
-When the user says **"Process job-advisor-web/request.json"** or **"Run Job Advisor for the request in request.json"** (and, for cloud agents, has named Job Advisor as above when required by workspace rules):
+When the user says **"Process job-advisor-web/request.json"** or **"Run Job Advisor for the request in request.json"**:
 
 ## 1. Read the request
 
@@ -57,7 +52,5 @@ git add job-advisor-web/
 git commit -m "job-advisor: request/processed"
 git push origin HEAD
 ```
-
-- Push **only** the current branch. **Never** `git push origin main` or merge to `main` unless the user **explicitly** requested that in the same conversation.
 
 If git is not available in the environment, tell the user to commit and push manually.
