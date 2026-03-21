@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "candidate": "Jeffrey Lam Man Kit",
+    "company": "Moveworks (ServiceNow)",
+    "jobTitle": "Solution Sales Executive",
+    "location": "Remote, Hong Kong",
+    "jobUrl": "https://www.moveworks.com/us/en/company/careers/position?gh_jid=8371211002",
+    "linkedinUrl": "https://www.linkedin.com/in/jeffrey-lam-3b542716",
+    "resumePath": "assets/docs/Jeffrey Lam Resume.pdf (referenced in prior reports; PDF not present in workspace)",
+    "jobContentSource": "Greenhouse boards API (https://boards-api.greenhouse.io/v1/boards/moveworks/jobs/8371211002)",
+    "generatedAt": "2026-03-21",
+    "notes": "Company careers page may render empty without JavaScript; full description obtained via Greenhouse API."
+  },
+  "overallMatch": {
+    "score": 89,
+    "maxScore": 100,
+    "summary": "Strong fit for Moveworks’ Solution Sales Executive (Remote, Hong Kong). The role sells ServiceNow’s Moveworks AI products with territory strategy, account-team interlock, and coaching AEs/ADRs/ACE—aligned with Jeffrey’s 15+ years in enterprise SaaS, Workday/Oracle HCM depth, and current Regional Sales Director scope. Quota history (118–143% team; 300%+ individual years) exceeds expectations. The posting explicitly asks for AI-aware selling and 5+ years specialty-solution ROI knowledge; Jeffrey exceeds tenure and can credibly build an AI narrative around enterprise HR/Finance transformation and intelligent automation. Clarify IC vs. management expectations and prepare for Now Value, agentic AI, and 30–50% travel."
+  },
+  "granularScores": [
+    {
+      "dimension": "Skills",
+      "score": 90,
+      "rationale": "Consultative and solution selling, HR/Finance transformation, Workday and Oracle HCM map well to specialty solution wins on the ServiceNow + Moveworks AI stack. Posting emphasizes AI in workflows and ROI of specialty solutions—strengthen with explicit AI/customer examples (Workday ecosystem, automation). Gaps: Moveworks product specifics and Now Value language to be learned; not different from typical enterprise ramp."
+    },
+    {
+      "dimension": "Experience",
+      "score": 94,
+      "rationale": "Far above 5+ years specialty ROI and AE-style quota roles; full-cycle enterprise sales; competitive displacement (Oracle/SAP). Territory planning and executive engagement fit account planning and ‘coach the field’ aspects of the role."
+    },
+    {
+      "dimension": "Education",
+      "score": 75,
+      "rationale": "Bachelor of Accounting (Curtin) is typical for enterprise sales; no advanced degree required in posting; experience carries weight."
+    },
+    {
+      "dimension": "Location",
+      "score": 99,
+      "rationale": "Role is Remote, Hong Kong; candidate is Hong Kong–based with Greater China focus—strong alignment."
+    },
+    {
+      "dimension": "Adaptability",
+      "score": 91,
+      "rationale": "Multiple vendors (Infor, Oracle, Microsoft, Workday), IC to RSD progression, and complex enterprise cycles support adaptability to Moveworks post–ServiceNow acquisition and evolving AI GTM."
+    },
+    {
+      "dimension": "Future career growth",
+      "score": 82,
+      "rationale": "Agentic AI and ServiceNow scale offer strong growth; stepping from RSD to IC may need a clear story unless the role allows hybrid leadership expectations—confirm with recruiter."
+    },
+    {
+      "dimension": "Income",
+      "score": 83,
+      "rationale": "Posting cites competitive salary, equity, and commission/bonus typical for enterprise SaaS; prior band at Workday RSD in Hong Kong likely comparable—confirm OTE and equity with recruiter."
+    }
+  ],
+  "jobRequirements": [
+    {
+      "requirement": "AI in work processes, decision-making, or problem-solving",
+      "evidence": "Prepare narrative tying HR/Finance digital transformation, automation, and intelligent workflows; prior analyses did not list AI tools explicitly—address in interviews.",
+      "match": "develop"
+    },
+    {
+      "requirement": "5+ years knowledge on ROI of specialty solutions to lead solution win",
+      "evidence": "15+ years enterprise software sales; consistent over-quota performance; solution selling and ROI conversations in HR/Finance transformations.",
+      "match": "exceeds"
+    },
+    {
+      "requirement": "Experience as an AE or alternative sales/customer service role",
+      "evidence": "Account Executive and Regional Sales Director roles at Workday; prior AE/enterprise roles at Oracle, Microsoft, Infor.",
+      "match": "strong"
+    },
+    {
+      "requirement": "Understanding of business sales processes",
+      "evidence": "Full-cycle enterprise sales, account planning, multi-stakeholder deals.",
+      "match": "strong"
+    },
+    {
+      "requirement": "Travel 30–50%",
+      "evidence": "Greater China enterprise coverage implies travel; confirm willingness and passport/logistics.",
+      "match": "confirm"
+    },
+    {
+      "requirement": "Territory strategy, account planning input to AE, Now Value alignment",
+      "evidence": "RSD experience; territory and account coverage in North Asia context from related ServiceNow analysis.",
+      "match": "strong"
+    },
+    {
+      "requirement": "Interlock with SC/Specialist SC; coach AEs, ADRs, ACE",
+      "evidence": "Management and field coaching as RSD; prepare examples of enabling sales teams on specialty solutions.",
+      "match": "strong"
+    }
+  ],
+  "strengths": [
+    "Quota attainment and enterprise SaaS tenure significantly above posting minimums.",
+    "Workday and Oracle HCM expertise aligns with ServiceNow/Moveworks enterprise buyer and competitive context.",
+    "Hong Kong base and languages (English, Cantonese, Mandarin) fit Remote HK and regional account work.",
+    "Displacement and complex-cycle experience relevant to specialty solution wins.",
+    "RSD background supports coaching AEs/ADRs and territory planning described in the role."
+  ],
+  "gapsAndRecommendations": [
+    {
+      "gap": "Moveworks product and Reasoning Engine specifics",
+      "recommendation": "Study Moveworks agentic AI positioning, Service Management integration, and 1–2 customer stories from Moveworks site and news."
+    },
+    {
+      "gap": "Explicit AI examples on resume",
+      "recommendation": "Add AI-assisted selling, automation, or analytics used in deals (e.g., CRM AI, Workday/ partner AI) where accurate."
+    },
+    {
+      "gap": "IC vs RSD trajectory",
+      "recommendation": "Prepare concise rationale if moving to IC for Moveworks AI focus and territory depth."
+    }
+  ],
+  "interviewPrepFocus": [
+    "Now Value and ROI storytelling for specialty AI on ServiceNow.",
+    "How you would partner with AEs, SCs, and partners on a Moveworks AI opportunity in a named account.",
+    "2–3 stories on digital transformation, automation, and measurable outcomes (tie to AI where honest).",
+    "Clarify travel, remote work expectations, and territory scope for Hong Kong / Greater China."
+  ]
+}
