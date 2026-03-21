@@ -39,3 +39,15 @@ After the subagent returns:
 - If the subagent wrote a file (e.g. a custom filename), copy/rename that content to `job-advisor-web/report.md`
 - If the subagent returned the full report in its response, write it to `job-advisor-web/report.md`
 - Tell the user: "Report saved. Refresh the Dashboard to view."
+
+## 5. Git publish (when possible)
+
+If the Job Advisor run created or updated files under `job-advisor-web/` (including `runs/<slug>/`), from the **repo root** run:
+
+```bash
+git add job-advisor-web/
+git commit -m "job-advisor: request/processed"
+git push origin HEAD
+```
+
+If git is not available in the environment, tell the user to commit and push manually.

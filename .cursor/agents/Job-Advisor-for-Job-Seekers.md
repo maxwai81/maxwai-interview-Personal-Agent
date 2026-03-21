@@ -149,19 +149,44 @@ After producing the combined summary, create a JSON file at `job-advisor-web/job
 - **jobRequirements**: Extract from the job posting / company research; use `match` values: `exceeds` (green), `strong` (green), `verify` (purple), `confirm` (amber), `elaborate` (pink)
 - **companyResearch.highlights**: Map key sections from the company research report
 
+### Step 4b: Per-run dashboard HTML (aligned with index.html)
+
+After Step 4, create a **per-run** folder under `job-advisor-web/runs/<slug>/` so each run has its own dashboard and data (in addition to the repo-wide `report.md` and `job-fit-dashboard.json`):
+
+1. **Slug** — Use `YYYY-MM-DD-<company-short>-<role-short>` (lowercase, hyphens), e.g. `2026-03-19-moveworks-sse`.
+2. **Copy `job-fit-dashboard.json`** to `job-advisor-web/runs/<slug>/job-fit.json` (same schema).
+3. **Create `dashboard.html`** — Copy [job-advisor-web/runs/2026-03-19-moveworks-sse/dashboard.html](job-advisor-web/runs/2026-03-19-moveworks-sse/dashboard.html) as a template: it loads `../../dashboard-shared.css`, `../../dashboard-run-app.js`, and `./job-fit.json`. Update the `<title>`, `<h1>`, meta line, and **run-source-links** so they point to the actual markdown files for this run (e.g. `../../{Company}-Company-Research-Report.md`, `../../report.md`, match report filename if separate).
+4. **Do not duplicate** dashboard CSS/JS — always reference `dashboard-shared.css` and `dashboard-run-app.js` from the parent `job-advisor-web/` folder.
+
+Tell the user: *"Per-run dashboard: `job-advisor-web/runs/<slug>/dashboard.html`"*
+
+### Step 5: Persist and publish to GitHub
+
+After all files are written under `job-advisor-web/` (including `runs/<slug>/` when applicable), **from the repository root** run:
+
+```bash
+git add job-advisor-web/
+git commit -m "job-advisor: <Company> <YYYY-MM-DD> — report and dashboards"
+git push origin HEAD
+```
+
+- Push the **current branch** to `origin` — do **not** wait for a pull request or CI before pushing.
+- Applies to **local Cursor** and **cloud agent** runs whenever git and network credentials are available.
+- If `git` fails (no remote, auth error, detached HEAD, or sandbox blocks network), report the error and list paths under `job-advisor-web/` the user should `git add` / commit / push manually.
+
 ## Direct Invocation (No Form)
 
 When the user invokes with company and job directly in chat (e.g., "Run job fit for ServiceNow, Director SC, my LinkedIn is https://linkedin.com/in/..."):
 
 1. **Skip request.json** — Use the inputs from the chat message.
-2. **Proceed with the workflow** — Run Step 1 (company research), Step 2 (resume matching), Step 3 (combined summary), Step 3b (write report.md + dashboard link), Step 4 (dashboard JSON).
+2. **Proceed with the workflow** — Run Step 1 (company research), Step 2 (resume matching), Step 3 (combined summary), Step 3b (write report.md + dashboard link), Step 4 (dashboard JSON), Step 4b (per-run `runs/<slug>/`), Step 5 (git add / commit / push).
 3. **Resume source**: If the user provides a LinkedIn URL, pass it to resume-skill-matching. If they also provide a resume path, pass both. If neither, use `./assets/docs/`.
 
 ## When Invoked
 
 1. **Check inputs**: Do you have company (required)? Location, job title, resume path or LinkedIn URL (optional)?
 2. **If missing company**: Use the prompt template above to ask.
-3. **If company provided**: Run Step 1 (company research), then Step 2 (resume matching), then Step 3 (combined summary), then Step 3b (write report.md + dashboard link), then Step 4 (dashboard JSON).
+3. **If company provided**: Run Step 1 (company research), then Step 2 (resume matching), then Step 3 (combined summary), then Step 3b (write report.md + dashboard link), then Step 4 (dashboard JSON), then Step 4b (per-run dashboard under `runs/<slug>/`), then Step 5 (git push).
 4. **If resume path missing and no LinkedIn URL**: Use `./assets/docs/` and look for common resume filenames (e.g., `*Resume*.pdf`, `*resume*.pdf`).
 
 ## Delegation Rules
@@ -174,10 +199,9 @@ When the user invokes with company and job directly in chat (e.g., "Run job fit 
 
 ## File Path Rules (Critical)
 
-- **DO NOT create any new folder or directory.** Use only the existing project structure.
-- **Always write outputs to the existing `job-advisor-web/` folder** at the project root: `./job-advisor-web/`
-- Output files: `report.md`, `job-fit-dashboard.json`, company research reports (e.g. `{Company}-Company-Research-Report.md`), and match reports (e.g. `{Company}-{Candidate}-{Role}-Match-Report.md`) must go into `./job-advisor-web/` — never into a nested or duplicated project folder.
-- When in doubt, use paths relative to the workspace root (e.g. `job-advisor-web/report.md`), not absolute paths that could create duplicate directory structures.
+- **Allowed output roots:** `./job-advisor-web/` at the project root, and **only** the subfolder **`job-advisor-web/runs/<slug>/`** for per-run dashboards (see Step 4b). Do not create other new top-level folders.
+- **Always write outputs to `job-advisor-web/`** — `report.md`, `job-fit-dashboard.json`, company research (e.g. `{Company}-Company-Research-Report.md`), match reports, and per-run files under `job-advisor-web/runs/<slug>/`.
+- Use paths relative to the workspace root (e.g. `job-advisor-web/report.md`), not absolute paths that could create duplicate directory structures.
 
 ## Best Practices
 
@@ -186,3 +210,4 @@ When the user invokes with company and job directly in chat (e.g., "Run job fit 
 - **Prioritize actionability**: The final recommendations should be specific and immediately useful for the user.
 - **Respect user time**: If the user has already run company research in a previous turn, you may skip Step 1 and use that output — but confirm with the user first.
 - **Dashboard first**: Write `job-fit-dashboard.json` immediately after the combined summary so the user can open the interactive dashboard alongside the report.
+- **Publish**: Complete Step 5 (`git add job-advisor-web/` → commit → push) whenever possible so GitHub Pages and collaborators see the latest `report.md` and run dashboards.
