@@ -9,6 +9,76 @@
     return div.innerHTML;
   }
 
+  /** Inline **bold** after escaping other text. */
+  function formatInlineBold(text) {
+    if (!text) return '';
+    const segments = String(text).split(/\*\*/);
+    let html = '';
+    for (let i = 0; i < segments.length; i++) {
+      html += (i % 2 === 0) ? escapeHtml(segments[i]) : '<strong>' + escapeHtml(segments[i]) + '</strong>';
+    }
+    return html;
+  }
+
+  /**
+   * Subset markdown for company research executive summaries: ##, ###, - lists, **bold**, paragraphs.
+   */
+  function simpleMarkdownToHtml(md) {
+    md = String(md || '').replace(/\r\n/g, '\n');
+    const lines = md.split('\n');
+    const out = [];
+    let i = 0;
+    let inUl = false;
+    function closeUl() {
+      if (inUl) {
+        out.push('</ul>');
+        inUl = false;
+      }
+    }
+    while (i < lines.length) {
+      const t = lines[i].trim();
+      if (!t) {
+        closeUl();
+        i++;
+        continue;
+      }
+      if (t.startsWith('## ')) {
+        closeUl();
+        out.push('<h2>' + formatInlineBold(t.slice(3)) + '</h2>');
+        i++;
+        continue;
+      }
+      if (t.startsWith('### ')) {
+        closeUl();
+        out.push('<h3>' + formatInlineBold(t.slice(4)) + '</h3>');
+        i++;
+        continue;
+      }
+      if (t.startsWith('- ')) {
+        if (!inUl) {
+          out.push('<ul>');
+          inUl = true;
+        }
+        out.push('<li>' + formatInlineBold(t.slice(2)) + '</li>');
+        i++;
+        continue;
+      }
+      closeUl();
+      const paraLines = [t];
+      i++;
+      while (i < lines.length) {
+        const nt = lines[i].trim();
+        if (!nt) break;
+        if (nt.startsWith('##') || nt.startsWith('###') || nt.startsWith('- ')) break;
+        paraLines.push(nt);
+        i++;
+      }
+      out.push('<p>' + formatInlineBold(paraLines.join(' ')) + '</p>');
+    }
+    closeUl();
+    return out.join('\n');
+  }
+
   function renderFromJson(data) {
     if (!data || !data.overallMatch) return false;
     const score = data.overallMatch.score ?? 0;
@@ -104,6 +174,22 @@
             plugins: { legend: { display: false } }
           }
         });
+      }
+    }
+
+    const execSection = document.getElementById('companyResearchSummarySection');
+    const execBody = document.getElementById('companyResearchExecutiveSummary');
+    const execMd = data.companyResearch && data.companyResearch.highlights
+      ? data.companyResearch.highlights.executiveSummary
+      : '';
+    if (execSection && execBody) {
+      const text = execMd != null ? String(execMd).trim() : '';
+      if (text) {
+        execBody.innerHTML = simpleMarkdownToHtml(text);
+        execSection.hidden = false;
+      } else {
+        execBody.innerHTML = '';
+        execSection.hidden = true;
       }
     }
 

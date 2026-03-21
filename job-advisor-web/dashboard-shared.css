@@ -171,6 +171,66 @@ body.run-dashboard-page .dashboard-snow .chart-container {
   min-width: 0;
 }
 
+/* Company research executive summary (per-run dashboard, below granular charts) */
+#dashboard-panel .dashboard-snow .company-research-exec-summary-wrap,
+body.run-dashboard-page .dashboard-snow .company-research-exec-summary-wrap {
+  margin: 1.5rem 0 0;
+}
+
+#dashboard-panel .dashboard-snow .company-research-exec-summary-wrap[hidden],
+body.run-dashboard-page .dashboard-snow .company-research-exec-summary-wrap[hidden] {
+  display: none !important;
+}
+
+#dashboard-panel .dashboard-snow .company-research-exec-summary-card,
+body.run-dashboard-page .dashboard-snow .company-research-exec-summary-card {
+  padding: 1.25rem 1.5rem;
+  max-width: 100%;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+#dashboard-panel .dashboard-snow .company-research-exec-summary-card h2,
+body.run-dashboard-page .dashboard-snow .company-research-exec-summary-card h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 1.25rem 0 0.5rem;
+  color: var(--ink);
+}
+
+#dashboard-panel .dashboard-snow .company-research-exec-summary-card h2:first-child,
+body.run-dashboard-page .dashboard-snow .company-research-exec-summary-card h2:first-child {
+  margin-top: 0;
+}
+
+#dashboard-panel .dashboard-snow .company-research-exec-summary-card h3,
+body.run-dashboard-page .dashboard-snow .company-research-exec-summary-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+  color: var(--ink);
+}
+
+#dashboard-panel .dashboard-snow .company-research-exec-summary-card p,
+body.run-dashboard-page .dashboard-snow .company-research-exec-summary-card p {
+  margin: 0 0 0.75rem;
+  color: var(--ink-muted);
+}
+
+#dashboard-panel .dashboard-snow .company-research-exec-summary-card ul,
+body.run-dashboard-page .dashboard-snow .company-research-exec-summary-card ul {
+  margin: 0 0 0.75rem 1.25rem;
+  padding: 0;
+  color: var(--ink-muted);
+}
+
+#dashboard-panel .dashboard-snow .company-research-exec-summary-card li,
+body.run-dashboard-page .dashboard-snow .company-research-exec-summary-card li {
+  margin-bottom: 0.35rem;
+}
+
 #dashboard-panel .dashboard-snow .dash-tabs,
 body.run-dashboard-page .dashboard-snow .dash-tabs {
   display: flex;

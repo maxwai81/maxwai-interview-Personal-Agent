@@ -150,6 +150,22 @@ After producing the combined summary, create a JSON file at `job-advisor-web/job
 
 - **jobRequirements**: Extract from the job posting / company research; use `match` values: `exceeds` (green), `strong` (green), `verify` (purple), `confirm` (amber), `elaborate` (pink)
 - **companyResearch.highlights**: Map key sections from the company research report
+- **`companyResearch.highlights.executiveSummary` (required for per-run dashboard):** Write the **full executive-summary body in Markdown** (same substance as in the company research report). This populates the **“Company research — Executive summary”** block on `runs/<slug>/dashboard.html` (directly below the granular score charts). Supported patterns: `##` / `###` headings, `-` bullet lists, `**bold**`, and paragraphs. Example structure:
+
+```markdown
+## Executive Summary
+
+[Company] is … The **Role** in **Location** …
+
+### Leadership & platform (snapshot)
+
+- **CEO:** …
+- **Platform:** …
+
+### [Region]
+
+- …
+```
 
 ### Step 4b: Per-run dashboard HTML (aligned with index.html)
 

@@ -36,6 +36,8 @@ Run job fit analysis with:
 - LinkedIn: [linkedinUrl if provided]
 
 IMPORTANT: When you complete the report, write the full markdown (company research + resume match report) to job-advisor-web/report.md so the web dashboard can auto-load it.
+
+In job-fit-dashboard.json / runs/<slug>/job-fit.json, set companyResearch.highlights.executiveSummary to the company research executive summary in Markdown (## headings, bullets, **bold**). That text renders on per-run runs/<slug>/dashboard.html below the granular score charts.
 ```
 
 ## 4. Ensure report.md exists
