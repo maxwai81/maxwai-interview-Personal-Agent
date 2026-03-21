@@ -3,6 +3,8 @@
 *Applying for **Solution Sales Executive** (Remote, **Hong Kong**)*  
 *Job context: [Careers posting (Greenhouse)](https://www.moveworks.com/us/en/company/careers/position?gh_jid=8371211002)*
 
+**Job description access:** The Moveworks careers URL and `boards.greenhouse.io/moveworks/jobs/8371211002` often render **“No results”** or shell-only HTML without the full JD when fetched without a browser session. The **authoritative public text** for this requisition is available from the **Greenhouse JSON API**: `GET https://boards-api.greenhouse.io/v1/boards/moveworks/jobs/8371211002` (field `content`). A syndicated copy also appears on [Built In — Solution Sales Executive](https://builtin.com/job/solution-sales-executive-moveworks/8336566). Use one of these if the careers page is empty in your environment.
+
 ---
 
 ## Executive Summary
@@ -72,4 +74,5 @@ For a **remote Hong Kong–based Solution Sales Executive**, the opportunity sit
 
 - [ServiceNow completes acquisition of Moveworks — Moveworks](https://www.moveworks.com/us/en/company/news/press-releases/servicenow-completes-acquisition-of-moveworks)  
 - [Moveworks — LinkedIn](https://www.linkedin.com/company/moveworksai/)  
-- [Careers posting](https://www.moveworks.com/us/en/company/careers/position?gh_jid=8371211002)
+- [Careers posting](https://www.moveworks.com/us/en/company/careers/position?gh_jid=8371211002)  
+- [Greenhouse job JSON (API)](https://boards-api.greenhouse.io/v1/boards/moveworks/jobs/8371211002) — full `content` field when the careers page is empty

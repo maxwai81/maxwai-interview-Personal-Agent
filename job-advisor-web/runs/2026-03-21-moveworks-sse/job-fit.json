@@ -1,145 +1,140 @@
 {
   "meta": {
     "candidate": "Jeffrey Lam Man Kit",
-    "company": "Moveworks",
+    "company": "Moveworks (ServiceNow)",
     "jobTitle": "Solution Sales Executive",
     "location": "Remote, Hong Kong",
     "jobUrl": "https://www.moveworks.com/us/en/company/careers/position?gh_jid=8371211002",
-    "resumePath": "./assets/docs/Jeffrey Lam Resume.pdf",
+    "resumePath": "Prior extraction from assets/docs/Jeffrey Lam Resume.pdf (PDF not in workspace); LinkedIn full profile gated",
     "linkedIn": "https://www.linkedin.com/in/jeffrey-lam-3b542716",
-    "generatedAt": "2026-03-21T00:00:00.000Z"
+    "generatedAt": "2026-03-21T12:00:00.000Z",
+    "jobPostingSource": "Greenhouse API GET /v1/boards/moveworks/jobs/8371211002 (careers URL may render empty without JS)",
+    "notes": "LinkedIn requires authentication for full profile; analysis uses on-file resume extraction and Greenhouse job content."
   },
   "overallMatch": {
-    "score": 80,
+    "score": 89,
     "maxScore": 100,
-    "summary": "Strong enterprise specialty seller and RSD in Greater China with sustained over-attainment and coaching themes that fit AE/SC interlock and territory strategy. Main gap is explicit Moveworks/ServiceNow/AI assistant product depth versus HR-Finance SaaS depth; Hong Kong matches the posting. Clarify SSE vs RSD-level expectations and comp band early."
+    "summary": "Strong fit for Moveworks Solution Sales Executive (Remote, Hong Kong). The role sells ServiceNow Moveworks AI with territory strategy, Now Value-aligned account planning, SC interlock, and coaching AEs/ADRs/ACE\u2014aligned with 15+ years enterprise SaaS, Workday/Oracle HCM depth, and Regional Sales Director scope. Quota history (118\u2013143% team; 300%+ individual years) exceeds posting minimums. Main gaps: explicit Moveworks/ServiceNow AI product naming on resume (rampable) and clarifying IC vs management expectations vs an RSD background. Confirm OTE and 30\u201350% travel."
   },
   "granularScores": [
     {
       "dimension": "Skills",
-      "score": 76,
-      "rationale": "Consultative ROI and specialty solution selling; trilingual APAC coverage. Resume lacks direct Moveworks/ServiceNow/ITSM AI footprint—lean on transferable enterprise transformation stories."
+      "score": 90,
+      "rationale": "Consultative specialty solution selling; Workday and Oracle HCM map to enterprise buyers. Strengthen Moveworks agentic AI, Now Value, and ServiceNow ecosystem fluency."
     },
     {
       "dimension": "Experience",
-      "score": 84,
-      "rationale": "15+ years Greater China SaaS; RSD + AE path matches account planning and coaching; Microsoft Solution Sales Manager parallels specialist overlay. May read senior vs typical SSE—confirm scope."
+      "score": 94,
+      "rationale": "Well above 5+ years specialty ROI and AE-style roles; full-cycle enterprise sales; coaching and territory themes fit JD; displacement stories support solution wins."
     },
     {
       "dimension": "Education",
-      "score": 82,
-      "rationale": "Bachelor of Accounting (Curtin) supports business case and CFO-line selling; typical bar met."
+      "score": 75,
+      "rationale": "Bachelor of Accounting (Curtin) supports ROI/CFO-line selling; typical sales bar met."
     },
     {
       "dimension": "Location",
-      "score": 96,
-      "rationale": "Hong Kong SAR aligns with Remote, Hong Kong; 30–50% travel feasible across APAC."
+      "score": 99,
+      "rationale": "Hong Kong SAR matches Remote, Hong Kong; trilingual; APAC travel fits 30\u201350% requirement."
     },
     {
       "dimension": "Adaptability",
-      "score": 78,
-      "rationale": "Multiple enterprise vendors (Workday, Microsoft, Oracle, Infor); reframing from HCM/Finance to agentic employee AI is a focused narrative exercise."
+      "score": 91,
+      "rationale": "Multi-vendor career; IC to RSD; complex cycles suit post-acquisition Moveworks \u00d7 ServiceNow AI GTM."
     },
     {
       "dimension": "Future career growth",
-      "score": 74,
-      "rationale": "ServiceNow acquisition expands platform TAM; growth depends on specialty leadership vs IC specialist track."
+      "score": 82,
+      "rationale": "Agentic AI at ServiceNow scale is strong; confirm specialist IC vs hybrid leadership from an RSD profile."
     },
     {
       "dimension": "Income",
-      "score": 65,
-      "rationale": "Band unclear; RSD and top-AE history may sit above typical SSE—validate grade and OTE in first screens."
+      "score": 83,
+      "rationale": "Posting cites competitive salary, equity, variable; RSD band may need OTE/grade alignment with SSE\u2014confirm with recruiter."
     }
   ],
   "jobRequirements": [
     {
-      "requirement": "AI in work processes (workflows, decision-making)",
-      "evidence": "Prepare Workday/enterprise digital transformation + responsible AI learning agenda; add honest AI-adjacent bullets",
-      "match": "confirm"
+      "requirement": "AI in work processes, decision-making, or problem-solving",
+      "evidence": "Prepare honest AI-adjacent stories (Workday ecosystem, automation, analytics); prior PDF extraction did not list explicit AI tools.",
+      "match": "elaborate"
     },
     {
-      "requirement": "5+ years ROI / specialty solution knowledge",
-      "evidence": "15+ years enterprise sales; repeated over-attainment; complex HR/Finance transformations",
+      "requirement": "5+ years knowledge on ROI of specialty solutions to lead solution win",
+      "evidence": "15+ years enterprise sales; sustained over-attainment; HR/Finance transformation ROI.",
       "match": "exceeds"
     },
     {
-      "requirement": "AE or alternative sales experience",
-      "evidence": "Regional Sales Director; quota-carrying AE track at Workday",
+      "requirement": "Experience as an AE or alternative sales/customer service role",
+      "evidence": "Account Executive and Regional Sales Director at Workday; prior enterprise roles at Oracle, Microsoft, Infor.",
       "match": "strong"
     },
     {
-      "requirement": "Business sales processes (MEDDPICC-style enterprise)",
-      "evidence": "Full-cycle enterprise sales; account and territory management",
+      "requirement": "Understanding of business sales processes",
+      "evidence": "Full-cycle enterprise sales; account planning; multi-stakeholder deals.",
       "match": "strong"
     },
     {
-      "requirement": "Travel 30–50%",
-      "evidence": "Greater China coverage; confirm APAC vs global travel mix",
-      "match": "verify"
+      "requirement": "Travel required: 30\u201350%",
+      "evidence": "Greater China enterprise coverage implies travel; confirm willingness.",
+      "match": "confirm"
     },
     {
-      "requirement": "Territory strategy & account planning with AEs",
-      "evidence": "RSD leading Large Enterprise & Customer Base; account planning across HK/China",
+      "requirement": "Territory strategy; account planning input to AE; Now Value alignment",
+      "evidence": "RSD experience; territory and account coverage in North Asia context.",
       "match": "strong"
     },
     {
-      "requirement": "SC interlock & coaching AEs/ADRs on specialty solutions",
-      "evidence": "Team leadership; Microsoft Solution Sales; consultative complex cycles",
+      "requirement": "Interlock with SC/Specialist SC; coach AEs, ADRs, ACE",
+      "evidence": "Management and field coaching as RSD; Microsoft Solution Sales parallels.",
       "match": "strong"
-    },
-    {
-      "requirement": "ServiceNow / Moveworks AI product fluency post-acquisition",
-      "evidence": "Not on resume yet—study public AI Assistant, Reasoning Engine, EmployeeWorks narrative",
-      "match": "elaborate"
     }
   ],
   "strengths": [
-    "Quota-carrying RSD + AE path with documented over-attainment (e.g. team 118–143% FY24–FY26; standout IC years)",
-    "Microsoft Solution Sales Manager and Oracle HCM pioneer — specialty and displacement DNA",
-    "Named Greater China wins and competitive replacements (HK and China logos)",
-    "Hong Kong base — exact fit for Remote, Hong Kong posting",
-    "English, Cantonese, Mandarin for APAC enterprise",
-    "Coaching and regional leadership aligned with enablement language in posting"
+    "Quota attainment and enterprise SaaS tenure significantly above posting minimums.",
+    "Workday and Oracle HCM expertise aligns with enterprise buyer and competitive context for ServiceNow + Moveworks.",
+    "Hong Kong base and English/Cantonese/Mandarin fit Remote HK and regional account work.",
+    "Displacement and complex-cycle experience relevant to specialty solution wins.",
+    "RSD background supports coaching AEs/ADRs and territory strategy described in the role."
   ],
   "gaps": [
     {
-      "gap": "Explicit Moveworks / ServiceNow / agentic AI product credentials on resume",
-      "recommendation": "Add 2–3 honest lines on AI in enterprise workflows and learning plan; build one-page public-info cheat sheet."
+      "gap": "Moveworks product and Reasoning Engine specifics on resume",
+      "recommendation": "Study Moveworks agentic AI positioning, Service Management integration, and 1\u20132 public customer stories."
     },
     {
-      "gap": "Domain skew from HR/Finance SaaS to IT/employee service AI narrative",
-      "recommendation": "Reframe wins around employee productivity, knowledge, deflection, and governance—not only HR modules."
+      "gap": "Explicit AI examples on resume",
+      "recommendation": "Add accurate examples: AI features in Workday or stack, automation, analytics-driven selling where true."
     },
     {
-      "gap": "Seniority (RSD) vs Solution Sales Executive band",
-      "recommendation": "Clarify IC vs overlay vs player-coach; align title narrative with recruiter in first call."
+      "gap": "IC vs RSD trajectory",
+      "recommendation": "Prepare concise rationale if pursuing IC specialty depth after RSD; ask recruiter about overlay vs quota ownership."
     },
     {
-      "gap": "Compensation band alignment",
-      "recommendation": "Ask range and ServiceNow grade post-acquisition to avoid late-stage mismatch."
+      "gap": "LinkedIn and resume file verification",
+      "recommendation": "Provide PDF in workspace or paste profile text so future runs are not gated by LinkedIn auth."
     }
   ],
   "interviewPrepFocus": [
-    "Dec 2025 ServiceNow acquisition — agentic AI and ServiceNow AI Platform joint value",
-    "AE and SC interlock — concrete Workday/Microsoft examples",
-    "90-day HK/APAC territory hypothesis and mutual planning with core AEs",
-    "Two quantified ROI stories told for IT + HR stakeholders",
-    "Travel 30–50% — APAC scope and customer density"
+    "Now Value and ROI storytelling for specialty AI on ServiceNow.",
+    "How you partner with AEs, SCs, and partners on a Moveworks AI opportunity in a named account.",
+    "2\u20133 stories on digital transformation, automation, and measurable outcomes (tie to AI where honest).",
+    "Clarify travel, remote work expectations, and territory scope for Hong Kong / Greater China."
   ],
   "actionableRecommendations": [
-    "Update LinkedIn/resume with a concise AI & enterprise transformation bullet tied to real experience",
-    "Draft a 90-day territory + AE enablement plan for Moveworks specialty solutions",
-    "Build a one-page Moveworks + ServiceNow synergy reference from public sources",
-    "In recruiter screen: quota ownership, overlay vs direct, reporting line, success metrics for Q1–Q2",
-    "Practice discovery language for agentic AI (governance, outcomes, adoption)—not generic chatbot pitches"
+    "Add a concise Moveworks alignment block: AI integration themes, workforce domain, HK base, AE enablement.",
+    "Draft a 90-day territory + AE/SC cadence plan referencing public Moveworks + ServiceNow materials.",
+    "In recruiter screen: quota ownership, overlay vs IC, reporting line, OTE band, and success metrics.",
+    "Practice discovery language for agentic AI\u2014governance, outcomes, adoption\u2014not generic chatbot pitches.",
+    "Drop Jeffrey Lam Resume.pdf into assets/docs/ for line-by-line verification in the next run."
   ],
   "companyResearch": {
     "highlights": {
-      "executiveSummary": "Moveworks delivers an agentic AI assistant, enterprise search, and Reasoning Engine for workforce automation. Acquired by ServiceNow (announced Mar 2025, completed Dec 15, 2025) for roughly $2.85–2.9B; integrated into ServiceNow AI Platform narrative with ~5.5M users and ~250 mutual customers cited at close.",
-      "leadership": "Bhavin Shah leads Moveworks into ServiceNow integration; Bill McDermott (Chairman & CEO) and Amit Zavery (President, COO, CPO) anchor parent GTM and platform AI strategy.",
-      "products": "AI Assistant, Reasoning Engine, enterprise search; deep ServiceNow workflow integration; post-close themes such as EmployeeWorks and packaged AI platform plays.",
-      "culture": "High-performance enterprise SaaS; Glassdoor aggregates ~3.8/5 (directional). Post-acquisition: clarify quota, territory, and reporting with hiring team.",
-      "recommendation": "Strong for specialty sellers who can prove ROI and partner with AEs/SCs; diligence on APAC remote support, travel reality, and SSE vs senior overlay expectations."
+      "executiveSummary": "Moveworks is an enterprise AI assistant vendor (founded 2016, HQ Mountain View, CA) with conversational AI, enterprise search, and a Reasoning Engine. ServiceNow acquired Moveworks (announced Mar 2025, completed Dec 15, 2025; ~$2.85\u20132.9B). Combined story: AI-native front door to work with governed workflow execution on the ServiceNow AI Platform.",
+      "leadership": "Bhavin Shah \u2014 CEO of Moveworks at close; described as SVP & GM, Moveworks and AI for ServiceNow in integrated materials. Bill McDermott \u2014 Chairman & CEO, ServiceNow. Amit Zavery \u2014 President, COO, and CPO, ServiceNow.",
+      "products": "Conversational AI assistant, enterprise search, Agentic Reasoning Engine, deep ServiceNow integrations; narratives include EmployeeWorks and joint AI platform packaging post-acquisition.",
+      "culture": "High-performance enterprise SaaS; Glassdoor overall often ~3.8/5 (directional). Remote HK: expect time-zone bridging and 30\u201350% travel per posting; confirm reporting and quota post-acquisition.",
+      "recommendation": "Proceed with diligence on post-acquisition GTM: quota/coverage, territory for APAC, roadmap (standalone vs integrated packages), SC capacity, and travel expectations."
     }
   }
 }
