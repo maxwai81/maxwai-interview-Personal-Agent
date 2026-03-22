@@ -63,7 +63,7 @@ In Cursor, invoke the Job Advisor directly:
 Run job fit for [Company], [Job Title]. My LinkedIn: [url]
 ```
 
-The agent will run company research + resume matching, write `report.md` to `job-advisor-web/`, and give you a link to the dashboard. Open http://localhost:8765 (if the server is running) or `job-advisor-web/index.html` to view results.
+The agent will run company research + resume matching, write `report.md` to `job-advisor-web/`, and give you **full GitHub Pages links** (e.g. `https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/runs/<slug>/dashboard.html` for each per-run dashboard). Locally: http://localhost:8765 (if the server is running) or `job-advisor-web/index.html`.
 
 ## Per-run dashboards (`runs/<slug>/`)
 

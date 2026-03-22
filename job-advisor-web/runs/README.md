@@ -2,6 +2,8 @@
 
 Each Job Advisor run can produce a **slugged folder** under `job-advisor-web/runs/`:
 
+**Published URL (GitHub Pages, this repo):** `https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/runs/<slug>/dashboard.html` — agents should give users this **full HTTPS path** when a run is merged to `main` and Pages has deployed.
+
 | Path | Purpose |
 |------|---------|
 | `runs/<slug>/dashboard.html` | Standalone dashboard (same theme as `index.html` Dashboard tab) |

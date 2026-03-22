@@ -45,6 +45,17 @@ If the user provides only partial info (e.g., just company), proceed with what y
 
 ## Workflow (Execute in Order)
 
+### GitHub Pages URLs (full HTTPS paths for users)
+
+This repository is published at **`https://maxwai81.github.io/maxwai-interview-Personal-Agent`**. When you tell the user where to open the dashboards **after** changes are on `main` and GitHub Pages has deployed, give **full `https://` URLs** as the primary links (not only relative repo paths like `job-advisor-web/runs/...`).
+
+| What | Full URL pattern |
+|------|------------------|
+| Main Job Advisor app | `https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/` |
+| Per-run dashboard | `https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/runs/<slug>/dashboard.html` |
+
+Replace `<slug>` with the actual run folder (e.g. `2026-03-21-servicenow-sr-advisory-enterprise-architect-hk`). You may still mention local paths (`job-advisor-web/...`, `http://localhost:8765`) as secondary options.
+
 ### Step 1: Company Research
 
 Use the **mcp_task** tool with `subagent_type: "Job-Interview-company-research-agent"` and a prompt like:
@@ -89,7 +100,7 @@ Present to the user:
 1. **Company Research** — Executive summary and key findings (or link to full report if very long)
 2. **Resume–Job Match** — Overall score, top strengths, top gaps, and interview prep focus
 3. **Recommendations** — 3–5 actionable next steps (e.g., "Emphasize X in your cover letter", "Prepare for Y-type questions", "Research Z before the interview")
-4. **Interactive Dashboard** — Generate `job-fit-dashboard.json` and direct the user to open `job-advisor-web/job-fit-dashboard.html` to view the visual analysis with charts, job requirements table, company highlights, and tabbed recommendations
+4. **Interactive Dashboard** — Generate `job-fit-dashboard.json` and direct the user to open the JSON-driven dashboard: **`https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/job-fit-dashboard.html`** on GitHub Pages (after deploy), or locally `job-advisor-web/job-fit-dashboard.html`, to view the visual analysis with charts, job requirements table, company highlights, and tabbed recommendations
 
 ### Step 3b: Write report.md and Provide Dashboard Link
 
@@ -98,7 +109,7 @@ After producing the combined summary, write the full markdown report to `job-adv
 - **Content**: Part 1 (Company Research) + Part 2 (Resume–Job Match) in a single file
 - **Format**: Must include `## Overall Match Score: X/100`, `**Summary:**`, `## Granular Scores (canonical — spider chart)` (markdown table, seven rows), `## Job-specific fit scores (bar chart)` (markdown table), `## Strengths`, `## Gaps & Recommendations`, `## Interview Prep Focus`, `## Actionable Recommendations` so the dashboard parser can load it
 
-Tell the user: *"Report saved. Open the dashboard: job-advisor-web/index.html or http://localhost:8765 (if server is running)."*
+Tell the user: *"Report saved. Open the dashboard: **https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/** (GitHub Pages), or locally job-advisor-web/index.html or http://localhost:8765 (if server is running)."*
 
 ### Step 4: Generate Dashboard Data
 
@@ -186,7 +197,7 @@ After Step 4, create a **per-run** folder under `job-advisor-web/runs/<slug>/` s
 4. **Embed JSON for `file://`:** Paste the **exact same JSON** as `job-fit.json` inside `<script type="application/json" id="job-fit-embed">` in `dashboard.html` (before the init script). Browsers block `fetch()` for local files; `dashboard-run-app.js` falls back to this embed. See `job-advisor-web/runs/README.md`.
 5. **Do not duplicate** dashboard CSS/JS — always reference `dashboard-shared.css` and `dashboard-run-app.js` from the parent `job-advisor-web/` folder.
 
-Tell the user: *"Per-run dashboard: `job-advisor-web/runs/<slug>/dashboard.html`"*
+Tell the user the **full published URL** for the new per-run page: *"Per-run dashboard: **`https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/runs/<slug>/dashboard.html`**"* (substitute the real `<slug>`). Optionally add the repo-relative path for developers: `job-advisor-web/runs/<slug>/dashboard.html`.
 
 ### Step 5: Persist and publish to GitHub
 
