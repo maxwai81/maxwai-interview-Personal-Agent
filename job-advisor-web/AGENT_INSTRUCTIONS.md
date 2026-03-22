@@ -50,6 +50,8 @@ After the subagent returns:
 
 **Per-run dashboard:** When creating `runs/<slug>/dashboard.html`, duplicate `job-fit.json` inside `<script type="application/json" id="job-fit-embed">` so charts load when the HTML file is opened without a server (see `runs/README.md`).
 
+**User-facing URL (required):** After a run, the agent’s message to the user must include **one plain line** with **only** `https://<owner>.github.io/<repo>/job-advisor-web/runs/<slug>/dashboard.html` (from `git remote get-url origin`). No backticks, markdown links, or bold on that line — see `.cursor/agents/Job-Advisor-for-Job-Seekers.md` (**Per-dashboard URL — user-facing output**).
+
 ## 5. Git publish (when possible)
 
 If the Job Advisor run created or updated files under `job-advisor-web/` (including `runs/<slug>/`), from the **repo root** run:

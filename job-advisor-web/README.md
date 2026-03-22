@@ -24,6 +24,8 @@ A web form and interactive dashboard for job seekers to capture application deta
 
 Open the `job-advisor-web` path to use the app.
 
+**Agent output:** When Job Advisor finishes a run, agents must tell the user the **published** per-run dashboard as **one line of plain HTTPS** only — `https://<username>.github.io/<repo>/job-advisor-web/runs/<slug>/dashboard.html` — with no markdown links, backticks, or bold around the URL (see `.cursor/agents/Job-Advisor-for-Job-Seekers.md`).
+
 ## Local workflow (automated)
 
 1. **Start the server** (from project root):

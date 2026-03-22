@@ -447,6 +447,7 @@ Validation: ✅ Passed"
 
 - **Auto-invoke** `Job-Advisor-for-Job-Seekers` for job-fit / application-analysis requests (see `.cursorrules`).
 - After artifacts land under `job-advisor-web/`, **auto-merge to `main`** (Step 6) when git and branch policy allow.
+- **User reply:** Include **one line that is only** the GitHub Pages URL to `runs/<slug>/dashboard.html` (plain `https://...`, no markdown decoration). See `.cursor/agents/Job-Advisor-for-Job-Seekers.md` (**Per-dashboard URL — user-facing output**).
 
 ---
 

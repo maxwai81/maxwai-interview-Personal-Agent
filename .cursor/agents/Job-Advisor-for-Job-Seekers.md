@@ -90,6 +90,7 @@ Present to the user:
 2. **Resume–Job Match** — Overall score, top strengths, top gaps, and interview prep focus
 3. **Recommendations** — 3–5 actionable next steps (e.g., "Emphasize X in your cover letter", "Prepare for Y-type questions", "Research Z before the interview")
 4. **Interactive Dashboard** — Generate `job-fit-dashboard.json` and direct the user to open `job-advisor-web/job-fit-dashboard.html` to view the visual analysis with charts, job requirements table, company highlights, and tabbed recommendations
+5. **Clean per-run dashboard URL (required)** — In the **final message to the user** (after Step 4b), include **exactly one line** that consists of **only** the full **HTTPS** URL to this run’s `dashboard.html` (see **Per-dashboard URL — user-facing output** below). Do not wrap that line in backticks, markdown links, bold, angle brackets, or quotes; do not prefix or suffix it with punctuation on the same line.
 
 ### Step 3b: Write report.md and Provide Dashboard Link
 
@@ -186,7 +187,15 @@ After Step 4, create a **per-run** folder under `job-advisor-web/runs/<slug>/` s
 4. **Embed JSON for `file://`:** Paste the **exact same JSON** as `job-fit.json` inside `<script type="application/json" id="job-fit-embed">` in `dashboard.html` (before the init script). Browsers block `fetch()` for local files; `dashboard-run-app.js` falls back to this embed. See `job-advisor-web/runs/README.md`.
 5. **Do not duplicate** dashboard CSS/JS — always reference `dashboard-shared.css` and `dashboard-run-app.js` from the parent `job-advisor-web/` folder.
 
-Tell the user: *"Per-run dashboard: `job-advisor-web/runs/<slug>/dashboard.html`"*
+### Per-dashboard URL — user-facing output (required)
+
+After Step 4b, the response shown to the user **must** include the **published** per-run dashboard URL as a **single plain line**:
+
+- **Format:** One line, **only** the characters of the URL: `https://<github-owner>.github.io/<repo-name>/job-advisor-web/runs/<slug>/dashboard.html`
+- **Forbidden on that line:** Markdown link syntax (`[]()`), backticks, `**bold**`, `_italic_`, angle brackets (`< >`), leading bullets, labels like “URL:”, or trailing punctuation attached to the URL.
+- **How to derive `<github-owner>` and `<repo-name>`:** Parse `git remote get-url origin` (HTTPS or SSH) to get the owner and repository name (strip `.git`). If the remote is missing or not GitHub, omit this line and state that the user should open the relative path `job-advisor-web/runs/<slug>/dashboard.html` locally or configure Pages — still **without** wrapping a synthetic URL in markdown.
+
+You may **also** mention relative paths, `index.html`, or `http://localhost:8765` elsewhere in the message, but the **clean HTTPS line above is mandatory** whenever a GitHub `origin` URL is available.
 
 ### Step 5: Persist and publish to GitHub
 
@@ -238,7 +247,7 @@ Step 5 only pushes to the **current branch**. Published sites and collaborators 
 When the user invokes with company and job directly in chat (e.g., "Run job fit for ServiceNow, Director SC, my LinkedIn is https://linkedin.com/in/..."):
 
 1. **Skip request.json** — Use the inputs from the chat message.
-2. **Proceed with the workflow** — Run Step 1 (company research), Step 2 (resume matching), Step 3 (combined summary), Step 3b (write report.md + dashboard link), Step 4 (dashboard JSON), Step 4b (per-run `runs/<slug>/`), Step 5 (git add / commit / push), then **Step 6** automatically to land on **`main`** when git and policy allow.
+2. **Proceed with the workflow** — Run Step 1 (company research), Step 2 (resume matching), Step 3 (combined summary), Step 3b (write report.md + dashboard link), Step 4 (dashboard JSON), Step 4b (per-run `runs/<slug>/`), Step 5 (git add / commit / push), then **Step 6** automatically to land on **`main`** when git and policy allow. In the final user-facing message, include the **clean HTTPS per-run dashboard URL** (see **Per-dashboard URL — user-facing output**).
 3. **Resume source**: If the user provides a LinkedIn URL, pass it to resume-skill-matching. If they also provide a resume path, pass both. If neither, use `./assets/docs/`.
 
 ## When Invoked
@@ -270,5 +279,6 @@ When the user invokes with company and job directly in chat (e.g., "Run job fit 
 - **Respect user time**: If the user has already run company research in a previous turn, you may skip Step 1 and use that output — but confirm with the user first.
 - **Dashboard first**: Write `job-fit-dashboard.json` immediately after the combined summary so the user can open the interactive dashboard alongside the report.
 - **Publish**: Complete Step 5 (`git add job-advisor-web/` → commit → push) whenever possible, then **always attempt Step 6** to merge into **`main`** and push (or PR + auto-merge) so GitHub / GitHub Pages see updates without a follow-up prompt.
+- **Clean per-dashboard URL**: Every completed run must end with a user-visible line that is **only** `https://<owner>.github.io/<repo>/job-advisor-web/runs/<slug>/dashboard.html` (plain text, no markdown decoration). Parent agents that relay Job Advisor results must preserve or repeat that line the same way.
 
 Strictly follow the instructions above

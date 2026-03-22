@@ -1,5 +1,7 @@
 # Per-run job fit dashboards
 
+Agents must surface the published URL to users as **one plain HTTPS line** (no markdown links or backticks): `https://<owner>.github.io/<repo>/job-advisor-web/runs/<slug>/dashboard.html`. See `.cursor/agents/Job-Advisor-for-Job-Seekers.md` (**Per-dashboard URL — user-facing output**).
+
 Each Job Advisor run can produce a **slugged folder** under `job-advisor-web/runs/`:
 
 | Path | Purpose |
