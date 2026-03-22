@@ -86,6 +86,6 @@ Full detail: `ServiceNow-Sr-Advisory-EA-HK-Company-Research-Report.md`.
 
 ---
 
-**Report saved.** Open the dashboard: `job-advisor-web/index.html` or `http://localhost:8765` (if a local server is running).  
+**Report saved.** Open the dashboard on GitHub Pages: **https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/** — or locally: `job-advisor-web/index.html` or `http://localhost:8765` (if a local server is running).  
 
-**Per-run dashboard:** `job-advisor-web/runs/2026-03-21-servicenow-sr-advisory-enterprise-architect-hk/dashboard.html`
+**Per-run dashboard (full URL):** **https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/runs/2026-03-21-servicenow-sr-advisory-enterprise-architect-hk/dashboard.html**
