@@ -192,8 +192,11 @@ After Step 4, create a **per-run** folder under `job-advisor-web/runs/<slug>/` s
 After Step 4b, the response shown to the user **must** include the **published** per-run dashboard URL as a **single plain line**:
 
 - **Format:** One line, **only** the characters of the URL: `https://<github-owner>.github.io/<repo-name>/job-advisor-web/runs/<slug>/dashboard.html`
+  - Use **exactly one** path segment `job-advisor-web` after `<repo-name>` (then `runs/<slug>/dashboard.html`). A duplicate `job-advisor-web/job-advisor-web/` in the path is **wrong** and returns 404 on standard GitHub Pages for this repo.
+- **Worked example (this repository):** `https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/runs/2026-03-21-servicenow-sr-advisory-enterprise-architect-hk/dashboard.html`
 - **Forbidden on that line:** Markdown link syntax (`[]()`), backticks, `**bold**`, `_italic_`, angle brackets (`< >`), leading bullets, labels like “URL:”, or trailing punctuation attached to the URL.
 - **How to derive `<github-owner>` and `<repo-name>`:** Parse `git remote get-url origin` (HTTPS or SSH) to get the owner and repository name (strip `.git`). If the remote is missing or not GitHub, omit this line and state that the user should open the relative path `job-advisor-web/runs/<slug>/dashboard.html` locally or configure Pages — still **without** wrapping a synthetic URL in markdown.
+- **On-page display:** Per-run `dashboard.html` pages fill **Published URL** automatically when served over HTTP(S) (see `dashboard-run-app.js`); agents must still emit the same full HTTPS line in chat for copy/paste.
 
 You may **also** mention relative paths, `index.html`, or `http://localhost:8765` elsewhere in the message, but the **clean HTTPS line above is mandatory** whenever a GitHub `origin` URL is available.
 

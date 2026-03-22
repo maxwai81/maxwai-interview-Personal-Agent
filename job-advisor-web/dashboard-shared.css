@@ -433,6 +433,30 @@ body.run-dashboard-page .run-page-meta {
   margin-bottom: 1rem;
 }
 
+body.run-dashboard-page .run-published-url-wrap {
+  font-size: 0.85rem;
+  color: #475569;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+body.run-dashboard-page .run-published-url-label {
+  font-weight: 600;
+  color: #334155;
+  margin-right: 0.35rem;
+}
+
+body.run-dashboard-page .run-published-url {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #0f766e;
+  background: #ecfdf5;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+}
+
 body.run-dashboard-page .run-source-links {
   display: flex;
   flex-wrap: wrap;

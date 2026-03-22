@@ -50,7 +50,7 @@ After the subagent returns:
 
 **Per-run dashboard:** When creating `runs/<slug>/dashboard.html`, duplicate `job-fit.json` inside `<script type="application/json" id="job-fit-embed">` so charts load when the HTML file is opened without a server (see `runs/README.md`).
 
-**User-facing URL (required):** After a run, the agent’s message to the user must include **one plain line** with **only** `https://<owner>.github.io/<repo>/job-advisor-web/runs/<slug>/dashboard.html` (from `git remote get-url origin`). No backticks, markdown links, or bold on that line — see `.cursor/agents/Job-Advisor-for-Job-Seekers.md` (**Per-dashboard URL — user-facing output**).
+**User-facing URL (required):** After a run, the agent’s message to the user must include **one plain line** with **only** `https://<owner>.github.io/<repo>/job-advisor-web/runs/<slug>/dashboard.html` (from `git remote get-url origin`; **one** `job-advisor-web` segment — not doubled). Example: `https://maxwai81.github.io/maxwai-interview-Personal-Agent/job-advisor-web/runs/2026-03-21-servicenow-sr-advisory-enterprise-architect-hk/dashboard.html`. No backticks, markdown links, or bold on that line — see `.cursor/agents/Job-Advisor-for-Job-Seekers.md` (**Per-dashboard URL — user-facing output**). The live dashboard page also displays this URL when served over HTTP(S).
 
 ## 5. Git publish (when possible)
 

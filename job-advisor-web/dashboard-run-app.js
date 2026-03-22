@@ -316,9 +316,44 @@
   }
 
   /**
+   * Show full https URL for this dashboard when served over HTTP(S) (e.g. GitHub Pages).
+   * Creates #runPublishedUrlWrap if missing so older run pages still get the line.
+   */
+  function ensurePublishedDashboardUrl() {
+    const proto = window.location.protocol;
+    if (proto !== 'http:' && proto !== 'https:') return;
+    let path = (window.location.pathname || '').split('?')[0].split('#')[0];
+    if (!path.endsWith('dashboard.html')) return;
+    let full = window.location.origin + path;
+    const host = window.location.hostname || '';
+    if (host.endsWith('github.io') && full.indexOf('http:') === 0) {
+      full = 'https:' + full.slice('http:'.length);
+    }
+    let wrap = document.getElementById('runPublishedUrlWrap');
+    if (!wrap) {
+      const header = document.querySelector('body.run-dashboard-page .run-page-header');
+      if (!header) return;
+      wrap = document.createElement('p');
+      wrap.id = 'runPublishedUrlWrap';
+      wrap.className = 'run-published-url-wrap';
+      wrap.setAttribute('aria-label', 'Published dashboard URL');
+      wrap.innerHTML =
+        '<span class="run-published-url-label">Published URL</span> ' +
+        '<code class="run-published-url" id="runPublishedUrl"></code>';
+      const nav = header.querySelector('.run-source-links');
+      if (nav) header.insertBefore(wrap, nav);
+      else header.appendChild(wrap);
+    }
+    const urlEl = document.getElementById('runPublishedUrl');
+    if (urlEl) urlEl.textContent = full;
+    wrap.hidden = false;
+  }
+
+  /**
    * For per-run dashboard.html: call once `dashboardRunApp` exists (after deferred script loads).
    */
   function initRunPage(jobFitUrl) {
+    ensurePublishedDashboardUrl();
     const url = jobFitUrl || './job-fit.json';
     const fail = function (msg) {
       const el = document.getElementById('summaryText');
