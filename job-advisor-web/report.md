@@ -1,89 +1,114 @@
-# Job Advisor — Combined Report: Max Seto → Mistral AI (AI Deployment Strategist – UK)
+# Job Fit Report — Max Seto × AIA — Principal, Agency Digital & Innovation
 
-**Generated:** 2026-03-22  
-**Job posting:** https://www.linkedin.com/jobs/view/4294125437  
-**Candidate LinkedIn:** https://www.linkedin.com/in/max-seto-pmp-75ab992b/
-
----
-
-## Part 1 — Company Research (Mistral AI)
-
-### Executive Summary
-
-**Mistral AI** is a Paris-headquartered AI company (founded April 2023) developing **open-weight and proprietary LLMs** and an **enterprise AI platform**, including **Le Chat**, **Mistral Large / Medium / Small**, **Ministral**, **Codestral**, **Devstral**, **Voxtral**, and related offerings. Public sources cite **valuation in the ~$12–14B+ range** (2025) with strategic investors and cloud partnerships (e.g., **Microsoft Azure**). **Mistral Forge** (2026 press) positions the company for **enterprise “build your own AI” / full training lifecycle** beyond API-only use.
-
-**AI Deployment Strategist – UK** (LinkedIn) is **based in London, England**; **full-time**; **30–60% travel**. Treat as **hybrid with significant onsite client travel** across UK/Europe — **not remote-first**. Teams are **distributed** (France, USA, UK, Germany, Singapore per careers copy). The role sits between **business strategy**, **Applied AI delivery**, and **customer success**, owning **pilots**, **production deployment**, and **expansion**.
-
-*Full detail:* see `Mistral-Company-Research-Report.md`.
+**Company:** AIA (AIA Hong Kong & Macau)  
+**Location:** Hong Kong (HK–AIA Hong Kong–Macau)  
+**Role:** Principal — Agency Digital & Innovation  
+**Job posting:** https://aia.wd3.myworkdayjobs.com/External/job/Hong-Kong-HK-AIA-Hong-Kong--Macau/Principal--Agency-Digital---Innovation_JR-64117  
+**Resume source:** LinkedIn https://www.linkedin.com/in/max-seto-pmp-75ab992b/ (primary). `./assets/docs/` reviewed; no separate resume file for Max Seto.
 
 ---
 
-## Part 2 — Resume–Job Match
+# Part 1 — Company Research (AIA)
 
-## Overall Match Score: 58/100
+## Executive Summary
 
-**Summary:** Max Seto’s profile shows **Head of Presales Greater China (Workday)** with **21+ years** in enterprise presales, **discovery, workshops, demos, POCs, and C-level engagement** — strong alignment with Mistral’s **strategic discovery → deployment → value realization** loop. The main gaps versus this **London-based UK** role are **geography (Hong Kong SAR vs London)**, **explicit hands-on LLM/Python AI deployment evidence** (posting emphasizes **Python** and a **60-minute LLM technical interview**), and **UK/EU** go-to-market context vs. **Greater China** SaaS leadership.
+**AIA Group Limited** is the **largest independent publicly listed pan-Asian life insurance group**, operating in **18 markets** including **Hong Kong SAR** and **Macau SAR**. Founded in **1919** in Shanghai, the Group is a **life insurance leader in Asia (ex-Japan)** by premiums and reported **total assets of US$328 billion** (Group disclosure, mid-2025). AIA meets long-term savings and protection needs via **life, accident & health**, and employee benefits, served through **agents, partners, and digital channels**.
+
+**AIA Hong Kong** publicly emphasizes **market leadership** (e.g., **No. 1 in new business policies** narratives), **Premier Agency** and **MDRT / COT / TOT** production strength, and **digital engagement** through the **AIA+** mobile app. The **Principal — Agency Digital & Innovation** role sits at the intersection of **agency distribution**, **digital platforms**, **data/analytics**, and **innovation** (including **AI**) within a **regulated** insurer.
+
+### Leadership & platform (snapshot)
+
+- **CEO (AIA Hong Kong & Macau):** Public materials reference **Alger Fung** (verify current title at interview).
+- **Platform:** **AIA+** and **agency digital** capabilities as core levers for **agent and customer** engagement.
+
+### Hong Kong / Macau
+
+- **Market:** Competitive life insurance market with **Insurance Authority** oversight; **digital conduct** and **customer protection** matter for distribution roles.
+- **Culture:** Strong **agency** heritage; **customer centricity** and **brand trust** are recurring themes in press releases.
+
+### Recommendation for candidates
+
+- Prepare **insurance agency** vocabulary (e.g., **recruitment, activation, retention, productivity**) and **digital adoption** metrics—not only **enterprise SaaS** language.
+
+*Full detail: see [AIA-Company-Research-Report.md](./AIA-Company-Research-Report.md).*
+
+---
+
+# Part 2 — Resume–Job Match
+
+## Overall Match Score: 66/100
+
+**Summary:** Max brings **strong Greater China presales leadership** and **enterprise SaaS transformation** credibility (Workday Head of Presales Greater China; Oracle), plus **PMP** and **broad ERP/HCM/CRM** fluency—aligned with **stakeholder engagement**, **adoption programs**, and **digital platform** narratives. The role is **deeply anchored in life insurance agency distribution**, **agent analytics**, and **regulated insurer operating models**—areas where the public profile shows **transferable patterns** but **less direct insurance/agency tenure**. Overall fit is **solid on leadership and digital change**, **moderate on industry/channel**, with clear **interview prep** to bridge **AIA’s agency engine** and **compliance** context.
 
 ---
 
 ## Granular Scores (canonical — spider chart)
 
 | Dimension | Score (0–100) | Rationale |
-|-----------|-----------------|-----------|
-| Skills | 54 | Strong enterprise presales/consulting; **LLM production deployment + Python-first** credibility needs more public proof. |
-| Experience | 74 | Deep tenure and **regional presales leadership**; exceeds posting’s **2+ years** bar; **Applied AI at an LLM lab** not yet explicit. |
-| Education | 62 | Posting wants a **relevant scientific degree**; **PMP** + technical background are strong; **CS/DS degree** not clearly stated on LinkedIn — verify on CV. |
-| Location | 34 | **London, UK** + heavy travel vs **Hong Kong SAR** base; visa sponsorship is mentioned but **mobility** remains a hurdle. |
-| Adaptability | 71 | Cross-industry and executive engagement; credible **pivot** with AI artifacts. |
-| Future career growth | 76 | High upside if transitioning from enterprise SaaS presales to **frontier AI deployment**. |
-| Income | 73 | **Competitive cash + equity** per posting; unlikely to be the blocker vs **fit/location**. |
+|-----------|----------------|-----------|
+| Skills | 70 | Strong enterprise SaaS, solution design, and analytics-adjacent experience; insurance-specific agency systems and IA regulatory depth not explicit on profile. |
+| Experience | 58 | 21+ years in software presales/consulting vs. role’s field agency distribution and insurer digital product ownership—strong leadership, different domain. |
+| Education | 72 | PMP® and long-form delivery track record; formal degree not detailed on LinkedIn—typical for senior hires; insurance designations (e.g., IIQE) not listed. |
+| Location | 93 | Hong Kong SAR base matches HK–AIA Hong Kong–Macau posting and regional collaboration. |
+| Adaptability | 77 | Repeated pivots (vendor landscape, Greater China scope, C-level engagement)—supports cross-industry move with learning curve on agency. |
+| Future career growth | 74 | Principal role is a credible step into insurance digital leadership if domain gaps are closed; path depends on internal mobility and business outcomes. |
+| Income | 64 | Senior software vendor comp may differ from insurer bands; Principal (Senior Manager) level—validate in process. |
 
 ---
 
 ## Job-specific fit scores (bar chart)
 
-| Job-specific dimension | Score (0–100) | Rationale |
-|------------------------|-----------------|-----------|
-| Executive AI roadmap & workshops | 78 | Strong **executive workshops** and **discovery** track record. |
-| AI solution architecture & deployment | 52 | Solid **enterprise architecture** patterns; **Mistral/LLM stack** specifics to add. |
-| Applied AI partnership for production | 58 | Presales ↔ delivery collaboration is analogous; depth with **Applied AI** teams to evidence. |
-| Pilot / PoV & KPI ownership | 72 | Aligns with POC and **value** framing in prior roles. |
-| MEDDPICC / value selling | 63 | Listed as a **plus**; bring concrete examples. |
-| LLM technical interview readiness | 46 | Process includes **LLM deep dive** — prioritize prep. |
-| UK/EU travel & London presence | 38 | **30–60% travel** from **London**; current APAC base misaligned unless relocating. |
-| Hands-on Python for AI apps | 44 | Posting stresses **Python**; profile highlights **C# / SQL** — close gap with projects. |
+| Dimension | Score (0–100) | Rationale |
+|-----------|----------------|-----------|
+| Agency channel & field distribution | 54 | Limited agency sales force experience vs. district visits and agent productivity levers in posting. |
+| Digital platforms & agent engagement | 70 | Strong enterprise SaaS adoption and customer journey framing; map to AIA+ / agency stack with specific examples. |
+| Data & analytics (agent behavior) | 67 | Solution and business analysis depth; must show behavioral analytics and KPIs relevant to agents (not only enterprise HR). |
+| AI & innovation programs | 75 | Workday/oracle ecosystem exposure to AI-in-work narratives; ideation workshops and open innovation align with GTM leadership. |
+| Insurance risk, compliance & conduct | 52 | Regulatory and insurance conduct are verify/elaborate—prepare HK IA and distribution basics. |
+| Cross-functional leadership & workshops | 80 | Presales leadership, discovery, PoCs, C-level—maps to internal partners and facilitation. |
+| Strategic adoption & change management | 78 | Driving adoption of core platforms and roadmaps is central to both presales and agency digital roles. |
 
 ---
 
 ## Strengths
 
-1. **Senior strategic-technical presales leadership** (Head of Presales Greater China, Workday).
-2. **Workshop → roadmap → demo → POC** execution mapped to Mistral’s deployment cycle.
-3. **Executive influence** and multi-stakeholder enterprise selling.
-4. **PMP** and structured delivery discipline for complex rollouts.
+- Regional executive stakeholder management: Head of Presales Greater China; C-level and enterprise discovery, demos, PoCs.
+- Digital transformation vocabulary: SaaS, HCM/ERP, integration, large-scale change—useful for agency digitalization and platform roadmaps.
+- Structured delivery: PMP® credential and project discipline—pairs with programmatic rollouts and governance.
+- Local market: Hong Kong base—reduces relocation friction.
+- Innovation & GTM: Go-to-market and solution portfolio experience—relevant to ideation and partnering with IT/ops.
 
 ---
 
 ## Gaps & Recommendations
 
-1. **Geography / work authorization:** Clarify **UK relocation** or sponsorship pathway; role is **London-centric** with **30–60% travel**, not remote-first.
-2. **Hands-on AI engineering signal:** Add **Python** + **LLM PoV** evidence (API integration, RAG, evals) to match posting and technical screen.
-3. **MEDDPICC / ROI:** Prepare **quantified** GenAI business cases with **risk** and **security** dimensions.
-4. **Regional narrative:** Translate **Greater China** enterprise wins into **UK/EU** relevance (data residency, procurement, stakeholder maps).
+| Gap | Recommendation |
+|-----|----------------|
+| Life insurance agency operating model | Study AIA Premier Agency, MDRT culture, and agent funnel metrics; rehearse 2–3 initiatives that improved user adoption in enterprise settings, mapped to agents. |
+| Regulatory & conduct (HK insurance) | Skim IA circulars on digital distribution and customer protection; position as “learned fast + compliant delivery” with examples from regulated environments. |
+| Insurance-specific digital stack | Build a targeted view of AIA+, agency portals, and data sources; avoid generic ERP talk without agent translation. |
+| Analytics on agents vs. enterprise HR | Reframe metrics (activation, frequency, retention, productivity) for agency; cite dashboards or experiments if possible under NDA-safe wording. |
 
 ---
 
 ## Interview Prep Focus
 
-- **LLM technical deep dive (60 min):** architecture, fine-tuning vs RAG, evaluation, cost/latency, safety — tied to **Mistral model families** and **enterprise deployment**.
-- **Business acumen interview:** ROI, expansion, **KPI** tracking, exec communication.
-- **Panel / restitution:** end-to-end **pilot → production** story with **lessons learned**.
+- “Why AIA?” — Tie purpose (healthier, longer, better lives) to digital and agency enablement; avoid pure vendor pitch.
+- Agent digital engagement — Story on driving adoption of a platform among distributed users (sales, field, or partners).
+- AI — Responsible AI in regulated industries; copilot-style use cases for agents (training, coaching, next-best-action).
+- Compliance — How you baked security/privacy into rollouts in enterprise SaaS.
+- Metrics — North Star for adoption: MAU, task completion, NPS, cost per agent, retention—pick one framework and apply to agency.
 
 ---
 
 ## Actionable Recommendations
 
-1. Publish **1–2 AI projects** (Mistral API or open-weights) with **GitHub** + metrics.
-2. Update LinkedIn **Headline/About** with **GenAI / LLM deployment** keywords aligned to Mistral’s language.
-3. Rehearse **stories** on **scaling pilots**, **customer success**, and **cross-functional** alignment with **Applied AI**.
-4. Confirm **travel** and **onsite** expectations with TA; align on **visa** timeline if applicable.
+1. Rewrite your top LinkedIn summary to highlight adoption, digital programs, and field/distributed user success—without confidential numbers—so AIA sees agency-adjacent proof.
+2. Mirror posting language: “digital agent engagement,” “analytics foundation,” “district insights,” “innovation workshops”—use in STAR answers.
+3. Prepare one AIA-specific discussion point: AIA+, agency digital priorities, one competitor comparison—shows homework.
+4. Confirm IIQE / licensing expectations with recruiter for Principal roles touching insurance distribution (varies by scope).
+5. Network thoughtfully—identify AIA agency digital / IT / data contacts for context, respecting privacy and compliance.
+
+---
+
+*Match detail: [AIA-Max-Seto-Principal-Agency-Digital-Innovation-Match-Report.md](./AIA-Max-Seto-Principal-Agency-Digital-Innovation-Match-Report.md).*
