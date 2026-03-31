@@ -1,8 +1,8 @@
 # G-P (Globalization Partners) — Company Research Report
 
 **Research focus:** VP / Senior Director, Go-To-Market Operations (APAC) — strategic regional GTM leadership.  
-**Reference:** [G-P Gia (China site)](https://www.globalization-partners.com/cn/gia/), [G-P corporate](https://www.g-p.com/about-us/).  
-**Generated:** 2026-03-31
+**Reference:** [G-P Gia (China site)](https://www.globalization-partners.com/cn/gia/), [G-P About Us / leadership](https://www.globalization-partners.com/about-us/).  
+**Generated:** 2026-03-31 (leadership section updated 2026-03-31)
 
 ---
 
@@ -14,7 +14,7 @@
 
 **Market & momentum:** G-P competes in the **global employment / EOR** space alongside other global providers; it cites strong **customer satisfaction**, broad **partner ecosystems**, and recognition from analysts (e.g., NelsonHall, Everest Group, QKS Group leader placements). Recent announcements include **Gia** recognition (e.g., HR Executive, H3 HR Advisors Signal Award for AI maturity) and continued **product expansion**.
 
-**Leadership & culture:** The company markets **growth opportunities**, **customer-centric** delivery, and **global scale** with local expertise. Public materials emphasize **trust**, **compliance**, and **innovation** (including AI). For APAC GTM, the narrative is **regional cohesion** across Sales, Partnerships, CS, and BDRs—aligning with G-P’s partner-heavy, compliance-led GTM motion.
+**Leadership & culture:** The **executive team** combines founder-led vision (**Nicole Sahin**, CEO), **finance and capital discipline** (**Simone Nardi**, CFO), **strategy/product and technology** (**Nat (Rajesh) Natarajan** — listed as **COO** on the About Us carousel; the on-page long bio text describes **Chief Product & Strategy Officer**; confirm current remit), **legal, compliance, strategic partnerships, and corporate development** (**Todd Goffman**), **product** (**GK Gangadhar Konduri**, CPO), and **unified revenue / lifecycle GTM** (**Aamir Khan**, CRO). **Technology leadership** includes **Rahul Goyal** (SVP Engineering), **Leila Pourhashemi** (CIO), and **Elyas Achkar** (SVP, Head of AI & GM Gia). Public materials emphasize **trust**, **compliance**, and **innovation** (including AI). For APAC GTM, the narrative is **regional cohesion** across Sales, Partnerships, CS, and BDRs—aligning with G-P’s partner-heavy, compliance-led GTM motion.
 
 **Strategic implication for this role:** The VP/Sr Director GTM Operations (APAC) must **orchestrate** matrixed teams, **scale strategic partnerships** as a growth multiplier, and **localize** global strategy—consistent with G-P’s **platform + partnership + compliance** positioning and **Gia**-driven differentiation.
 
@@ -40,9 +40,42 @@
 
 ---
 
-## Leadership & Platform (Snapshot)
+## Leadership team (About G-P)
 
-- **CEO / leadership:** G-P has operated under recognized executive leadership in the global employment sector (verify latest named CEO and regional APAC leads on LinkedIn and IR pages before interviews).
+**Source:** [About G-P — Leadership](https://www.globalization-partners.com/about-us/) (also [g-p.com/about-us](https://www.g-p.com/about-us/)). Bios below combine the **public “Read more”** modal text embedded on the page (where present) and card titles; **verify** titles and APAC lines on **LinkedIn** before interviews.
+
+### Executive team (carousel)
+
+| Name | Title (on page) | Summary from site bios |
+|------|-----------------|-------------------------|
+| **Nicole Sahin** | CEO | **Founder**; created G-P (**2012**); **SaaS Global Growth Platform™**; WSJ bestseller *Global Talent Unleashed*; **triple bottom line**; awards (e.g. Goldman Sachs entrepreneurs, Inc. Top 100 Female Founder, FT fast growth, NelsonHall/Everest EOR leader, **WEF Global Innovators**); philanthropy (Water for People, Give Directly, School the World, YPO, Nobel Women’s Initiative); **MBA** (international management), Middlebury Institute; **California**. |
+| **Simone Nardi** | CFO | **25+ years** strategic planning, capital markets, BD, IR, change management; scaled global businesses; **exec team**; ex-**CFO FuboTV** (multi-billion **IPO**, public co.); **>$1B** equity/debt raised; **Scripps**, **NBC Universal**, **GE**; **Bocconi** summa cum laude; Harvard exec ed; **NYC**. |
+| **Nat (Rajesh) Natarajan** | COO *(see note)* | Long bio on site: **Chief Product & Strategy Officer**; **25+ years** SaaS, collaboration, fintech; leads **strategy, product vision**, **global technologists**; ex-**EVP/GM product & tech RingCentral** (3,500+); **Travelocity, TurboTax, Ancestry, Intuit, PayPal**; boards Bread Financial, Health Equity, TiE; **Clemson** MS, India BS. **Note:** Carousel title is **COO**—confirm **current** title and scope with recruiter. |
+| **Todd Goffman** | Counsel & EVP, Corporate Development | **GC & EVP Corp Dev**: **legal, compliance, strategic partnerships, corporate development**; **25+ years** finance, GC, **M&A**; ex-**Netcracker** (NEC), Realitywave, Improv; advisor ThinkMD; **SUNY Stony Brook**, **Hofstra Law**. |
+| **GK Gangadhar Konduri** | CPO | **Chief Product Officer**; extended bio not in embedded page JSON (use **LinkedIn**). |
+| **Aamir Khan** | CRO | **~30 years** sales/revenue; **global revenue & sales strategy**; **unified** function: **BD, acquisition, CS, partnership expansion**; ex-**VP Sales G-P**; renewables (**Nur Energy**, **REPOWER**); **Henley**; **Southern California**. |
+
+### Technology experts
+
+| Name | Title |
+|------|--------|
+| **Rahul Goyal** | SVP and Head of Engineering |
+| **Leila Pourhashemi** | Chief Information Officer |
+| **Elyas Achkar** | SVP, Head of AI and General Manager, Gia |
+
+*Extended “Read more” bios for the three technology experts were not present in the page’s embedded JSON at time of research—rely on **LinkedIn** for detail.*
+
+### Impact of this leadership team (for G-P)
+
+1. **Credibility & narrative** — Founder-led **EOR category** story, **triple bottom line**, and **analyst / WEF**-style recognition support **enterprise trust** and long **sales cycles**; helps **partners** and customers commit.
+2. **Scale & discipline** — CFO with **public-market and large-capital** experience; product/strategy leaders with **large-scale SaaS** and **global engineering** backgrounds → **operational rigor**, **capital efficiency**, **platform reliability**.
+3. **GTM cohesion** — **CRO** remit described as **one revenue engine** across **acquisition, success, expansion, partnerships**—matches a **matrix APAC** role integrating Sales, CS, BDRs, and alliances.
+4. **Partnerships as a lever** — **Corporate development + strategic partnerships** under **legal/compliance** leadership signals **alliances and M&A** as **strategic**, not peripheral.
+5. **Product & compliance moat** — **CPO**, **Gia GM**, **CIO**, **Head of Engineering** → differentiation through **platform + compliance + AI**, not only **sales capacity**.
+6. **Interview risk** — Possible **CMS / title mismatch** (e.g. Nat **COO** vs **product/strategy** emphasis in long bio); **GK** and some tech cards lack long-form bios on-page—**confirm org reality** and **APAC reporting** live.
+
+## Platform (Snapshot)
+
 - **Platform:** Unified **G-P platform** narrative: hire → manage → pay, with **Gia** layering **AI compliance** on top of EOR data and G-P’s knowledge base.
 
 ---

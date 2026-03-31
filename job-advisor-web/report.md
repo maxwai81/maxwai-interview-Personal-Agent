@@ -18,7 +18,7 @@
 
 **GTM context:** G-P’s motion combines **direct sales**, a **broad partner ecosystem**, and **customer success** tied to **payroll and compliance** outcomes. For **APAC**, regional leadership must balance **global** strategy with **local** **partnerships** and **multi-hub** execution.
 
-**Leadership:** Verify **named CEO** and **APAC** leaders on official channels before interviews. Culture emphasizes **scale**, **trust**, and **innovation** (including **AI** via **Gia**).
+**Leadership (About G-P):** **Nicole Sahin** (founder & CEO), **Simone Nardi** (CFO), **Nat (Rajesh) Natarajan** (listed as **COO**; long bio emphasizes **product & strategy**—confirm remit), **Todd Goffman** (Counsel & EVP Corp Dev—legal, compliance, **strategic partnerships**), **GK Gangadhar Konduri** (CPO), **Aamir Khan** (CRO—unified revenue lifecycle). **Tech:** **Rahul Goyal** (engineering), **Leila Pourhashemi** (CIO), **Elyas Achkar** (AI & GM **Gia**). **Impact:** founder **category** narrative + **CFO/public-co** discipline; **CRO** lifecycle GTM; **partnerships** alongside **legal/corp dev**; **Gia** as core product bet. Culture: **scale**, **trust**, **innovation**.
 
 *Full detail: [G-P-Company-Research-Report.md](./G-P-Company-Research-Report.md).*
 
