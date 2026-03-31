@@ -1,82 +1,73 @@
-# Job Fit Report — Max Seto × AIA — Principal, Agency Digital & Innovation
+# Job Advisor — Combined Report
 
-**Company:** AIA (AIA Hong Kong & Macau)  
-**Location:** Hong Kong (HK–AIA Hong Kong–Macau)  
-**Role:** Principal — Agency Digital & Innovation  
-**Job posting:** https://aia.wd3.myworkdayjobs.com/External/job/Hong-Kong-HK-AIA-Hong-Kong--Macau/Principal--Agency-Digital---Innovation_JR-64117  
-**Resume source:** LinkedIn https://www.linkedin.com/in/max-seto-pmp-75ab992b/ (primary). `./assets/docs/` reviewed; no separate resume file for Max Seto.
+**Candidate:** Jeffrey Lam Man Kit  
+**Company:** G-P (Globalization Partners)  
+**Role:** VP / Senior Director, Go-To-Market Operations (APAC)  
+**Location:** APAC  
+**Generated:** 2026-03-31
 
 ---
 
-# Part 1 — Company Research (AIA)
+# Part 1 — Company Research (G-P)
 
 ## Executive Summary
 
-**AIA Group Limited** is the **largest independent publicly listed pan-Asian life insurance group**, operating in **18 markets** including **Hong Kong SAR** and **Macau SAR**. Founded in **1919** in Shanghai, the Group is a **life insurance leader in Asia (ex-Japan)** by premiums and reported **total assets of US$328 billion** (Group disclosure, mid-2025). AIA meets long-term savings and protection needs via **life, accident & health**, and employee benefits, served through **agents, partners, and digital channels**.
+**G-P** is a leading **global employment platform** company, positioned as a top **Employer of Record (EOR)** provider. Organizations use G-P to **hire, onboard, manage, and pay** teams in **180+ countries** without local entities.
 
-**AIA Hong Kong** publicly emphasizes **market leadership** (e.g., **No. 1 in new business policies** narratives), **Premier Agency** and **MDRT / COT / TOT** production strength, and **digital engagement** through the **AIA+** mobile app. The **Principal — Agency Digital & Innovation** role sits at the intersection of **agency distribution**, **digital platforms**, **data/analytics**, and **innovation** (including **AI**) within a **regulated** insurer.
+**Products:** **EOR** (core), **G-P Gia™** (agentic AI for **global HR compliance**—documents, policies, compliance intelligence on a proprietary knowledge base), and **G-P Contractor** for contractor engagement. **Gia** is a strategic differentiator (localized pages, e.g. China `/cn/gia/`), reinforcing **compliance** and **speed** in APAC-relevant narratives.
 
-### Leadership & platform (snapshot)
+**GTM context:** G-P’s motion combines **direct sales**, a **broad partner ecosystem**, and **customer success** tied to **payroll and compliance** outcomes. For **APAC**, regional leadership must balance **global** strategy with **local** **partnerships** and **multi-hub** execution.
 
-- **CEO (AIA Hong Kong & Macau):** Public materials reference **Alger Fung** (verify current title at interview).
-- **Platform:** **AIA+** and **agency digital** capabilities as core levers for **agent and customer** engagement.
+**Leadership:** Verify **named CEO** and **APAC** leaders on official channels before interviews. Culture emphasizes **scale**, **trust**, and **innovation** (including **AI** via **Gia**).
 
-### Hong Kong / Macau
-
-- **Market:** Competitive life insurance market with **Insurance Authority** oversight; **digital conduct** and **customer protection** matter for distribution roles.
-- **Culture:** Strong **agency** heritage; **customer centricity** and **brand trust** are recurring themes in press releases.
-
-### Recommendation for candidates
-
-- Prepare **insurance agency** vocabulary (e.g., **recruitment, activation, retention, productivity**) and **digital adoption** metrics—not only **enterprise SaaS** language.
-
-*Full detail: see [AIA-Company-Research-Report.md](./AIA-Company-Research-Report.md).*
+*Full detail: [G-P-Company-Research-Report.md](./G-P-Company-Research-Report.md).*
 
 ---
 
 # Part 2 — Resume–Job Match
 
-## Overall Match Score: 66/100
+## Overall Match Score: 74/100
 
-**Summary:** Max brings **strong Greater China presales leadership** and **enterprise SaaS transformation** credibility (Workday Head of Presales Greater China; Oracle), plus **PMP** and **broad ERP/HCM/CRM** fluency—aligned with **stakeholder engagement**, **adoption programs**, and **digital platform** narratives. The role is **deeply anchored in life insurance agency distribution**, **agent analytics**, and **regulated insurer operating models**—areas where the public profile shows **transferable patterns** but **less direct insurance/agency tenure**. Overall fit is **solid on leadership and digital change**, **moderate on industry/channel**, with clear **interview prep** to bridge **AIA’s agency engine** and **compliance** context.
+**Summary:** Solid directional fit for senior APAC GTM leadership: Jeffrey offers **15+ years** enterprise **SaaS**, **Workday Regional Sales Director** experience, **strong quota performance**, and **Hong Kong / Greater China** regional strength—aligned with **tech/SaaS GTM**, **APAC nuance**, and **executive communication**. Primary gaps versus this JD are **explicit partnership-program ownership** and **demonstrated orchestration of Sales, CS, BDRs, and alliances** as one **regional GTM system**; framing and **STAR** stories should **elevate partnerships** and **cross-functional** **operating cadence** beyond **quota-carrying sales** leadership.
 
 ---
 
 ## Granular Scores (canonical — spider chart)
 
-| Dimension | Score (0–100) | Rationale |
-|-----------|----------------|-----------|
-| Skills | 70 | Strong enterprise SaaS, solution design, and analytics-adjacent experience; insurance-specific agency systems and IA regulatory depth not explicit on profile. |
-| Experience | 58 | 21+ years in software presales/consulting vs. role’s field agency distribution and insurer digital product ownership—strong leadership, different domain. |
-| Education | 72 | PMP® and long-form delivery track record; formal degree not detailed on LinkedIn—typical for senior hires; insurance designations (e.g., IIQE) not listed. |
-| Location | 93 | Hong Kong SAR base matches HK–AIA Hong Kong–Macau posting and regional collaboration. |
-| Adaptability | 77 | Repeated pivots (vendor landscape, Greater China scope, C-level engagement)—supports cross-industry move with learning curve on agency. |
-| Future career growth | 74 | Principal role is a credible step into insurance digital leadership if domain gaps are closed; path depends on internal mobility and business outcomes. |
-| Income | 64 | Senior software vendor comp may differ from insurer bands; Principal (Senior Manager) level—validate in process. |
+| Dimension | Score | Rationale |
+|-----------|-------|-----------|
+| **Skills** | 72 | Strong enterprise **consultative selling** and **platform** depth (**Workday/Oracle HCM**); less explicit on **alliance** **P&L**, **partner enablement**, and **CS/BDR** **systems**. |
+| **Experience** | 82 | 15+ years SaaS; **RSD**; complex **enterprise** cycles; **top performer** patterns—strong vs “proven GTM”; **breadth** vs **sales-centric** emphasis to address. |
+| **Education** | 74 | Bachelor of Accounting (Curtin)—credible for **financial** and **operational** dialogue at VP level. |
+| **Location** | 93 | Hong Kong SAR; **trilingual**; **Greater China** enterprise coverage—strong APAC anchor. |
+| **Adaptability** | 86 | Multi-vendor career; progression to **RSD**; adaptable to **matrix** GTM. |
+| **Future career growth** | 79 | VP/Sr Director APAC GTM is **credible**; **partnership ecosystem** depth is the **stretch** to emphasize. |
+| **Income** | 76 | Senior regional **GTM** comp typical for global SaaS; align **OTE**/**equity** with recruiter. |
 
 ---
 
 ## Job-specific fit scores (bar chart)
 
-| Dimension | Score (0–100) | Rationale |
-|-----------|----------------|-----------|
-| Agency channel & field distribution | 54 | Limited agency sales force experience vs. district visits and agent productivity levers in posting. |
-| Digital platforms & agent engagement | 70 | Strong enterprise SaaS adoption and customer journey framing; map to AIA+ / agency stack with specific examples. |
-| Data & analytics (agent behavior) | 67 | Solution and business analysis depth; must show behavioral analytics and KPIs relevant to agents (not only enterprise HR). |
-| AI & innovation programs | 75 | Workday/oracle ecosystem exposure to AI-in-work narratives; ideation workshops and open innovation align with GTM leadership. |
-| Insurance risk, compliance & conduct | 52 | Regulatory and insurance conduct are verify/elaborate—prepare HK IA and distribution basics. |
-| Cross-functional leadership & workshops | 80 | Presales leadership, discovery, PoCs, C-level—maps to internal partners and facilitation. |
-| Strategic adoption & change management | 78 | Driving adoption of core platforms and roadmaps is central to both presales and agency digital roles. |
+| Dimension | Score | Rationale |
+|-----------|-------|-----------|
+| **Regional GTM strategy & execution** | 78 | Strong **sales** strategy; show **integrated** GTM **playbooks** and **metrics** beyond **quota**. |
+| **Strategic partnerships & alliances** | 58 | **Gap**: surface **alliance**, **channel**, **co-sell**, or **ecosystem** outcomes explicitly. |
+| **Matrix / dotted-line leadership** | 76 | **RSD** supports **leadership**; add **dotted-line** **examples** with **CS**, **BDR**, **partners**. |
+| **Sales–CS–BDR integration** | 62 | Strengthen **renewal**, **expansion**, and **success** **collaboration** evidence. |
+| **APAC market nuance** | 88 | Strong **Greater China**; articulate **multi-country** **APAC** **plan**. |
+| **Executive & global stakeholder communication** | 84 | **C-level** selling background; map to **regional spokesperson** and **feedback** to **global**. |
+| **SaaS / tech GTM credibility** | 90 | **Workday**, **Oracle**, **Microsoft**—tier-1 credibility; **EOR** category learnable. |
+| **Partnership program (0→1) build** | 55 | Weakest explicit signal; use **framework** and **any** **program** experience. |
 
 ---
 
 ## Strengths
 
-- Regional executive stakeholder management: Head of Presales Greater China; C-level and enterprise discovery, demos, PoCs.
-- Digital transformation vocabulary: SaaS, HCM/ERP, integration, large-scale change—useful for agency digitalization and platform roadmaps.
-- Structured delivery: PMP® credential and project discipline—pairs with programmatic rollouts and governance.
-- Local market: Hong Kong base—reduces relocation friction.
-- Innovation & GTM: Go-to-market and solution portfolio experience—relevant to ideation and partnering with IT/ops.
+1. **Enterprise SaaS GTM depth** — 15+ years; Workday **RSD**; competitive and transformation deals.  
+2. **Performance** — Sustained high **quota** attainment (per prior extraction: team **118–143%** recent years; **300%+** individual in select years).  
+3. **APAC & languages** — Hong Kong base; English, Cantonese, Mandarin.  
+4. **Adjacent HR / workforce fluency** — Workday and Oracle HCM relevance to **employer** and **HR** buyers.  
+5. **Senior stakeholder access** — Patterns of **C-level** engagement.
 
 ---
 
@@ -84,31 +75,31 @@
 
 | Gap | Recommendation |
 |-----|----------------|
-| Life insurance agency operating model | Study AIA Premier Agency, MDRT culture, and agent funnel metrics; rehearse 2–3 initiatives that improved user adoption in enterprise settings, mapped to agents. |
-| Regulatory & conduct (HK insurance) | Skim IA circulars on digital distribution and customer protection; position as “learned fast + compliant delivery” with examples from regulated environments. |
-| Insurance-specific digital stack | Build a targeted view of AIA+, agency portals, and data sources; avoid generic ERP talk without agent translation. |
-| Analytics on agents vs. enterprise HR | Reframe metrics (activation, frequency, retention, productivity) for agency; cite dashboards or experiments if possible under NDA-safe wording. |
+| Partnership / alliance leadership not explicit | Document **alliance** **pipeline**, **tiers**, **wins**, and **enablement**—tie to **APAC** **growth**. |
+| CS / BDR / retention integration | Add **CLV**-oriented **stories** with **Customer Success** and **pipeline** **sourcing**. |
+| Sales-first perception | Reframe as **regional GTM architect**—**Sales + Partners + CS + BDR** **operating model**. |
+| G-P product depth | Study **EOR**, **Contractor**, **Gia**; connect **AI compliance** to **partners** and **retention**. |
 
 ---
 
 ## Interview Prep Focus
 
-- “Why AIA?” — Tie purpose (healthier, longer, better lives) to digital and agency enablement; avoid pure vendor pitch.
-- Agent digital engagement — Story on driving adoption of a platform among distributed users (sales, field, or partners).
-- AI — Responsible AI in regulated industries; copilot-style use cases for agents (training, coaching, next-best-action).
-- Compliance — How you baked security/privacy into rollouts in enterprise SaaS.
-- Metrics — North Star for adoption: MAU, task completion, NPS, cost per agent, retention—pick one framework and apply to agency.
+1. **90-day APAC GTM plan** — partners, **Sales–CS** rituals, **BDR** **sources**, **KPIs**.  
+2. **Partnership ecosystem strategy** — **SI**, **referral**, **tech** **alliances**; **prioritization** by **market**.  
+3. **Matrix leadership without direct reports** — **cadence**, **data**, **executive** **alignment**.  
+4. **Gia & compliance** — differentiate **G-P** in **APAC** **hiring** complexity.  
+5. **Regional “face”** — **advocacy**, **customer** **council**, **feedback** to **product/marketing**.
 
 ---
 
 ## Actionable Recommendations
 
-1. Rewrite your top LinkedIn summary to highlight adoption, digital programs, and field/distributed user success—without confidential numbers—so AIA sees agency-adjacent proof.
-2. Mirror posting language: “digital agent engagement,” “analytics foundation,” “district insights,” “innovation workshops”—use in STAR answers.
-3. Prepare one AIA-specific discussion point: AIA+, agency digital priorities, one competitor comparison—shows homework.
-4. Confirm IIQE / licensing expectations with recruiter for Principal roles touching insurance distribution (varies by scope).
-5. Network thoughtfully—identify AIA agency digital / IT / data contacts for context, respecting privacy and compliance.
+1. **Update LinkedIn** with a concise **Partnerships & ecosystem** subsection (metrics, **co-sell**, **enabled partners**).  
+2. **Ask G-P** about **current APAC** **partner** **structure** and **2026** **priorities** in **screening**.  
+3. **Prepare STAR** stories: **matrix** alignment, **partnership** win, **expansion**/**retention** with **CS**.  
+4. **Map Gia** to **APAC** use cases (multi-country **compliance**, **speed**).  
+5. **Confirm** **reporting line**, **scope** (**VP** vs **Sr Director**), and **comp** band.
 
 ---
 
-*Match detail: [AIA-Max-Seto-Principal-Agency-Digital-Innovation-Match-Report.md](./AIA-Max-Seto-Principal-Agency-Digital-Innovation-Match-Report.md).*
+*Sources: [G-P-Company-Research-Report.md](./G-P-Company-Research-Report.md), [G-P-Jeffrey-Lam-GTM-APAC-Match-Report.md](./G-P-Jeffrey-Lam-GTM-APAC-Match-Report.md). LinkedIn: public profile required login in automated fetch; candidate details from prior verified extraction for same candidate.*
