@@ -15,10 +15,12 @@ Each Job Advisor run can produce a **slugged folder** under `job-advisor-web/run
 
 **Slug convention:** `YYYY-MM-DD-<company-short>-<role-short>` (e.g. `2026-03-19-moveworks-sse`).
 
+**Score detail tables (canonical + job-specific):** `run-dashboard-template.html` includes the two-column **score-tables-row** below the spider and bar charts (`granularScoreTableWrap` / `jobSpecificScoreTableWrap`). `dashboard-run-app.js` fills **Dimension / Score / Notes** from `job-fit.json` with the same teal/violet styling as the charts. New runs that **copy the current template** (or an existing `runs/<slug>/dashboard.html` that includes this block) get the tables automatically—no separate manual step.
+
 **Shared assets** (do not duplicate):
 
-- `../dashboard-shared.css` — ServiceNow-style dashboard styles
-- `../dashboard-run-app.js` — Renders charts and tabs from `job-fit.json`
+- `../dashboard-shared.css` — ServiceNow-style dashboard styles (includes `.score-tables-row`, `.score-detail-table`, …)
+- `../dashboard-run-app.js` — Renders charts, **score detail tables**, tabs, and executive summary from `job-fit.json`
 
 **Source links** in each `dashboard.html` should point to the markdown files for that run (company research, match report, `report.md`) using relative paths to `job-advisor-web/`.
 
