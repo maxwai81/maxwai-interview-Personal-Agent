@@ -56,6 +56,27 @@
         </div>
       </div>
 
+      <div class="score-tables-row" aria-label="Score breakdown tables">
+        <div class="score-table-card" id="granularScoreTableWrap" hidden>
+          <span class="score-table-caption">Canonical (spider) — detail</span>
+          <table class="score-detail-table" aria-label="Canonical granular scores">
+            <thead>
+              <tr><th scope="col">Dimension</th><th scope="col">Score</th><th scope="col">Notes</th></tr>
+            </thead>
+            <tbody id="granularScoreTableBody"></tbody>
+          </table>
+        </div>
+        <div class="score-table-card" id="jobSpecificScoreTableWrap" hidden>
+          <span class="score-table-caption">Job-specific (bar) — detail</span>
+          <table class="score-detail-table" aria-label="Job-specific fit scores">
+            <thead>
+              <tr><th scope="col">Dimension</th><th scope="col">Score</th><th scope="col">Notes</th></tr>
+            </thead>
+            <tbody id="jobSpecificScoreTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
       <section id="companyResearchSummarySection" class="company-research-exec-summary-wrap" hidden aria-label="Company research executive summary">
         <div class="section-title">Company research — Executive summary</div>
         <div class="company-research-exec-summary-card dash-card" id="companyResearchExecutiveSummary"></div>

@@ -95,6 +95,63 @@
     });
   }
 
+  /** Bar chart colors — aligned with Chart.js bar dataset in renderFromJson */
+  function barScoreCellStyle(score) {
+    const s = Math.min(100, Math.max(0, Number(score)));
+    if (s >= 85) {
+      return ' style="--score-bar: ' + s + '%; --score-cell-bg: rgba(13, 148, 136, 0.12); --score-cell-border: #0d9488;"';
+    }
+    if (s >= 75) {
+      return ' style="--score-bar: ' + s + '%; --score-cell-bg: rgba(13, 148, 136, 0.08); --score-cell-border: #0d9488;"';
+    }
+    return ' style="--score-bar: ' + s + '%; --score-cell-bg: rgba(124, 58, 237, 0.1); --score-cell-border: #7c3aed;"';
+  }
+
+  function radarScoreCellStyle(score) {
+    const s = Math.min(100, Math.max(0, Number(score)));
+    return ' style="--score-bar: ' + s + '%; --score-cell-bg: rgba(13, 148, 136, 0.1); --score-cell-border: #0d9488;"';
+  }
+
+  /**
+   * Fills granular score detail tables below the spider / bar charts.
+   */
+  function renderScoreDetailTables(radarDims, barDims) {
+    const radarWrap = document.getElementById('granularScoreTableWrap');
+    const barWrap = document.getElementById('jobSpecificScoreTableWrap');
+    const radarBody = document.getElementById('granularScoreTableBody');
+    const barBody = document.getElementById('jobSpecificScoreTableBody');
+
+    if (radarWrap && radarBody) {
+      if (radarDims && radarDims.length) {
+        radarBody.innerHTML = radarDims.map(function (d) {
+          return '<tr><td class="score-dim-cell">' + escapeHtml(d.name) + '</td>' +
+            '<td class="score-num-cell"' + radarScoreCellStyle(d.score) + '><span class="score-num">' +
+            escapeHtml(String(d.score ?? '—')) + '</span></td>' +
+            '<td class="score-rationale-cell">' + escapeHtml(d.rationale || '—') + '</td></tr>';
+        }).join('');
+        radarWrap.hidden = false;
+      } else {
+        radarBody.innerHTML = '';
+        radarWrap.hidden = true;
+      }
+    }
+
+    if (barWrap && barBody) {
+      if (barDims && barDims.length) {
+        barBody.innerHTML = barDims.map(function (d) {
+          return '<tr><td class="score-dim-cell">' + escapeHtml(d.name) + '</td>' +
+            '<td class="score-num-cell"' + barScoreCellStyle(d.score) + '><span class="score-num">' +
+            escapeHtml(String(d.score ?? '—')) + '</span></td>' +
+            '<td class="score-rationale-cell">' + escapeHtml(d.rationale || '—') + '</td></tr>';
+        }).join('');
+        barWrap.hidden = false;
+      } else {
+        barBody.innerHTML = '';
+        barWrap.hidden = true;
+      }
+    }
+  }
+
   /**
    * Radar: prefer seven canonical dimensions when present (by name, case-insensitive).
    * If fewer than four canonical matches, fall back to legacy single-array behavior (all granularScores).
@@ -232,6 +289,8 @@
       }
     }
 
+    renderScoreDetailTables(radarDims, barDims);
+
     const execSection = document.getElementById('companyResearchSummarySection');
     const execBody = document.getElementById('companyResearchExecutiveSummary');
     const execMd = data.companyResearch && data.companyResearch.highlights
@@ -334,6 +393,7 @@
   global.dashboardRunApp = {
     renderFromJson: renderFromJson,
     loadJobFitJson: loadJobFitJson,
-    initRunPage: initRunPage
+    initRunPage: initRunPage,
+    renderScoreDetailTables: renderScoreDetailTables
   };
 })(typeof window !== 'undefined' ? window : this);

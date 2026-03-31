@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dashboard-shared.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="dashboard-run-app.js" defer></script>
   <style>
     :root {
       --bg: #0f1419;
@@ -475,6 +476,27 @@
             </div>
           </div>
 
+          <div class="score-tables-row" aria-label="Score breakdown tables">
+            <div class="score-table-card" id="granularScoreTableWrap" hidden>
+              <span class="score-table-caption">Canonical (spider) — detail</span>
+              <table class="score-detail-table" aria-label="Canonical granular scores">
+                <thead>
+                  <tr><th scope="col">Dimension</th><th scope="col">Score</th><th scope="col">Notes</th></tr>
+                </thead>
+                <tbody id="granularScoreTableBody"></tbody>
+              </table>
+            </div>
+            <div class="score-table-card" id="jobSpecificScoreTableWrap" hidden>
+              <span class="score-table-caption">Job-specific (bar) — detail</span>
+              <table class="score-detail-table" aria-label="Job-specific fit scores">
+                <thead>
+                  <tr><th scope="col">Dimension</th><th scope="col">Score</th><th scope="col">Notes</th></tr>
+                </thead>
+                <tbody id="jobSpecificScoreTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
           <div class="dash-tabs">
             <button class="dash-tab active" data-dash-tab="strengths">Strengths</button>
             <button class="dash-tab" data-dash-tab="gaps">Gaps & How to Address</button>
@@ -888,6 +910,10 @@
         }
       }
 
+      if (window.dashboardRunApp && typeof window.dashboardRunApp.renderScoreDetailTables === 'function') {
+        window.dashboardRunApp.renderScoreDetailTables(radarDims, barDims);
+      }
+
       document.getElementById('strengthsList').innerHTML = parsed.strengths.map(s =>
         `<li>${escapeHtml(s)}</li>`
       ).join('') || '<li>No strengths listed.</li>';
@@ -966,8 +992,8 @@
       }
     });
 
-    // Auto-fetch report on load only (Dashboard tab click fetches via its handler above)
-    fetchReport();
+    // Auto-fetch after deferred scripts (dashboard-run-app.js) so score tables can render
+    window.addEventListener('load', () => fetchReport());
 
     document.getElementById('loadAnotherBtn').addEventListener('click', () => {
       resultsDashboard.style.display = 'none';
